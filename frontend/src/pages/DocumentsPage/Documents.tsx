@@ -19,10 +19,10 @@ function Documents() {
           </div>
         </Navbar>
       </nav>
-      <div className="w-full flex flex-col justify-center items-center mt-6 ">
+      <div className="w-full flex flex-col justify-center items-center mt-6  ">
         <NewDocument />
       </div>
-      <main className="w-full flex flex-col justify-center items-center mt-6 border ">
+      <main className="w-full p-6  rounded flex flex-col justify-center items-center mt-6 border shadow-sm mx-auto lg:w-1/2 md:w-3/4">
         <Library />
       </main>
     </>
