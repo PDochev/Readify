@@ -1,3 +1,4 @@
+import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
 import { IoMdPerson } from "react-icons/io";
@@ -18,10 +19,11 @@ function Documents() {
           </div>
         </Navbar>
       </nav>
-      <main>
-        <div>
-          <NewDocument />
-        </div>
+      <div className="w-full flex flex-col justify-center items-center mt-6 ">
+        <NewDocument />
+      </div>
+      <main className="w-full flex flex-col justify-center items-center mt-6 border ">
+        <Library />
       </main>
     </>
   );

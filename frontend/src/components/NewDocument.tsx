@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 function NewDocument() {
   return (
@@ -25,25 +26,17 @@ function NewDocument() {
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
+          <div className="grid w-full items-center gap-4">
+            <Label htmlFor="name" className="">
+              Title
             </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
+            <Input type="text" id="name" className="col-span-3" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
+          <div className="grid w-full items-center gap-4">
+            <Label htmlFor="text" className="">
+              Text
             </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
+            <Textarea id="text" />
           </div>
         </div>
         <DialogFooter>
