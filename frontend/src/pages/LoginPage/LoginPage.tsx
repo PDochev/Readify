@@ -1,4 +1,3 @@
-import styles from "./LoginPage.module.css";
 import login_img from "../../assets/images/login_img.jpg";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
