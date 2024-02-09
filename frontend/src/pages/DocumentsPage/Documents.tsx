@@ -1,7 +1,8 @@
 import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
-import { IoMdPerson } from "react-icons/io";
+
+import { User } from "lucide-react";
 
 function Documents() {
   return (
@@ -14,7 +15,7 @@ function Documents() {
             </h4>
 
             <div className="flex items-center gap-4 mr-4">
-              <IoMdPerson />
+              <User />
             </div>
           </div>
         </Navbar>

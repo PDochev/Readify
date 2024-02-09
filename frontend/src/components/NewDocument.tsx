@@ -8,6 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/components/ui/use-toast";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +19,7 @@ import axios from "axios";
 
 function NewDocument() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [formError, setFormError] = useState(null);
@@ -42,6 +45,9 @@ function NewDocument() {
         console.log(res.data);
         setLoading(false);
         navigate(`/documents/${res.data._id}`);
+        toast({
+          title: "Your document has been added to the library.",
+        });
       })
       .catch((err) => {
         setLoading(false);

@@ -2,11 +2,32 @@ import Document from "./Document";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import axios from "axios";
+import { useToast } from "@/components/ui/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 function Library() {
+  const { toast } = useToast();
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [dataLength, setDataLength] = useState(0);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3000/documents/${id}`)
+      .then(() => {
+        setLoading(false);
+        setDocument(document.filter((doc) => doc._id !== id));
+        toast({
+          variant: "destructive",
+          title: "Your document has been deleted.",
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -21,6 +42,7 @@ function Library() {
         const data = await res.json();
         if (data.Response === "False") throw new Error("Document not found");
         setDocument(data.data);
+        setDataLength(data.data.length);
         setLoading(false);
       } catch (err) {
         console.log(err);
@@ -44,7 +66,12 @@ function Library() {
         {loading ? (
           <Spinner />
         ) : (
-          <Document errorMessage={error} document={document} />
+          <Document
+            handleDelete={handleDelete}
+            errorMessage={error}
+            document={document}
+            dataLength={dataLength}
+          />
         )}
 
         {/* {error && <p>{error}</p>} */}

@@ -1,9 +1,16 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { Trash2 } from "lucide-react";
+import AlertDialogDelete from "./AlertDialogDelete";
 
-function Document({ document, errorMessage }) {
+function Document({ document, errorMessage, dataLength, handleDelete }) {
   return (
     <div className="flex flex-col justify-start mt-10 mb-8">
+      {dataLength === 0 && (
+        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-6">
+          Your library is empty
+        </h3>
+      )}
       {errorMessage ? (
         <p>{errorMessage}</p>
       ) : (
@@ -26,11 +33,14 @@ function Document({ document, errorMessage }) {
                 {document.map((doc) => (
                   <tr key={doc._id} className="py-4">
                     <td className="py-4 text-sm border text-muted-foreground p-4">
-                      {doc.title}
+                      <Link to={`/documents/${doc._id}`}>{doc.title}</Link>
                     </td>
-                    <td className="py-4 border text-muted-foreground text-sm text-end p-4">
+                    <td className="py-4 border text-muted-foreground text-xs md:text-sm text-end p-4">
                       {new Date(doc.createdAt).toLocaleDateString()}
-                      {/* <Button className="w-14 ml-8">Delete</Button> */}
+                      <AlertDialogDelete
+                        handleDelete={handleDelete}
+                        id={doc._id}
+                      />
                     </td>
                   </tr>
                 ))}
