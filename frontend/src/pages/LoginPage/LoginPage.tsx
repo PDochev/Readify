@@ -23,8 +23,9 @@ function LoginPage() {
           <h2 className="scroll-m-20  pb-2 text-3xl font-semibold tracking-tight first:mt-0">
             Welcome Back
           </h2>
+
           <Button className="w-3/4 mt-2" variant="secondary">
-            <FcGoogle className="mr-2 h-4 w-4" /> Login with Email
+            <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
           </Button>
           <p className="text-xs mb-4 mt-4 text-muted-foreground">
             OR CONTINUE WITH
@@ -36,7 +37,7 @@ function LoginPage() {
             <Input type="password" id="password" placeholder="Password" />
           </div>
           <Button className="w-3/4 mt-4">Sign in</Button>
-          <p className="text-xs leading-7 [&:not(:first-child)]:mt-6">
+          <p className="text-sm leading-7 [&:not(:first-child)]:mt-6">
             Don't have an account ?
             <Link className="text-blue-600 ml-2" to="/register">
               Create account
