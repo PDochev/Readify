@@ -1,5 +1,6 @@
 import Document from "./Document";
 import { useState, useEffect } from "react";
+import Spinner from "./Spinner";
 import axios from "axios";
 
 function Library() {
@@ -23,7 +24,7 @@ function Library() {
         setLoading(false);
       } catch (err) {
         console.log(err);
-        setError("Something went wrong , Failed to load Jokes");
+        setError("Something went wrong , Failed to load Documents");
       } finally {
         setLoading(false);
       }
@@ -40,8 +41,13 @@ function Library() {
       </div>
 
       <section>
-        <Document document={document} />
-        {error && <p>{error}</p>}
+        {loading ? (
+          <Spinner />
+        ) : (
+          <Document errorMessage={error} document={document} />
+        )}
+
+        {/* {error && <p>{error}</p>} */}
       </section>
     </div>
   );
