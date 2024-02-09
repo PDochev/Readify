@@ -42,7 +42,6 @@ function NewTextDocumentDialog({
             <Spinner />
           ) : (
             <>
-              {" "}
               <div className="grid gap-4 py-4">
                 <div className="grid w-full items-center gap-4">
                   <Label htmlFor="name" className="">

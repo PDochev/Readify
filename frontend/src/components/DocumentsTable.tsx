@@ -5,7 +5,6 @@ function DocumentsTable({ document, handleDelete }) {
   return (
     <div>
       <h3 className="text-md font-medium leading-none mb-8">Documents</h3>
-
       <div className="relative overflow-hidden rounded-sm">
         <table className="table-fixed w-full text-left">
           <thead className="text-black-200">
