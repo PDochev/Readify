@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import { Toaster } from "@/components/ui/toaster";
+import DocumentsTable from "./DocumentsTable";
 
 function Library() {
   const { toast } = useToast();
@@ -46,7 +47,7 @@ function Library() {
         setLoading(false);
       } catch (err) {
         console.log(err);
-        setError("Something went wrong , Failed to load Documents");
+        setError("Something went wrong , failed to load Documents.");
       } finally {
         setLoading(false);
       }
@@ -66,15 +67,12 @@ function Library() {
         {loading ? (
           <Spinner />
         ) : (
-          <Document
-            handleDelete={handleDelete}
-            errorMessage={error}
-            document={document}
-            dataLength={dataLength}
-          />
+          <>
+            <Document errorMessage={error} dataLength={dataLength}>
+              <DocumentsTable document={document} handleDelete={handleDelete} />
+            </Document>
+          </>
         )}
-
-        {/* {error && <p>{error}</p>} */}
       </section>
     </div>
   );

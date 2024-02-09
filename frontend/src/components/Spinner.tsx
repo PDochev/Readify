@@ -5,7 +5,7 @@ import { ring } from "ldrs";
 const Spinner = () => {
   ring.register();
   return (
-    <div className="flex justify-center items-center mt-20">
+    <div className="flex justify-center items-center mt-10">
       <l-ring
         size="40"
         stroke="5"

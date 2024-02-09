@@ -20,7 +20,7 @@ function AlertDialogDelete({ handleDelete, id }) {
           <Trash2 className=" h-3 w-3" />
         </Button>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="w-3/4 rounded">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
