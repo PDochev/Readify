@@ -9,7 +9,12 @@ import {
 import { HiDotsVertical } from "react-icons/hi";
 import { useState, useEffect } from "react";
 
-function SideMenu({ wordsCount, charactersCount }) {
+interface SideMenuProps {
+  wordsCount: number;
+  charactersCount: number;
+}
+
+function SideMenu({ wordsCount, charactersCount }: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
   useEffect(() => {

@@ -10,7 +10,7 @@ function NewDocument() {
   const { toast } = useToast();
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [formError, setFormError] = useState(null);
+  const [formError, setFormError] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);
 
   const resetNewFormState = () => {

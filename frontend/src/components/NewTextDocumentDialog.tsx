@@ -13,6 +13,17 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Spinner from "./Spinner";
 
+interface NewTextDocumentDialogProps {
+  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  title: string;
+  setTitle: (title: string) => void;
+  text: string;
+  setText: (text: string) => void;
+  formError: string | null;
+  loading: boolean;
+  resetNewFormState: () => void;
+}
+
 function NewTextDocumentDialog({
   handleSubmit,
   title,
@@ -22,7 +33,7 @@ function NewTextDocumentDialog({
   formError,
   loading,
   resetNewFormState,
-}) {
+}: NewTextDocumentDialogProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
