@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
-import { HiDotsVertical } from "react-icons/hi";
 
 import { useState, useEffect } from "react";
 import SideMenu from "@/components/SideMenu";
@@ -17,10 +16,6 @@ function ReadifyApp() {
 
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
-
-  const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTextSize(e.target.value);
-  };
 
   useEffect(() => {
     async function fetchDocuments() {

@@ -9,7 +9,7 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { HiDotsVertical } from "react-icons/hi";
 import { useState, useEffect } from "react";
-import StatsComponent from "./StatsComponent";
+import Stats from "./Stats";
 import FontSize from "./FontSize";
 import { Label } from "@radix-ui/react-label";
 
@@ -51,10 +51,7 @@ function SideMenu({
             Stats
           </SheetTitle>
           <SheetDescription>
-            <StatsComponent
-              wordsCount={wordsCount}
-              charactersCount={charactersCount}
-            />
+            <Stats wordsCount={wordsCount} charactersCount={charactersCount} />
           </SheetDescription>
         </SheetHeader>
         <SheetHeader>

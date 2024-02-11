@@ -3,7 +3,7 @@ interface StatsComponentProps {
   charactersCount: number;
 }
 
-function StatsComponent({ wordsCount, charactersCount }: StatsComponentProps) {
+function Stats({ wordsCount, charactersCount }: StatsComponentProps) {
   return (
     <div className="flex flex-col items-start">
       <p className="text-sm text-muted-foreground">
@@ -16,4 +16,4 @@ function StatsComponent({ wordsCount, charactersCount }: StatsComponentProps) {
   );
 }
 
-export default StatsComponent;
+export default Stats;
