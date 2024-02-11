@@ -1,7 +1,12 @@
 import { Label } from "@radix-ui/react-label";
 import { Slider } from "@/components/ui/slider";
 
-function FontSize({ textSize, setTextSize }) {
+interface FontSizeProps {
+  textSize: number;
+  setTextSize: (textSize: number) => void;
+}
+
+function FontSize({ textSize, setTextSize }: FontSizeProps) {
   return (
     <div className="flex flex-col items-start relative">
       <Label htmlFor="textSize" className="text-sm text-muted-foreground mb-4">

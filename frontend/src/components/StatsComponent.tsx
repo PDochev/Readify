@@ -1,4 +1,9 @@
-function StatsComponent({ wordsCount, charactersCount }) {
+interface StatsComponentProps {
+  wordsCount: number;
+  charactersCount: number;
+}
+
+function StatsComponent({ wordsCount, charactersCount }: StatsComponentProps) {
   return (
     <div className="flex flex-col items-start">
       <p className="text-sm text-muted-foreground">
