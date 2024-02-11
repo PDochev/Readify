@@ -8,7 +8,6 @@ import { useDocumentsFetch } from "@/customHooks/useDocumentsFetch";
 
 function Library() {
   const { toast } = useToast();
-
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
