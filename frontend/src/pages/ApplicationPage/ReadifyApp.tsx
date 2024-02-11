@@ -1,8 +1,18 @@
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { HiDotsVertical } from "react-icons/hi";
 import { FaHouse } from "react-icons/fa6";
 import { useState, useEffect } from "react";
+import SideMenu from "@/components/SideMenu";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -39,7 +49,7 @@ function ReadifyApp() {
 
   return (
     <>
-      <nav>
+      <nav className=" w-full  bg-white fixed top-0 left-0 ">
         <Navbar>
           <div className="w-full m-2 flex items-center justify-between">
             <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
@@ -47,7 +57,7 @@ function ReadifyApp() {
             </h4>
 
             <div className="flex items-center gap-4 mr-4">
-              <HiDotsVertical />
+              <SideMenu />
             </div>
           </div>
         </Navbar>
