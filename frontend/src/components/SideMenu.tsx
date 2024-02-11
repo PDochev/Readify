@@ -9,7 +9,7 @@ import {
 import { HiDotsVertical } from "react-icons/hi";
 import { useState, useEffect } from "react";
 
-function SideMenu() {
+function SideMenu({ wordsCount, charactersCount }) {
   const [size, setSize] = useState([0, 0]);
 
   useEffect(() => {
@@ -21,19 +21,37 @@ function SideMenu() {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const largeScreen = size[0] > 768 ? "right" : "bottom";
+  const sizeScreen = size[0] > 768 ? "right" : "bottom";
 
   return (
     <Sheet>
       <SheetTrigger>
         <HiDotsVertical />
       </SheetTrigger>
-      <SheetContent side={largeScreen}>
+      <SheetContent side={sizeScreen}>
         <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
+          <SheetTitle className="border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+            Stats
+          </SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            <div className="flex flex-col items-start">
+              <p className="text-sm text-muted-foreground">
+                Words: <span className="">{wordsCount}</span>
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Characters: <span className="">{charactersCount}</span>
+              </p>
+            </div>
+          </SheetDescription>
+        </SheetHeader>
+        <SheetHeader>
+          <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+            Typography
+          </SheetTitle>
+          <SheetDescription>
+            <div className="flex flex-col items-start">
+              <p className="text-sm text-muted-foreground">Font size</p>
+            </div>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

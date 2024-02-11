@@ -1,16 +1,7 @@
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
 import { Link, useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { HiDotsVertical } from "react-icons/hi";
-import { FaHouse } from "react-icons/fa6";
+
 import { useState, useEffect } from "react";
 import SideMenu from "@/components/SideMenu";
 
@@ -21,7 +12,14 @@ function ReadifyApp() {
   const [error, setError] = useState("");
 
   const title = document.title;
-  const text = document.text;
+  const text = document.text || "";
+
+  const wordsCount: number = text.split(" ").length;
+  const charactersCount: number = text.trim().length;
+
+  // console.log(textLenght);
+  // console.log(textCharacters);
+  // console.log(typeof textCharacters);
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -57,18 +55,16 @@ function ReadifyApp() {
             </h4>
 
             <div className="flex items-center gap-4 mr-4">
-              <SideMenu />
+              <SideMenu
+                wordsCount={wordsCount}
+                charactersCount={charactersCount}
+              />
             </div>
           </div>
         </Navbar>
       </nav>
       <main>
-        {/* <h1>Document + {id}</h1>
-        <h2>{title}</h2>
-        <p>{text}</p>
-         */}
-
-        <section className="w-full mx-auto mt-6 mb-10 rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-20 ">
+        <section className="w-full mx-auto mt-6 mb-10 rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 ">
           <div className="mt-10 mb-5">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
               {title}
@@ -78,7 +74,7 @@ function ReadifyApp() {
             {error && (
               <p className="leading-7 [&:not(:first-child)]:mt-6">{error}</p>
             )}
-            <p className=" pb-10 px-6  mx-auto md:max-w-[70ch]  lg:max-w-[75ch] text-justify leading-7 [&:not(:first-child)]:mt-6   ">
+            <p className="pb-10 px-6  mx-auto md:max-w-[70ch]  lg:max-w-[75ch] leading-7 [&:not(:first-child)]:mt-6">
               {text}
             </p>
           </div>
@@ -91,3 +87,4 @@ function ReadifyApp() {
 export default ReadifyApp;
 
 //paragraph - lg:px-0
+//paragraph - text-justify

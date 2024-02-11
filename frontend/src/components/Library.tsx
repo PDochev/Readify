@@ -4,7 +4,6 @@ import Spinner from "./Spinner";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import DocumentsTable from "./DocumentsTable";
-import { useDocumentsFetch } from "@/customHooks/useDocumentsFetch";
 
 function Library() {
   const { toast } = useToast();
