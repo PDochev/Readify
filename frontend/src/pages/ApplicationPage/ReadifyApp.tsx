@@ -10,6 +10,7 @@ function ReadifyApp() {
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [textSize, setTextSize] = useState(16);
 
   const title = document.title;
   const text = document.text || "";
@@ -17,9 +18,9 @@ function ReadifyApp() {
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
 
-  // console.log(textLenght);
-  // console.log(textCharacters);
-  // console.log(typeof textCharacters);
+  const handleFontSize = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTextSize(e.target.value);
+  };
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -58,13 +59,15 @@ function ReadifyApp() {
               <SideMenu
                 wordsCount={wordsCount}
                 charactersCount={charactersCount}
+                setTextSize={setTextSize}
+                textSize={textSize}
               />
             </div>
           </div>
         </Navbar>
       </nav>
       <main>
-        <section className="w-full mx-auto mt-6 mb-10 rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 ">
+        <section className="w-full mx-auto mt-6  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 ">
           <div className="mt-10 mb-5">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
               {title}
@@ -74,7 +77,10 @@ function ReadifyApp() {
             {error && (
               <p className="leading-7 [&:not(:first-child)]:mt-6">{error}</p>
             )}
-            <p className="pb-10 px-6  mx-auto md:max-w-[70ch]  lg:max-w-[75ch] leading-7 [&:not(:first-child)]:mt-6">
+            <p
+              style={{ fontSize: `${textSize}px` }}
+              className="pb-10 px-6 mx-auto md:max-w-[70ch]  lg:max-w-[75ch] [&:not(:first-child)]:mt-6"
+            >
               {text}
             </p>
           </div>

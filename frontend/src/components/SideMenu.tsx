@@ -6,15 +6,27 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
 import { HiDotsVertical } from "react-icons/hi";
 import { useState, useEffect } from "react";
+import StatsComponent from "./StatsComponent";
+import FontSize from "./FontSize";
+import { Label } from "@radix-ui/react-label";
 
 interface SideMenuProps {
   wordsCount: number;
   charactersCount: number;
+  textSize: number;
+
+  setTextSize: (textSize: number) => void;
 }
 
-function SideMenu({ wordsCount, charactersCount }: SideMenuProps) {
+function SideMenu({
+  wordsCount,
+  charactersCount,
+  textSize,
+  setTextSize,
+}: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
   useEffect(() => {
@@ -39,14 +51,10 @@ function SideMenu({ wordsCount, charactersCount }: SideMenuProps) {
             Stats
           </SheetTitle>
           <SheetDescription>
-            <div className="flex flex-col items-start">
-              <p className="text-sm text-muted-foreground">
-                Words: <span className="">{wordsCount}</span>
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Characters: <span className="">{charactersCount}</span>
-              </p>
-            </div>
+            <StatsComponent
+              wordsCount={wordsCount}
+              charactersCount={charactersCount}
+            />
           </SheetDescription>
         </SheetHeader>
         <SheetHeader>
@@ -54,8 +62,9 @@ function SideMenu({ wordsCount, charactersCount }: SideMenuProps) {
             Typography
           </SheetTitle>
           <SheetDescription>
-            <div className="flex flex-col items-start">
-              <p className="text-sm text-muted-foreground">Font size</p>
+            <FontSize textSize={textSize} setTextSize={setTextSize} />
+            <div className="flex flex-col items-start mt-4 relative">
+              <p className="text-sm text-muted-foreground mb-4">Font family</p>
             </div>
           </SheetDescription>
         </SheetHeader>
