@@ -15,7 +15,7 @@ function Library() {
   // const { document, loading, error, dataLength } = useDocumentsFetch(
   //   "http://localhost:3000/documents"
   // );
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     axios
       .delete(`http://localhost:3000/documents/${id}`)
       .then(() => {
