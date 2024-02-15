@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
-import { Trash2 } from "lucide-react";
-import AlertDialogDelete from "./AlertDialogDelete";
-import DocumentsTable from "./DocumentsTable";
+interface DocumentProps {
+  children: React.ReactNode;
+  errorMessage: string;
+  dataLength: number;
+}
 
-function Document({ children, errorMessage, dataLength }) {
+function Document({ children, errorMessage, dataLength }: DocumentProps) {
   return (
-    <div className="flex flex-col justify-start mt-10 mb-8">
+    <div role="presentation" className="flex flex-col justify-start mt-10 mb-8">
       {dataLength === 0 && (
         <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-6">
           Your library is empty

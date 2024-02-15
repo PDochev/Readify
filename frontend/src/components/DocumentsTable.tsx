@@ -3,7 +3,7 @@ import AlertDialogDelete from "./AlertDialogDelete";
 
 function DocumentsTable({ document, handleDelete }) {
   return (
-    <div>
+    <div role="presentation">
       <h3 className="text-md font-medium leading-none mb-8">Documents</h3>
       <div className="relative overflow-hidden rounded-sm">
         <table className="table-fixed w-full text-left">

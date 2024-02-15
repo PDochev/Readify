@@ -14,7 +14,7 @@ import FontSize from "./FontSize";
 import LineSpacing from "./LineSpacing";
 import FontFamily from "./FontFamily";
 import LetterSpacing from "./LetterSpacing";
-import Stopwatch from "./Stopwatch";
+// import Stopwatch from "./Stopwatch";
 
 interface SideMenuProps {
   wordsCount: number;
@@ -83,12 +83,12 @@ function SideMenu({
               letterSpacing={letterSpacing}
               setLetterSpacing={setLetterSpacing}
             />
-            <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+            {/* <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
               Reading Speed
             </SheetTitle>
             <SheetDescription>
               <Stopwatch wordsCount={wordsCount} />
-            </SheetDescription>
+            </SheetDescription> */}
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

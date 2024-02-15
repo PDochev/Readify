@@ -5,12 +5,24 @@ interface StatsComponentProps {
 
 function Stats({ wordsCount, charactersCount }: StatsComponentProps) {
   return (
-    <div className="flex flex-col items-start">
+    <div role="presentation" className="flex flex-col items-start">
       <p className="text-sm text-muted-foreground">
-        Words: <span className="">{wordsCount}</span>
+        Words:{" "}
+        <span
+          aria-label={`Number of words in the text` + wordsCount}
+          className=""
+        >
+          {wordsCount}
+        </span>
       </p>
       <p className="text-sm text-muted-foreground">
-        Characters: <span className="">{charactersCount}</span>
+        Characters:
+        <span
+          aria-label={`Number of character in the text` + charactersCount}
+          className=""
+        >
+          {charactersCount}
+        </span>
       </p>
     </div>
   );

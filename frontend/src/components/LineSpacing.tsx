@@ -16,7 +16,10 @@ function LineSpacing({ lineSpacing, setLineSpacing }: LineSpacingProps) {
   };
 
   return (
-    <div className="flex flex-col items-start mt-4 relative">
+    <div
+      role="presentation"
+      className="flex flex-col items-start mt-4 relative"
+    >
       <Label
         htmlFor="lineSpacing"
         className="text-sm text-muted-foreground mb-4"
@@ -24,6 +27,7 @@ function LineSpacing({ lineSpacing, setLineSpacing }: LineSpacingProps) {
         Line Spacing
       </Label>
       <Slider
+        aria-label={`Line Spacing` + currentLineSpacing + `pixels`}
         defaultValue={[currentLineSpacing]}
         onValueChange={(value) => handleLineSpacingChange(value[0])}
         min={18}
@@ -31,7 +35,10 @@ function LineSpacing({ lineSpacing, setLineSpacing }: LineSpacingProps) {
         step={1}
         id="lineSpacing"
       />
-      <span className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1">
+      <span
+        aria-label="Current Line Spacing"
+        className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1"
+      >
         {currentLineSpacing} px
       </span>
     </div>

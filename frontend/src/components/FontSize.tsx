@@ -16,12 +16,12 @@ function FontSize({ textSize, setTextSize }: FontSizeProps) {
   };
 
   return (
-    <div className="flex flex-col items-start relative  ">
+    <div role="presentation" className="flex flex-col items-start relative  ">
       <Label htmlFor="textSize" className="text-sm text-muted-foreground mb-4">
         Font Size
       </Label>
       <Slider
-        className=""
+        aria-label={`Font Size` + currentTextSize + `pixels`}
         defaultValue={[currentTextSize]}
         onValueChange={(value) => handleTextSizeChange(value[0])}
         min={10}
@@ -29,7 +29,10 @@ function FontSize({ textSize, setTextSize }: FontSizeProps) {
         step={1}
         id="textSize"
       />
-      <span className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1">
+      <span
+        aria-label="Current Text Size"
+        className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1"
+      >
         {currentTextSize} px
       </span>
     </div>

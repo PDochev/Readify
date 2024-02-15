@@ -7,19 +7,21 @@ import { User } from "lucide-react";
 function Documents() {
   return (
     <>
-      <nav>
-        <Navbar>
-          <div className="w-full m-2 flex items-center justify-between">
-            <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
-              Readify
-            </h4>
+      <header>
+        <nav>
+          <Navbar>
+            <div className="w-full m-2 flex items-center justify-between">
+              <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
+                Readify
+              </h4>
 
-            <div className="flex items-center gap-4 mr-4">
-              <User />
+              <div className="flex items-center gap-4 mr-4">
+                <User />
+              </div>
             </div>
-          </div>
-        </Navbar>
-      </nav>
+          </Navbar>
+        </nav>
+      </header>
       <div className="w-full flex flex-col justify-center items-center lg:items-end md:items-end  mt-6 lg:w-1/2 md:w-3/4 mx-auto">
         <NewDocument />
       </div>

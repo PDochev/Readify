@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-
 import { useState, useEffect } from "react";
+import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
 
 function ReadifyApp() {
@@ -46,31 +45,32 @@ function ReadifyApp() {
 
   return (
     <>
-      <nav className=" w-full  bg-white fixed top-0 left-0 ">
-        <Navbar>
-          <div className="w-full m-2 flex items-center justify-between">
-            <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
-              <Link to="/documents">Readify</Link>
-            </h4>
+      <header>
+        <nav className=" w-full  bg-white fixed top-0 left-0 ">
+          <Navbar>
+            <div className="w-full m-2 flex items-center justify-between">
+              <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
+                <Link to="/documents">Readify</Link>
+              </h4>
 
-            <div className="flex items-center gap-4 mr-4">
-              <SideMenu
-                wordsCount={wordsCount}
-                charactersCount={charactersCount}
-                setTextSize={setTextSize}
-                textSize={textSize}
-                fontFamily={fontFamily}
-                setFontFamily={setFontFamily}
-                lineSpacing={lineSpacing}
-                setLineSpacing={setLineSpacing}
-                letterSpacing={letterSpacing}
-                setLetterSpacing={setLetterSpacing}
-                wordsCount={wordsCount}
-              />
+              <div className="flex items-center gap-4 mr-4">
+                <SideMenu
+                  wordsCount={wordsCount}
+                  charactersCount={charactersCount}
+                  setTextSize={setTextSize}
+                  textSize={textSize}
+                  fontFamily={fontFamily}
+                  setFontFamily={setFontFamily}
+                  lineSpacing={lineSpacing}
+                  setLineSpacing={setLineSpacing}
+                  letterSpacing={letterSpacing}
+                  setLetterSpacing={setLetterSpacing}
+                />
+              </div>
             </div>
-          </div>
-        </Navbar>
-      </nav>
+          </Navbar>
+        </nav>
+      </header>
       <main>
         <section className="w-full mx-auto mt-8  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 ">
           <div className="mt-10 mb-5">
@@ -89,7 +89,7 @@ function ReadifyApp() {
                 lineHeight: `${lineSpacing}px`,
                 letterSpacing: `${letterSpacing}px`,
               }}
-              className="pb-10 px-6 mx-auto md:max-w-[70ch]  lg:max-w-[75ch]  [&:not(:first-child)]:mt-6"
+              className=" pb-10 px-6 mx-auto md:max-w-[70ch]   lg:max-w-[75ch]  [&:not(:first-child)]:mt-6"
             >
               {text}
             </p>

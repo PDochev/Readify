@@ -20,7 +20,10 @@ function LetterSpacing({
   };
 
   return (
-    <div className="flex flex-col items-start mt-4 relative">
+    <div
+      role="presentation"
+      className="flex flex-col items-start mt-4 relative"
+    >
       <Label
         htmlFor="letterSpacing"
         className="text-sm text-muted-foreground mb-4"
@@ -28,6 +31,7 @@ function LetterSpacing({
         Letter Spacing
       </Label>
       <Slider
+        aria-label={`Letter Spacing` + currentLetterSpacing + `pixels`}
         defaultValue={[currentLetterSpacing]}
         onValueChange={(value) => handleLetterSpacingChange(value[0])}
         min={0}
@@ -35,7 +39,10 @@ function LetterSpacing({
         step={0.1}
         id="letterSpacing"
       />
-      <span className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1">
+      <span
+        aria-label="Current Letter Spacing"
+        className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1"
+      >
         {currentLetterSpacing} px
       </span>
     </div>

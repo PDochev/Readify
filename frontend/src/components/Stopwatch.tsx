@@ -42,7 +42,10 @@ function Stopwatch({ wordsCount }) {
 
   const { minutes, seconds } = formatTime(timer);
   return (
-    <div className="flex flex-col justify-center items-center gap-5 mx-auto mt-4">
+    <div
+      role="presentation"
+      className="flex flex-col justify-center items-center gap-5 mx-auto mt-4"
+    >
       <div className="flex">
         <h2>{minutes}</h2>
         <span>:</span>

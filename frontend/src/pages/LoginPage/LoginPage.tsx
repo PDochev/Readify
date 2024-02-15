@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 
 function LoginPage() {
   return (
-    <div className="flex w-full  min-h-svh">
+    <div role="presentation" className="flex w-full  min-h-svh">
       <section className="hidden w-1/2  lg:flex ">
         <img
           className="w-full h-full object-cover bg-center flex-shrink-0"

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ring } from "ldrs";
 
 const Spinner = () => {

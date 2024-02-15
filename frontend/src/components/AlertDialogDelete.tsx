@@ -12,7 +12,12 @@ import {
 import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
 
-function AlertDialogDelete({ handleDelete, id }) {
+interface AlertDialogDeleteProps {
+  handleDelete: (id: string) => void;
+  id: string;
+}
+
+function AlertDialogDelete({ handleDelete, id }: AlertDialogDeleteProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger>
