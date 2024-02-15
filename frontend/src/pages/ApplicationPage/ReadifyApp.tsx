@@ -65,6 +65,7 @@ function ReadifyApp() {
                 setLineSpacing={setLineSpacing}
                 letterSpacing={letterSpacing}
                 setLetterSpacing={setLetterSpacing}
+                wordsCount={wordsCount}
               />
             </div>
           </div>
