@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { HiDotsVertical } from "react-icons/hi";
+import { MoreVertical } from "lucide-react";
 import { useState, useEffect } from "react";
 import Stats from "./Stats";
 import FontSize from "./FontSize";
@@ -57,7 +57,7 @@ function SideMenu({
   return (
     <Sheet>
       <SheetTrigger>
-        <HiDotsVertical />
+        <MoreVertical />
       </SheetTrigger>
       <SheetContent side={sizeScreen}>
         <SheetHeader>

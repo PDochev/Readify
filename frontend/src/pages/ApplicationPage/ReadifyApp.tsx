@@ -2,6 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
+import { Palette } from "lucide-react";
+import TextPageColour from "@/components/TextPageColour";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -12,6 +14,7 @@ function ReadifyApp() {
   const [fontFamily, setFontFamily] = useState("Inter");
   const [lineSpacing, setLineSpacing] = useState(24);
   const [letterSpacing, setLetterSpacing] = useState(0);
+  const [textPageColour, setTextPageColour] = useState("pageColourDefault");
 
   const title = document.title;
   const text = document.text || "";
@@ -53,7 +56,11 @@ function ReadifyApp() {
                 <Link to="/documents">Readify</Link>
               </h4>
 
-              <div className="flex items-center gap-4 mr-4">
+              <div className="flex items-center  gap-4 mr-4">
+                <TextPageColour
+                  textPageColour={textPageColour}
+                  setTextPageColour={setTextPageColour}
+                />
                 <SideMenu
                   wordsCount={wordsCount}
                   charactersCount={charactersCount}
@@ -72,7 +79,9 @@ function ReadifyApp() {
         </nav>
       </header>
       <main>
-        <section className="w-full mx-auto mt-8  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 ">
+        <section
+          className={`w-full mx-auto mt-8  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
+        >
           <div className="mt-10 mb-5">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
               {title}
@@ -89,7 +98,7 @@ function ReadifyApp() {
                 lineHeight: `${lineSpacing}px`,
                 letterSpacing: `${letterSpacing}px`,
               }}
-              className=" pb-10 px-6 mx-auto md:max-w-[70ch]   lg:max-w-[75ch]  [&:not(:first-child)]:mt-6"
+              className="pb-10 px-6 mx-auto md:max-w-[70ch]   lg:max-w-[75ch]  [&:not(:first-child)]:mt-6 "
             >
               {text}
             </p>
