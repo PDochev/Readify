@@ -12,6 +12,7 @@ function ReadifyApp() {
   const [textSize, setTextSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Inter");
   const [lineSpacing, setLineSpacing] = useState(24);
+  const [letterSpacing, setLetterSpacing] = useState(0);
 
   const title = document.title;
   const text = document.text || "";
@@ -62,6 +63,8 @@ function ReadifyApp() {
                 setFontFamily={setFontFamily}
                 lineSpacing={lineSpacing}
                 setLineSpacing={setLineSpacing}
+                letterSpacing={letterSpacing}
+                setLetterSpacing={setLetterSpacing}
               />
             </div>
           </div>
@@ -83,6 +86,7 @@ function ReadifyApp() {
                 fontSize: `${textSize}px`,
                 fontFamily: `${fontFamily} , sans-serif`,
                 lineHeight: `${lineSpacing}px`,
+                letterSpacing: `${letterSpacing}px`,
               }}
               className="pb-10 px-6 mx-auto md:max-w-[70ch]  lg:max-w-[75ch]  [&:not(:first-child)]:mt-6"
             >

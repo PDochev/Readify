@@ -13,6 +13,7 @@ import Stats from "./Stats";
 import FontSize from "./FontSize";
 import LineSpacing from "./LineSpacing";
 import FontFamily from "./FontFamily";
+import LetterSpacing from "./LetterSpacing";
 
 interface SideMenuProps {
   wordsCount: number;
@@ -23,6 +24,8 @@ interface SideMenuProps {
   setFontFamily: (fontFamily: string) => void;
   lineSpacing: number;
   setLineSpacing: (lineSpacing: number) => void;
+  letterSpacing: number;
+  setLetterSpacing: (letterSpacing: number) => void;
 }
 
 function SideMenu({
@@ -34,6 +37,8 @@ function SideMenu({
   setFontFamily,
   lineSpacing,
   setLineSpacing,
+  letterSpacing,
+  setLetterSpacing,
 }: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
@@ -53,7 +58,7 @@ function SideMenu({
       <SheetTrigger>
         <HiDotsVertical />
       </SheetTrigger>
-      <SheetContent side={sizeScreen}>
+      <SheetContent className=" " side={sizeScreen}>
         <SheetHeader>
           <SheetTitle className="border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
             Stats
@@ -73,6 +78,13 @@ function SideMenu({
               lineSpacing={lineSpacing}
               setLineSpacing={setLineSpacing}
             />
+            <LetterSpacing
+              letterSpacing={letterSpacing}
+              setLetterSpacing={setLetterSpacing}
+            />
+            {/* <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+              Reading Speed
+            </SheetTitle> */}
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
