@@ -6,19 +6,23 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Slider } from "@/components/ui/slider";
+
 import { HiDotsVertical } from "react-icons/hi";
 import { useState, useEffect } from "react";
 import Stats from "./Stats";
 import FontSize from "./FontSize";
-import { Label } from "@radix-ui/react-label";
+import LineSpacing from "./LineSpacing";
+import FontFamily from "./FontFamily";
 
 interface SideMenuProps {
   wordsCount: number;
   charactersCount: number;
   textSize: number;
-
   setTextSize: (textSize: number) => void;
+  fontFamily: string;
+  setFontFamily: (fontFamily: string) => void;
+  lineSpacing: number;
+  setLineSpacing: (lineSpacing: number) => void;
 }
 
 function SideMenu({
@@ -26,6 +30,10 @@ function SideMenu({
   charactersCount,
   textSize,
   setTextSize,
+  fontFamily,
+  setFontFamily,
+  lineSpacing,
+  setLineSpacing,
 }: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
@@ -60,9 +68,11 @@ function SideMenu({
           </SheetTitle>
           <SheetDescription>
             <FontSize textSize={textSize} setTextSize={setTextSize} />
-            <div className="flex flex-col items-start mt-4 relative">
-              <p className="text-sm text-muted-foreground mb-4">Font family</p>
-            </div>
+            <FontFamily fontFamily={fontFamily} setFontFamily={setFontFamily} />
+            <LineSpacing
+              lineSpacing={lineSpacing}
+              setLineSpacing={setLineSpacing}
+            />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

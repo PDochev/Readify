@@ -10,6 +10,8 @@ function ReadifyApp() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [textSize, setTextSize] = useState(16);
+  const [fontFamily, setFontFamily] = useState("Inter");
+  const [lineSpacing, setLineSpacing] = useState(24);
 
   const title = document.title;
   const text = document.text || "";
@@ -56,13 +58,17 @@ function ReadifyApp() {
                 charactersCount={charactersCount}
                 setTextSize={setTextSize}
                 textSize={textSize}
+                fontFamily={fontFamily}
+                setFontFamily={setFontFamily}
+                lineSpacing={lineSpacing}
+                setLineSpacing={setLineSpacing}
               />
             </div>
           </div>
         </Navbar>
       </nav>
       <main>
-        <section className="w-full mx-auto mt-6  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 ">
+        <section className="w-full mx-auto mt-8  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 ">
           <div className="mt-10 mb-5">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
               {title}
@@ -73,8 +79,12 @@ function ReadifyApp() {
               <p className="leading-7 [&:not(:first-child)]:mt-6">{error}</p>
             )}
             <p
-              style={{ fontSize: `${textSize}px` }}
-              className="pb-10 px-6 mx-auto md:max-w-[70ch]  lg:max-w-[75ch] [&:not(:first-child)]:mt-6"
+              style={{
+                fontSize: `${textSize}px`,
+                fontFamily: `${fontFamily} , sans-serif`,
+                lineHeight: `${lineSpacing}px`,
+              }}
+              className="pb-10 px-6 mx-auto md:max-w-[70ch]  lg:max-w-[75ch]  [&:not(:first-child)]:mt-6"
             >
               {text}
             </p>
