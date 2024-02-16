@@ -80,14 +80,14 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={`w-full mx-auto mt-8  rounded-sm shadow-sm h-fit flex flex-col  items-center  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
+          className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
         >
           <div className="mt-10 mb-5">
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
               {title}
             </h3>
           </div>
-          <div>
+          <div className="w-11/12 ">
             {error && (
               <p className="leading-7 [&:not(:first-child)]:mt-6">{error}</p>
             )}
@@ -98,7 +98,7 @@ function ReadifyApp() {
                 lineHeight: `${lineSpacing}px`,
                 letterSpacing: `${letterSpacing}px`,
               }}
-              className="pb-10 px-6 mx-auto md:max-w-[70ch]   lg:max-w-[75ch]  [&:not(:first-child)]:mt-6 "
+              className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6  "
             >
               {text}
             </p>
