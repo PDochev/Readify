@@ -8,10 +8,10 @@ function Documents() {
   return (
     <>
       <header>
-        <nav>
+        <nav role="navigation">
           <Navbar>
-            <div className="w-full m-2 flex items-center justify-between">
-              <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
+            <div className="flex items-center justify-between w-full m-2">
+              <h4 className="ml-6 text-xl font-semibold tracking-tight scroll-m-20 ">
                 Readify
               </h4>
 
@@ -22,10 +22,10 @@ function Documents() {
           </Navbar>
         </nav>
       </header>
-      <div className="w-full flex flex-col justify-center items-center lg:items-end md:items-end  mt-6 lg:w-1/2 md:w-3/4 mx-auto">
+      <div className="flex flex-col items-center justify-center w-full mx-auto mt-6 lg:items-end md:items-end lg:w-1/2 md:w-3/4">
         <NewDocument />
       </div>
-      <main className="w-full p-6  rounded flex flex-col justify-center items-center mt-6 border shadow-sm mx-auto lg:w-1/2 md:w-3/4">
+      <main className="flex flex-col items-center justify-center w-full p-6 mx-auto mt-6 border rounded shadow-sm lg:w-1/2 md:w-3/4">
         <Library />
       </main>
     </>

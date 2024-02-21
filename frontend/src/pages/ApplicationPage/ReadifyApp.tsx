@@ -49,14 +49,14 @@ function ReadifyApp() {
   return (
     <>
       <header>
-        <nav className=" w-full  bg-white fixed top-0 left-0 ">
+        <nav role="navigation" className="fixed top-0 left-0 w-full bg-white ">
           <Navbar>
-            <div className="w-full m-2 flex items-center justify-between">
-              <h4 className="ml-6 scroll-m-20 text-xl font-semibold tracking-tight ">
+            <div className="flex items-center justify-between w-full m-2">
+              <h4 className="ml-6 text-xl font-semibold tracking-tight scroll-m-20 ">
                 <Link to="/documents">Readify</Link>
               </h4>
 
-              <div className="flex items-center  gap-4 mr-4">
+              <div className="flex items-center gap-4 mr-4">
                 <TextPageColour
                   textPageColour={textPageColour}
                   setTextPageColour={setTextPageColour}
@@ -83,7 +83,7 @@ function ReadifyApp() {
           className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
         >
           <div className="mt-10 mb-5">
-            <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            <h3 className="text-2xl font-semibold tracking-tight scroll-m-20">
               {title}
             </h3>
           </div>
