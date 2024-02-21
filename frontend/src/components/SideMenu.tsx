@@ -14,6 +14,7 @@ import FontSize from "./FontSize";
 import LineSpacing from "./LineSpacing";
 import FontFamily from "./FontFamily";
 import LetterSpacing from "./LetterSpacing";
+import BionicReadingTechnique from "./BionicReadingTechnique";
 // import Stopwatch from "./Stopwatch";
 
 interface SideMenuProps {
@@ -27,6 +28,7 @@ interface SideMenuProps {
   setLineSpacing: (lineSpacing: number) => void;
   letterSpacing: number;
   setLetterSpacing: (letterSpacing: number) => void;
+  setBoldedWords: (boldedWords: boolean) => void;
 }
 
 function SideMenu({
@@ -40,6 +42,7 @@ function SideMenu({
   setLineSpacing,
   letterSpacing,
   setLetterSpacing,
+  setBoldedWords,
 }: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
@@ -61,7 +64,7 @@ function SideMenu({
       </SheetTrigger>
       <SheetContent side={sizeScreen}>
         <SheetHeader>
-          <SheetTitle className="border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+          <SheetTitle className="flex text-xl font-semibold tracking-tight border-b scroll-m-20">
             Stats
           </SheetTitle>
           <SheetDescription>
@@ -69,7 +72,7 @@ function SideMenu({
           </SheetDescription>
         </SheetHeader>
         <SheetHeader>
-          <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+          <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
             Typography
           </SheetTitle>
           <SheetDescription>
@@ -83,12 +86,20 @@ function SideMenu({
               letterSpacing={letterSpacing}
               setLetterSpacing={setLetterSpacing}
             />
-            {/* <SheetTitle className="mt-4 border-b flex scroll-m-20 text-xl font-semibold tracking-tight">
+            {/* <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
               Reading Speed
             </SheetTitle>
             <SheetDescription>
               <Stopwatch wordsCount={wordsCount} />
             </SheetDescription> */}
+          </SheetDescription>
+        </SheetHeader>
+        <SheetHeader>
+          <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
+            Speed Reading techniques
+          </SheetTitle>
+          <SheetDescription>
+            <BionicReadingTechnique setBoldedWords={setBoldedWords} />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

@@ -2,8 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
-import { Palette } from "lucide-react";
 import TextPageColour from "@/components/TextPageColour";
+import { boldingWords } from "@/utils/utils";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -15,6 +15,7 @@ function ReadifyApp() {
   const [lineSpacing, setLineSpacing] = useState(24);
   const [letterSpacing, setLetterSpacing] = useState(0);
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
+  const [boldedWords, setBoldedWords] = useState(false);
 
   const title = document.title;
   const text = document.text || "";
@@ -72,6 +73,7 @@ function ReadifyApp() {
                   setLineSpacing={setLineSpacing}
                   letterSpacing={letterSpacing}
                   setLetterSpacing={setLetterSpacing}
+                  setBoldedWords={setBoldedWords}
                 />
               </div>
             </div>
@@ -100,7 +102,7 @@ function ReadifyApp() {
               }}
               className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6  "
             >
-              {text}
+              {boldedWords ? boldingWords(text) : text}
             </p>
           </div>
         </section>
