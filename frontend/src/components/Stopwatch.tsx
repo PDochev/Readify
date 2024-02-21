@@ -44,7 +44,7 @@ function Stopwatch({ wordsCount }) {
   return (
     <div
       role="presentation"
-      className="flex flex-col justify-center items-center gap-5 mx-auto mt-4"
+      className="flex flex-col items-center justify-center gap-5 mx-auto mt-4"
     >
       <div className="flex">
         <h2>{minutes}</h2>

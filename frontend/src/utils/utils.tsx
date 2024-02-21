@@ -1,31 +1,31 @@
-export function boldingWords(str) {
-  let words = str.split(" ");
-  let boldedWords = words.map(function (word, index) {
-    if (word.length >= 7) {
+export function boldingWords(str: string, fixation: number) {
+  const words = str.split(" ");
+  const boldedWords = words.map(function (word, index) {
+    if (word.length >= fixation) {
       return (
         <>
           <span key={index} style={{ fontWeight: "bold" }}>
-            {word.slice(0, 5)}
+            {word.slice(0, fixation - 1)}
           </span>
-          {word.slice(5)}{" "}
+          {word.slice(fixation - 1)}{" "}
         </>
       );
     } else if (word.length >= 5) {
       return (
         <>
           <span key={index} style={{ fontWeight: "bold" }}>
-            {word.slice(0, 3)}
+            {word.slice(0, fixation - 4)}
           </span>
-          {word.slice(3)}{" "}
+          {word.slice(fixation - 4)}{" "}
         </>
       );
     } else if (word.length >= 3) {
       return (
         <>
           <span key={index} style={{ fontWeight: "bold" }}>
-            {word.slice(0, 2)}
+            {word.slice(0, fixation - 5)}
           </span>
-          {word.slice(2)}{" "}
+          {word.slice(fixation - 5)}{" "}
         </>
       );
     } else if (word.length === 1) {

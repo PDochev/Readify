@@ -2,8 +2,10 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
+import SpeedReadingMenu from "@/components/SpeedReadingMenu";
 import TextPageColour from "@/components/TextPageColour";
 import { boldingWords } from "@/utils/utils";
+import Spinner from "@/components/Spinner";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -16,6 +18,7 @@ function ReadifyApp() {
   const [letterSpacing, setLetterSpacing] = useState(0);
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
   const [boldedWords, setBoldedWords] = useState(false);
+  const [fixation, setFixation] = useState(7);
 
   const title = document.title;
   const text = document.text || "";
@@ -53,14 +56,20 @@ function ReadifyApp() {
         <nav role="navigation" className="fixed top-0 left-0 w-full bg-white ">
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
-              <h4 className="ml-6 text-xl font-semibold tracking-tight scroll-m-20 ">
+              <h4 className="ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
                 <Link to="/documents">Readify</Link>
               </h4>
 
-              <div className="flex items-center gap-4 mr-4">
+              <div className="flex items-center gap-4 mr-2 lg:gap-6 lg:mr-4">
                 <TextPageColour
                   textPageColour={textPageColour}
                   setTextPageColour={setTextPageColour}
+                />
+                <SpeedReadingMenu
+                  setBoldedWords={setBoldedWords}
+                  boldedWords={boldedWords}
+                  fixation={fixation}
+                  setFixation={setFixation}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -73,8 +82,6 @@ function ReadifyApp() {
                   setLineSpacing={setLineSpacing}
                   letterSpacing={letterSpacing}
                   setLetterSpacing={setLetterSpacing}
-                  setBoldedWords={setBoldedWords}
-                  boldedWords={boldedWords}
                 />
               </div>
             </div>
@@ -85,6 +92,7 @@ function ReadifyApp() {
         <section
           className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
         >
+          {loading && <Spinner />}
           <div className="mt-10 mb-5">
             <h3 className="text-2xl font-semibold tracking-tight scroll-m-20">
               {title}
@@ -103,7 +111,7 @@ function ReadifyApp() {
               }}
               className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6  "
             >
-              {boldedWords ? boldingWords(text) : text}
+              {boldedWords ? boldingWords(text, fixation) : text}
             </p>
           </div>
         </section>

@@ -30,23 +30,24 @@ function TextPageColour({
           <DropdownMenuLabel>Page Colour</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuRadioGroup
+            className="flex flex-row items-center justify-between mr-4 md:flex-col md:items-start md:mr-0 lg:mr-0 lg:flex-col lg:items-start"
             value={textPageColour}
             onValueChange={setTextPageColour}
           >
             <DropdownMenuRadioItem value="pageColourDefault">
-              <div className="w-6 h-6 rounded-full bg-textPageColours-pageColourDefault border border-blue-500 "></div>
+              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColourDefault "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour1">
-              <div className="w-6 h-6 rounded-full bg-textPageColours-pageColour1 border border-blue-500 "></div>
+              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour1 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour2">
-              <div className="w-6 h-6 rounded-full bg-textPageColours-pageColour2 border border-blue-500 "></div>
+              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour2 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour3">
-              <div className="w-6 h-6 rounded-full bg-textPageColours-pageColour3 border border-blue-500 "></div>
+              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour3 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour4">
-              <div className="w-6 h-6 rounded-full bg-textPageColours-pageColour4 border border-blue-500 "></div>
+              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour4 "></div>
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>

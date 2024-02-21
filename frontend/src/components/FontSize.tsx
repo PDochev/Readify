@@ -16,8 +16,8 @@ function FontSize({ textSize, setTextSize }: FontSizeProps) {
   };
 
   return (
-    <div role="presentation" className="flex flex-col items-start relative  ">
-      <Label htmlFor="textSize" className="text-sm text-muted-foreground mb-4">
+    <div role="presentation" className="relative flex flex-col items-start ">
+      <Label htmlFor="textSize" className="mb-4 text-sm text-muted-foreground">
         Font Size
       </Label>
       <Slider
@@ -31,7 +31,7 @@ function FontSize({ textSize, setTextSize }: FontSizeProps) {
       />
       <span
         aria-label="Current Text Size"
-        className="absolute top-0 right-0 text-sm text-muted-foreground mr-2 mt-1"
+        className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
       >
         {currentTextSize} px
       </span>

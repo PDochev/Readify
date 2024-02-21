@@ -11,7 +11,7 @@ function Documents() {
         <nav role="navigation">
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
-              <h4 className="ml-6 text-xl font-semibold tracking-tight scroll-m-20 ">
+              <h4 className="ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
                 Readify
               </h4>
 
