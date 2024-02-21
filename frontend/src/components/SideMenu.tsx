@@ -29,6 +29,7 @@ interface SideMenuProps {
   letterSpacing: number;
   setLetterSpacing: (letterSpacing: number) => void;
   setBoldedWords: (boldedWords: boolean) => void;
+  boldedWords: boolean;
 }
 
 function SideMenu({
@@ -43,6 +44,7 @@ function SideMenu({
   letterSpacing,
   setLetterSpacing,
   setBoldedWords,
+  boldedWords,
 }: SideMenuProps) {
   const [size, setSize] = useState([0, 0]);
 
@@ -99,7 +101,7 @@ function SideMenu({
             Speed Reading techniques
           </SheetTitle>
           <SheetDescription>
-            <BionicReadingTechnique setBoldedWords={setBoldedWords} />
+            <BionicReadingTechnique setBoldedWords={setBoldedWords} boldedWords={boldedWords} />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

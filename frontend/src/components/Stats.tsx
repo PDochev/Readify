@@ -16,7 +16,7 @@ function Stats({ wordsCount, charactersCount }: StatsComponentProps) {
         </span>
       </p>
       <p className="text-sm text-muted-foreground">
-        Characters:
+        Characters:{" "}
         <span
           aria-label={`Number of character in the text` + charactersCount}
           className=""

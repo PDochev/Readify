@@ -74,6 +74,7 @@ function ReadifyApp() {
                   letterSpacing={letterSpacing}
                   setLetterSpacing={setLetterSpacing}
                   setBoldedWords={setBoldedWords}
+                  boldedWords={boldedWords}
                 />
               </div>
             </div>
