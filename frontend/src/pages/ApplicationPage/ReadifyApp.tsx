@@ -90,7 +90,7 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
+          className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
         >
           {loading && <Spinner />}
           <div className="mt-10 mb-5">

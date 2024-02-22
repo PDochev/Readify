@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/sheet";
 
 import { MoreVertical } from "lucide-react";
-import { useState, useEffect } from "react";
 import Stats from "./Stats";
 import FontSize from "./FontSize";
 import LineSpacing from "./LineSpacing";
 import FontFamily from "./FontFamily";
 import LetterSpacing from "./LetterSpacing";
+import { useResizeScreen } from "@/customHooks/useResizeScreen";
 
 // import Stopwatch from "./Stopwatch";
 
@@ -42,16 +42,7 @@ function SideMenu({
   letterSpacing,
   setLetterSpacing,
 }: SideMenuProps) {
-  const [size, setSize] = useState([0, 0]);
-
-  useEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  const size = useResizeScreen();
 
   const sizeScreen = size[0] > 768 ? "right" : "bottom";
 

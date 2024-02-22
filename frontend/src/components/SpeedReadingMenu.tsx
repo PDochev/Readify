@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/sheet";
 
 import { BookOpenText } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useResizeScreen } from "@/customHooks/useResizeScreen";
 
 import BionicReadingTechnique from "./BionicReadingTechnique";
 
@@ -25,16 +25,7 @@ function SpeedReadingMenu({
   fixation,
   setFixation,
 }: SpeedReadingMenuProps) {
-  const [size, setSize] = useState([0, 0]);
-
-  useEffect(() => {
-    function updateSize() {
-      setSize([window.innerWidth, window.innerHeight]);
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
+  const size = useResizeScreen();
 
   const sizeScreen = size[0] > 768 ? "left" : "bottom";
   return (
