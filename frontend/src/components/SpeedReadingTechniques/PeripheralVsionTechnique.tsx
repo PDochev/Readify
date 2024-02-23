@@ -67,7 +67,7 @@ function PeripheralVisionTechnique({
               defaultValue={[leftMargin]}
               onValueChange={(value) => setLeftMargin(value[0])}
               min={sizeScreen ? 60 : 30}
-              max={sizeScreen ? 180 : 120}
+              max={sizeScreen ? 180 : 100}
               step={1}
               id="leftMargin"
             />
@@ -92,7 +92,7 @@ function PeripheralVisionTechnique({
               defaultValue={[rightMargin]}
               onValueChange={(value) => setRightMargin(value[0])}
               min={sizeScreen ? 60 : 30}
-              max={sizeScreen ? 180 : 120}
+              max={sizeScreen ? 180 : 100}
               step={5}
               id="rightMargin"
             />
