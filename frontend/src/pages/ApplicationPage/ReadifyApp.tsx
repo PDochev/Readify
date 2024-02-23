@@ -6,9 +6,11 @@ import SpeedReadingMenu from "@/components/SpeedReadingMenu";
 import TextPageColour from "@/components/TextPageColour";
 import { boldingWords } from "@/utils/utils";
 import Spinner from "@/components/Spinner";
+import { useResizeScreen } from "@/customHooks/useResizeScreen";
 
 function ReadifyApp() {
   const { id } = useParams();
+  const size = useResizeScreen();
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -20,8 +22,8 @@ function ReadifyApp() {
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
   const [peripheralVision, setPeripheralVision] = useState(false);
-  const [leftMargin, setLeftMargin] = useState(90);
-  const [rightMargin, setRightMargin] = useState(90);
+  const [leftMargin, setLeftMargin] = useState(size[0] > 768 ? 120 : 80);
+  const [rightMargin, setRightMargin] = useState(size[0] > 768 ? 120 : 80);
   const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
 
   const title = document.title;
@@ -63,11 +65,11 @@ function ReadifyApp() {
         >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
-              <h4 className="ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
+              <h4 className="flex ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
                 <Link to="/documents">Readify</Link>
               </h4>
 
-              <div className="flex items-center gap-4 mr-2 lg:gap-6 lg:mr-4">
+              <div className="flex gap-4 mr-2 lg:gap-8 lg:mr-4">
                 <TextPageColour
                   textPageColour={textPageColour}
                   setTextPageColour={setTextPageColour}
