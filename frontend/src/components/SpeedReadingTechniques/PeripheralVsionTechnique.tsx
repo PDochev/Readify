@@ -11,6 +11,8 @@ interface PeripheralVisionTechniqueProps {
   setLeftMargin: (leftMargin: number) => void;
   rightMargin: number;
   setRightMargin: (rightMargin: number) => void;
+  peripheralOpacity: number;
+  setPeripheralOpacity: (peripheralOpacity: number) => void;
 }
 
 function PeripheralVisionTechnique({
@@ -20,6 +22,8 @@ function PeripheralVisionTechnique({
   setLeftMargin,
   rightMargin,
   setRightMargin,
+  peripheralOpacity,
+  setPeripheralOpacity,
 }: PeripheralVisionTechniqueProps) {
   return (
     <div
@@ -45,7 +49,7 @@ function PeripheralVisionTechnique({
       </div>
       {peripheralVision && (
         <>
-          <div role="presentation" className="relative mt-4">
+          <div role="presentation" className="relative mt-4 ">
             <Label
               htmlFor="leftMargin"
               className="flex mb-4 text-sm text-muted-foreground"
@@ -55,12 +59,12 @@ function PeripheralVisionTechnique({
 
             <Slider
               className="mt-4"
-              aria-label={`Left Margin` + leftMargin}
+              aria-label={`Left Margin` + leftMargin + "px"}
               defaultValue={[leftMargin]}
               onValueChange={(value) => setLeftMargin(value[0])}
               min={60}
               max={180}
-              step={5}
+              step={1}
               id="leftMargin"
             />
             <span
@@ -69,6 +73,8 @@ function PeripheralVisionTechnique({
             >
               {leftMargin} px
             </span>
+          </div>
+          <div role="presentation" className="relative ">
             <Label
               htmlFor="rightMargin"
               className="flex mt-4 mb-4 text-sm text-muted-foreground"
@@ -77,8 +83,8 @@ function PeripheralVisionTechnique({
             </Label>
 
             <Slider
-              className="mt-4"
-              aria-label={`Right Margin` + rightMargin}
+              className=""
+              aria-label={`Right Margin` + rightMargin + "px"}
               defaultValue={[rightMargin]}
               onValueChange={(value) => setRightMargin(value[0])}
               min={60}
@@ -88,9 +94,34 @@ function PeripheralVisionTechnique({
             />
             <span
               aria-label="Current Margin"
-              className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
+              className="absolute top-0 right-0 mt-5 mr-2 text-sm text-muted-foreground"
             >
               {rightMargin} px
+            </span>
+          </div>
+          <div role="presentation" className="relative ">
+            <Label
+              htmlFor="opacity"
+              className="flex mt-4 mb-4 text-sm text-muted-foreground"
+            >
+              Opacity
+            </Label>
+
+            <Slider
+              className=""
+              aria-label={`Opacity` + peripheralOpacity + "%"}
+              defaultValue={[peripheralOpacity]}
+              onValueChange={(value) => setPeripheralOpacity(value[0])}
+              min={0}
+              max={1}
+              step={0.1}
+              id="opacity"
+            />
+            <span
+              aria-label="Current Opacity"
+              className="absolute top-0 right-0 mt-5 mr-2 text-sm text-muted-foreground"
+            >
+              {peripheralOpacity} %
             </span>
           </div>
         </>

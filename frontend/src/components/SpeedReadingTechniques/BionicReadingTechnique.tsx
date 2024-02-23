@@ -37,33 +37,31 @@ function BionicReadingTechnique({
         <Switch onCheckedChange={setBoldedWords} checked={boldedWords} />
       </div>
       {boldedWords && (
-        <>
-          <div role="presentation" className="relative mt-4">
-            <Label
-              htmlFor="fixation"
-              className="flex mb-4 text-sm text-muted-foreground"
-            >
-              Fixation
-            </Label>
+        <div role="presentation" className="relative mt-4">
+          <Label
+            htmlFor="fixation"
+            className="flex mb-4 text-sm text-muted-foreground"
+          >
+            Fixation
+          </Label>
 
-            <Slider
-              className="mt-4"
-              aria-label={`Fixation` + fixation}
-              defaultValue={[fixation]}
-              onValueChange={(value) => setFixation(value[0])}
-              min={3}
-              max={11}
-              step={1}
-              id="fixation"
-            />
-            <span
-              aria-label="Current Fixation"
-              className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
-            >
-              {fixation}
-            </span>
-          </div>
-        </>
+          <Slider
+            className="mt-4"
+            aria-label={`Fixation` + fixation}
+            defaultValue={[fixation]}
+            onValueChange={(value) => setFixation(value[0])}
+            min={3}
+            max={11}
+            step={1}
+            id="fixation"
+          />
+          <span
+            aria-label="Current Fixation"
+            className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
+          >
+            {fixation}
+          </span>
+        </div>
       )}
     </div>
   );

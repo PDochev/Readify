@@ -20,8 +20,9 @@ function ReadifyApp() {
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
   const [peripheralVision, setPeripheralVision] = useState(false);
-  const [leftMargin, setLeftMargin] = useState(120);
-  const [rightMargin, setRightMargin] = useState(120);
+  const [leftMargin, setLeftMargin] = useState(90);
+  const [rightMargin, setRightMargin] = useState(90);
+  const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
 
   const title = document.title;
   const text = document.text || "";
@@ -56,7 +57,10 @@ function ReadifyApp() {
   return (
     <>
       <header>
-        <nav role="navigation" className="fixed top-0 left-0 w-full bg-white ">
+        <nav
+          role="navigation"
+          className="fixed top-0 left-0 z-10 w-full bg-white "
+        >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
               <h4 className="ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
@@ -79,6 +83,8 @@ function ReadifyApp() {
                   setLeftMargin={setLeftMargin}
                   rightMargin={rightMargin}
                   setRightMargin={setRightMargin}
+                  peripheralOpacity={peripheralOpacity}
+                  setPeripheralOpacity={setPeripheralOpacity}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -99,13 +105,15 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={` mx-auto mt-14  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative`}
+          className={` mx-auto mt-14  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
         >
           {peripheralVision && (
             <div
-              className={`absolute top-0 left-0 w-[${
-                leftMargin - 40
-              }px] md:w-[${leftMargin}px] lg:w-[${leftMargin}px] h-full border-r-2 border-slate-400 bg-inherit opacity-70`}
+              style={{
+                width: `${leftMargin}px`,
+                opacity: `${peripheralOpacity}`,
+              }}
+              className={`absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit `}
             ></div>
           )}
           {loading && <Spinner />}
@@ -132,9 +140,11 @@ function ReadifyApp() {
           </div>
           {peripheralVision && (
             <div
-              className={`absolute top-0 right-0 w-[${
-                rightMargin - 40
-              }px] md:w-[${rightMargin}px] lg:w-[${rightMargin}px] h-full border-l-2 border-slate-400 bg-inherit opacity-70`}
+              style={{
+                width: `${rightMargin}px`,
+                opacity: `${peripheralOpacity}`,
+              }}
+              className={`absolute top-0 right-0  h-full border-l-2 border-slate-400 bg-inherit `}
             ></div>
           )}
         </section>

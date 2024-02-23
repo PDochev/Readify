@@ -23,6 +23,8 @@ interface SpeedReadingMenuProps {
   setLeftMargin: (leftMargin: number) => void;
   rightMargin: number;
   setRightMargin: (rightMargin: number) => void;
+  peripheralOpacity: number;
+  setPeripheralOpacity: (peripheralOpacity: number) => void;
 }
 
 function SpeedReadingMenu({
@@ -36,6 +38,8 @@ function SpeedReadingMenu({
   setLeftMargin,
   rightMargin,
   setRightMargin,
+  peripheralOpacity,
+  setPeripheralOpacity,
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -66,6 +70,8 @@ function SpeedReadingMenu({
               setLeftMargin={setLeftMargin}
               rightMargin={rightMargin}
               setRightMargin={setRightMargin}
+              peripheralOpacity={peripheralOpacity}
+              setPeripheralOpacity={setPeripheralOpacity}
             />
           </SheetDescription>
         </SheetHeader>
