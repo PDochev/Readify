@@ -2,21 +2,9 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@radix-ui/react-label";
 import { Slider } from "@/components/ui/slider";
 import { HelpCircle } from "lucide-react";
-import HoverInformation from "./HoverInformation";
+import HoverInformation from "../HoverInformation";
 
-interface BionicReadingTechniqueProps {
-  setBoldedWords: (boldedWords: boolean) => void;
-  boldedWords: boolean;
-  fixation: number;
-  setFixation: (fixation: number) => void;
-}
-
-function BionicReadingTechnique({
-  setBoldedWords,
-  boldedWords,
-  fixation,
-  setFixation,
-}: BionicReadingTechniqueProps) {
+function PeripheralVisionTechnique() {
   return (
     <div
       role="presentation"
@@ -69,4 +57,4 @@ function BionicReadingTechnique({
   );
 }
 
-export default BionicReadingTechnique;
+export default PeripheralVisionTechnique;

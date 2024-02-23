@@ -9,8 +9,8 @@ import {
 
 import { BookOpenText } from "lucide-react";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
-
-import BionicReadingTechnique from "./BionicReadingTechnique";
+import PeripheralVisionTechnique from "./SpeedReadingTechniques/PeripheralVsionTechnique";
+import BionicReadingTechnique from "./SpeedReadingTechniques/BionicReadingTechnique";
 
 interface SpeedReadingMenuProps {
   boldedWords: boolean;
@@ -45,6 +45,9 @@ function SpeedReadingMenu({
               fixation={fixation}
               setFixation={setFixation}
             />
+          </SheetDescription>
+          <SheetDescription>
+            {/* <PeripheralVisionTechnique /> */}
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
