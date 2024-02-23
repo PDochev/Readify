@@ -19,6 +19,9 @@ function ReadifyApp() {
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
+  const [peripheralVision, setPeripheralVision] = useState(false);
+  const [leftMargin, setLeftMargin] = useState(120);
+  const [rightMargin, setRightMargin] = useState(120);
 
   const title = document.title;
   const text = document.text || "";
@@ -70,6 +73,12 @@ function ReadifyApp() {
                   boldedWords={boldedWords}
                   fixation={fixation}
                   setFixation={setFixation}
+                  peripheralVision={peripheralVision}
+                  setPeripheralVision={setPeripheralVision}
+                  leftMargin={leftMargin}
+                  setLeftMargin={setLeftMargin}
+                  rightMargin={rightMargin}
+                  setRightMargin={setRightMargin}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -90,8 +99,15 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={` mx-auto mt-10  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour}`}
+          className={` mx-auto mt-14  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative`}
         >
+          {peripheralVision && (
+            <div
+              className={`absolute top-0 left-0 w-[${
+                leftMargin - 40
+              }px] md:w-[${leftMargin}px] lg:w-[${leftMargin}px] h-full border-r-2 border-slate-400 bg-inherit opacity-70`}
+            ></div>
+          )}
           {loading && <Spinner />}
           <div className="mt-10 mb-5">
             <h3 className="text-2xl font-semibold tracking-tight scroll-m-20">
@@ -114,6 +130,13 @@ function ReadifyApp() {
               {boldedWords ? boldingWords(text, fixation) : text}
             </p>
           </div>
+          {peripheralVision && (
+            <div
+              className={`absolute top-0 right-0 w-[${
+                rightMargin - 40
+              }px] md:w-[${rightMargin}px] lg:w-[${rightMargin}px] h-full border-l-2 border-slate-400 bg-inherit opacity-70`}
+            ></div>
+          )}
         </section>
       </main>
     </>

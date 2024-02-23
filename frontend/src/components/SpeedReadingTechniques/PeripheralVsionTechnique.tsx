@@ -4,7 +4,23 @@ import { Slider } from "@/components/ui/slider";
 import { HelpCircle } from "lucide-react";
 import HoverInformation from "../HoverInformation";
 
-function PeripheralVisionTechnique() {
+interface PeripheralVisionTechniqueProps {
+  setPeripheralVision: (peripheralVision: boolean) => void;
+  peripheralVision: boolean;
+  leftMargin: number;
+  setLeftMargin: (leftMargin: number) => void;
+  rightMargin: number;
+  setRightMargin: (rightMargin: number) => void;
+}
+
+function PeripheralVisionTechnique({
+  peripheralVision,
+  setPeripheralVision,
+  leftMargin,
+  setLeftMargin,
+  rightMargin,
+  setRightMargin,
+}: PeripheralVisionTechniqueProps) {
   return (
     <div
       role="presentation"
@@ -15,40 +31,66 @@ function PeripheralVisionTechnique() {
         className="flex flex-row items-center justify-between "
       >
         <div role="presentation" className="flex items-center">
-          <h2>Bionic Reading</h2>
+          <h2>Peripheral Vision</h2>
           <HoverInformation
             icon={<HelpCircle className="w-4 h-4 ml-2 cursor-help" />}
-            title="Bionic Reading"
-            description="Bionic Reading is a technique that allows you to read faster by bolding the first characters of a text."
+            title="Peripheral Vision"
+            description="Peripheral Vision is a technique that allows you to read faster by using your peripheral vision to read the text."
           />
         </div>
-        <Switch onCheckedChange={setBoldedWords} checked={boldedWords} />
+        <Switch
+          onCheckedChange={setPeripheralVision}
+          checked={peripheralVision}
+        />
       </div>
-      {boldedWords && (
+      {peripheralVision && (
         <>
           <div role="presentation" className="relative mt-4">
             <Label
-              htmlFor="fixation"
+              htmlFor="leftMargin"
               className="flex mb-4 text-sm text-muted-foreground"
             >
-              Fixation
+              Left Margin
             </Label>
 
             <Slider
               className="mt-4"
-              aria-label={`Fixation` + fixation}
-              defaultValue={[fixation]}
-              onValueChange={(value) => setFixation(value[0])}
-              min={3}
-              max={11}
-              step={1}
-              id="fixation"
+              aria-label={`Left Margin` + leftMargin}
+              defaultValue={[leftMargin]}
+              onValueChange={(value) => setLeftMargin(value[0])}
+              min={60}
+              max={180}
+              step={5}
+              id="leftMargin"
             />
             <span
-              aria-label="Current Fixation"
+              aria-label="Current Margin"
               className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
             >
-              {fixation}
+              {leftMargin} px
+            </span>
+            <Label
+              htmlFor="rightMargin"
+              className="flex mt-4 mb-4 text-sm text-muted-foreground"
+            >
+              Right Margin
+            </Label>
+
+            <Slider
+              className="mt-4"
+              aria-label={`Right Margin` + rightMargin}
+              defaultValue={[rightMargin]}
+              onValueChange={(value) => setRightMargin(value[0])}
+              min={60}
+              max={180}
+              step={5}
+              id="rightMargin"
+            />
+            <span
+              aria-label="Current Margin"
+              className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
+            >
+              {rightMargin} px
             </span>
           </div>
         </>

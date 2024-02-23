@@ -17,6 +17,12 @@ interface SpeedReadingMenuProps {
   setBoldedWords: (boldedWords: boolean) => void;
   fixation: number;
   setFixation: (fixation: number) => void;
+  peripheralVision: boolean;
+  setPeripheralVision: (peripheralVision: boolean) => void;
+  leftMargin: number;
+  setLeftMargin: (leftMargin: number) => void;
+  rightMargin: number;
+  setRightMargin: (rightMargin: number) => void;
 }
 
 function SpeedReadingMenu({
@@ -24,6 +30,12 @@ function SpeedReadingMenu({
   setBoldedWords,
   fixation,
   setFixation,
+  peripheralVision,
+  setPeripheralVision,
+  leftMargin,
+  setLeftMargin,
+  rightMargin,
+  setRightMargin,
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -47,7 +59,14 @@ function SpeedReadingMenu({
             />
           </SheetDescription>
           <SheetDescription>
-            {/* <PeripheralVisionTechnique /> */}
+            <PeripheralVisionTechnique
+              peripheralVision={peripheralVision}
+              setPeripheralVision={setPeripheralVision}
+              leftMargin={leftMargin}
+              setLeftMargin={setLeftMargin}
+              rightMargin={rightMargin}
+              setRightMargin={setRightMargin}
+            />
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

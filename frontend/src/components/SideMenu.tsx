@@ -40,7 +40,7 @@ function SideMenu({
   lineSpacing,
   setLineSpacing,
   letterSpacing,
-  setLetterSpacing,
+  setLetterSpacing, 
 }: SideMenuProps) {
   const size = useResizeScreen();
 
