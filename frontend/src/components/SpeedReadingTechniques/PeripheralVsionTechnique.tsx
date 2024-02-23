@@ -3,6 +3,8 @@ import { Label } from "@radix-ui/react-label";
 import { Slider } from "@/components/ui/slider";
 import { HelpCircle } from "lucide-react";
 import HoverInformation from "../HoverInformation";
+import { Blend } from "lucide-react";
+import { useResizeScreen } from "@/customHooks/useResizeScreen";
 
 interface PeripheralVisionTechniqueProps {
   setPeripheralVision: (peripheralVision: boolean) => void;
@@ -25,6 +27,8 @@ function PeripheralVisionTechnique({
   peripheralOpacity,
   setPeripheralOpacity,
 }: PeripheralVisionTechniqueProps) {
+  const size = useResizeScreen();
+  const sizeScreen = size[0] > 768;
   return (
     <div
       role="presentation"
@@ -48,7 +52,7 @@ function PeripheralVisionTechnique({
         />
       </div>
       {peripheralVision && (
-        <>
+        <div className="mb-4">
           <div role="presentation" className="relative mt-4 ">
             <Label
               htmlFor="leftMargin"
@@ -62,8 +66,8 @@ function PeripheralVisionTechnique({
               aria-label={`Left Margin` + leftMargin + "px"}
               defaultValue={[leftMargin]}
               onValueChange={(value) => setLeftMargin(value[0])}
-              min={60}
-              max={180}
+              min={sizeScreen ? 60 : 30}
+              max={sizeScreen ? 180 : 120}
               step={1}
               id="leftMargin"
             />
@@ -87,14 +91,14 @@ function PeripheralVisionTechnique({
               aria-label={`Right Margin` + rightMargin + "px"}
               defaultValue={[rightMargin]}
               onValueChange={(value) => setRightMargin(value[0])}
-              min={60}
-              max={180}
+              min={sizeScreen ? 60 : 30}
+              max={sizeScreen ? 180 : 120}
               step={5}
               id="rightMargin"
             />
             <span
               aria-label="Current Margin"
-              className="absolute top-0 right-0 mt-5 mr-2 text-sm text-muted-foreground"
+              className="absolute top-0 right-0 mr-2 text-sm text-muted-foreground"
             >
               {rightMargin} px
             </span>
@@ -104,7 +108,7 @@ function PeripheralVisionTechnique({
               htmlFor="opacity"
               className="flex mt-4 mb-4 text-sm text-muted-foreground"
             >
-              Opacity
+              Opacity <Blend className="w-4 h-4 ml-2" />
             </Label>
 
             <Slider
@@ -119,12 +123,12 @@ function PeripheralVisionTechnique({
             />
             <span
               aria-label="Current Opacity"
-              className="absolute top-0 right-0 mt-5 mr-2 text-sm text-muted-foreground"
+              className="absolute top-0 right-0 mr-2 text-sm text-muted-foreground"
             >
               {peripheralOpacity} %
             </span>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
