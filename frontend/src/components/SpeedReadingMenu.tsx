@@ -49,7 +49,6 @@ function SpeedReadingMenu({
   setPacingTechnique,
   pacerColour,
   setPacerColour,
-  setHighlightIndex
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -70,7 +69,6 @@ function SpeedReadingMenu({
               setPacingTechnique={setPacingTechnique}
               pacerColour={pacerColour}
               setPacerColour={setPacerColour}
-              setHighlightIndex={setHighlightIndex}
             />
           </SheetDescription>
           <SheetDescription>

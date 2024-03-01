@@ -129,7 +129,6 @@ function ReadifyApp() {
                   setPacingTechnique={setPacingTechnique}
                   pacerColour={pacerColour}
                   setPacerColour={setPacerColour}
-                  setHighlightIndex={setHighlightIndex}
                 />
                 <SideMenu
                   wordsCount={wordsCount}

@@ -16,12 +16,11 @@ function PacingTechnique({
   setPacingTechnique,
   pacerColour,
   setPacerColour,
-  setHighlightIndex,
 }: PacingTechniqueProps) {
-  function handlePacingTechnique() {
-    setPacingTechnique(!pacingTechnique);
-    setHighlightIndex(0);
-  }
+  // function handlePacingTechnique() {
+  //   setPacingTechnique(!pacingTechnique);
+  //   setHighlightIndex(0);
+  // }
   return (
     <div
       role="presentation"
@@ -40,7 +39,7 @@ function PacingTechnique({
           />
         </div>
         <Switch
-          onCheckedChange={handlePacingTechnique}
+          onCheckedChange={setPacingTechnique}
           checked={pacingTechnique}
         />
       </div>
