@@ -41,5 +41,6 @@ export function boldingWords(str: string, fixation: number) {
       return word + " ";
     }
   });
+
   return boldedWords;
 }

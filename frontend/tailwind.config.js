@@ -68,6 +68,13 @@ module.exports = {
           pageColour3: "#e3e5e7",
           pageColour4: "#e7e3d5",
         },
+        pacerColour: {
+          pacerColour1: "#e11d48",
+          pacerColour2: "#17a34a",
+          pacerColour3: "#f97315",
+          pacerColour4: "#2463eb",
+          pacerColour5: "#939393",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

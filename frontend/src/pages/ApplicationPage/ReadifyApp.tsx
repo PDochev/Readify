@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
 import SpeedReadingMenu from "@/components/SpeedReadingMenu";
@@ -19,18 +19,28 @@ function ReadifyApp() {
   const [lineSpacing, setLineSpacing] = useState(24);
   const [letterSpacing, setLetterSpacing] = useState(0);
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
+  const [pacerColour, setPacerColour] = useState("#e11d48");
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
   const [peripheralVision, setPeripheralVision] = useState(false);
   const [leftMargin, setLeftMargin] = useState(size[0] > 768 ? 120 : 80);
   const [rightMargin, setRightMargin] = useState(size[0] > 768 ? 120 : 80);
   const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
+  const [highlightIndex, setHighlightIndex] = useState(0);
+  const [pacingTechnique, setPacingTechnique] = useState(false);
 
   const title = document.title;
   const text = document.text || "";
 
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
+
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setHighlightIndex((highlightIndex) => (highlightIndex + 1) % wordsCount);
+    }, 300);
+    return () => clearTimeout(interval);
+  }, [highlightIndex, wordsCount]);
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -55,6 +65,26 @@ function ReadifyApp() {
     }
     fetchDocuments();
   }, [id]);
+
+  function highlightWord(
+    str: string,
+    startIndex: number,
+    highlightLength: number
+  ) {
+    const words = str.split(" ");
+    const highlightedText = words.map((word, index) => {
+      if (index >= startIndex && index < startIndex + highlightLength) {
+        return (
+          <span key={index} style={{ backgroundColor: `${pacerColour}` }}>
+            {word}{" "}
+          </span>
+        );
+      } else {
+        return <span key={index}>{word} </span>;
+      }
+    });
+    return highlightedText;
+  }
 
   return (
     <>
@@ -87,6 +117,10 @@ function ReadifyApp() {
                   setRightMargin={setRightMargin}
                   peripheralOpacity={peripheralOpacity}
                   setPeripheralOpacity={setPeripheralOpacity}
+                  pacingTechnique={pacingTechnique}
+                  setPacingTechnique={setPacingTechnique}
+                  pacerColour={pacerColour}
+                  setPacerColour={setPacerColour}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -137,7 +171,21 @@ function ReadifyApp() {
               }}
               className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6  "
             >
-              {boldedWords ? boldingWords(text, fixation) : text}
+              {boldedWords
+                ? boldingWords(text, fixation).map((word, index) => (
+                    <span key={index}>
+                      {pacingTechnique && highlightIndex === index ? (
+                        <span style={{ backgroundColor: `${pacerColour}` }}>
+                          {word}
+                        </span>
+                      ) : (
+                        <span>{word}</span>
+                      )}
+                    </span>
+                  ))
+                : pacingTechnique
+                ? highlightWord(text, highlightIndex, 1)
+                : text}
             </p>
           </div>
           {peripheralVision && (

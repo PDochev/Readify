@@ -11,6 +11,7 @@ import { BookOpenText } from "lucide-react";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import PeripheralVisionTechnique from "./SpeedReadingTechniques/PeripheralVsionTechnique";
 import BionicReadingTechnique from "./SpeedReadingTechniques/BionicReadingTechnique";
+import PacingTechnique from "./SpeedReadingTechniques/PacingTechnique";
 
 interface SpeedReadingMenuProps {
   boldedWords: boolean;
@@ -25,6 +26,8 @@ interface SpeedReadingMenuProps {
   setRightMargin: (rightMargin: number) => void;
   peripheralOpacity: number;
   setPeripheralOpacity: (peripheralOpacity: number) => void;
+  pacingTechnique: boolean;
+  setPacingTechnique: (pacingTechnique: boolean) => void;
 }
 
 function SpeedReadingMenu({
@@ -40,6 +43,10 @@ function SpeedReadingMenu({
   setRightMargin,
   peripheralOpacity,
   setPeripheralOpacity,
+  pacingTechnique,
+  setPacingTechnique,
+  pacerColour,
+  setPacerColour,
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -54,6 +61,14 @@ function SpeedReadingMenu({
           <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
             Speed Reading techniques
           </SheetTitle>
+          <SheetDescription>
+            <PacingTechnique
+              pacingTechnique={pacingTechnique}
+              setPacingTechnique={setPacingTechnique}
+              pacerColour={pacerColour}
+              setPacerColour={setPacerColour}
+            />
+          </SheetDescription>
           <SheetDescription>
             <BionicReadingTechnique
               setBoldedWords={setBoldedWords}
