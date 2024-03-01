@@ -1,6 +1,11 @@
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-function PacerColour({ pacerColour, setPacerColour }) {
+interface PacerColourProps {
+  pacerColour: string;
+  setPacerColour: (pacerColour: string) => void;
+}
+
+function PacerColour({ pacerColour, setPacerColour }: PacerColourProps) {
   return (
     <div className="flex">
       <RadioGroup

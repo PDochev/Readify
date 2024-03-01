@@ -28,6 +28,8 @@ interface SpeedReadingMenuProps {
   setPeripheralOpacity: (peripheralOpacity: number) => void;
   pacingTechnique: boolean;
   setPacingTechnique: (pacingTechnique: boolean) => void;
+  pacerColour: string;
+  setPacerColour: (pacerColour: string) => void;
 }
 
 function SpeedReadingMenu({

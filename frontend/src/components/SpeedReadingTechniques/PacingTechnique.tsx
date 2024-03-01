@@ -1,6 +1,5 @@
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@radix-ui/react-label";
-import { Slider } from "@/components/ui/slider";
 import { HelpCircle } from "lucide-react";
 import HoverInformation from "../HoverInformation";
 import PacerColour from "./PacerColour";
@@ -8,6 +7,8 @@ import PacerColour from "./PacerColour";
 interface PacingTechniqueProps {
   pacingTechnique: boolean;
   setPacingTechnique: (pacingTechnique: boolean) => void;
+  pacerColour: string;
+  setPacerColour: (pacerColour: string) => void;
 }
 
 function PacingTechnique({
