@@ -20,7 +20,7 @@ function ReadifyApp() {
   const [lineSpacing, setLineSpacing] = useState(24);
   const [letterSpacing, setLetterSpacing] = useState(0);
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
-  const [pacerColour, setPacerColour] = useState("#e11d48");
+  const [pacerColour, setPacerColour] = useState("#ff375f");
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
   const [peripheralVision, setPeripheralVision] = useState(false);
@@ -29,15 +29,13 @@ function ReadifyApp() {
   const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
   const [highlightIndex, setHighlightIndex] = useState(0);
   const [pacingTechnique, setPacingTechnique] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [wordChunking, setWordChunking] = useState(1);
 
   const title = document.title;
   const text = document.text || "";
 
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
-
-  // const timeIntervalPacing = useRef(null);
 
   // useEffect(() => {
   //   const interval = setTimeout(() => {
@@ -80,7 +78,7 @@ function ReadifyApp() {
       if (index >= startIndex && index < startIndex + highlightLength) {
         return (
           <span
-            className="rounded "
+            className=" "
             key={index}
             style={{ backgroundColor: `${pacerColour}` }}
           >
@@ -129,6 +127,8 @@ function ReadifyApp() {
                   setPacingTechnique={setPacingTechnique}
                   pacerColour={pacerColour}
                   setPacerColour={setPacerColour}
+                  wordChunking={wordChunking}
+                  setWordChunking={setWordChunking}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -184,7 +184,7 @@ function ReadifyApp() {
                     <span key={index}>
                       {pacingTechnique && highlightIndex === index ? (
                         <span
-                          className="rounded"
+                          className=""
                           style={{ backgroundColor: `${pacerColour}` }}
                         >
                           {word}
@@ -195,7 +195,7 @@ function ReadifyApp() {
                     </span>
                   ))
                 : pacingTechnique
-                ? highlightWord(text, highlightIndex, 1)
+                ? highlightWord(text, highlightIndex, wordChunking)
                 : text}
             </p>
           </div>
@@ -215,6 +215,7 @@ function ReadifyApp() {
           highlightIndex={highlightIndex}
           wordsCount={wordsCount}
           setHighlightIndex={setHighlightIndex}
+          wordChunking={wordChunking}
         />
       )}
     </>

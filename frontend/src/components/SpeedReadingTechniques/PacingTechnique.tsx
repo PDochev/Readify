@@ -1,6 +1,7 @@
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@radix-ui/react-label";
 import { HelpCircle } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 import HoverInformation from "../HoverInformation";
 import PacerColour from "./PacerColour";
 
@@ -9,6 +10,8 @@ interface PacingTechniqueProps {
   setPacingTechnique: (pacingTechnique: boolean) => void;
   pacerColour: string;
   setPacerColour: (pacerColour: string) => void;
+  wordChunking: number;
+  setWordChunking: (wordChunking: number) => void;
 }
 
 function PacingTechnique({
@@ -16,6 +19,8 @@ function PacingTechnique({
   setPacingTechnique,
   pacerColour,
   setPacerColour,
+  wordChunking,
+  setWordChunking,
 }: PacingTechniqueProps) {
   // function handlePacingTechnique() {
   //   setPacingTechnique(!pacingTechnique);
@@ -44,18 +49,49 @@ function PacingTechnique({
         />
       </div>
       {pacingTechnique && (
-        <div role="presentation" className="relative flex justify-between mt-4">
-          <Label
-            htmlFor="pacerColour"
-            className="flex text-sm text-muted-foreground"
+        <>
+          <div
+            role="presentation"
+            className="relative flex justify-between mt-4"
           >
-            Pacer Colour
-          </Label>
-          <PacerColour
-            pacerColour={pacerColour}
-            setPacerColour={setPacerColour}
-          />
-        </div>
+            <Label
+              htmlFor="pacerColour"
+              className="flex text-sm text-muted-foreground"
+            >
+              Pacer Colour
+            </Label>
+            <PacerColour
+              pacerColour={pacerColour}
+              setPacerColour={setPacerColour}
+            />
+          </div>
+          <div
+            role="presentation"
+            className="relative flex flex-col items-start mt-4"
+          >
+            <Label
+              htmlFor="wordChunking"
+              className="mb-4 text-sm text-muted-foreground"
+            >
+              Word Chunking
+            </Label>
+            <Slider
+              aria-label={wordChunking + "words"}
+              defaultValue={[wordChunking]}
+              onValueChange={(value) => setWordChunking(value[0])}
+              min={1}
+              max={10}
+              step={1}
+              id="wordChunking"
+            />
+            <span
+              aria-label="Current number of words chunking"
+              className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
+            >
+              {wordChunking} words
+            </span>
+          </div>
+        </>
       )}
     </div>
   );

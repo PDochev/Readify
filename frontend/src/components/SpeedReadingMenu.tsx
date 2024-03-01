@@ -30,6 +30,8 @@ interface SpeedReadingMenuProps {
   setPacingTechnique: (pacingTechnique: boolean) => void;
   pacerColour: string;
   setPacerColour: (pacerColour: string) => void;
+  wordChunking: number;
+  setWordChunking: (wordChunking: number) => void;
 }
 
 function SpeedReadingMenu({
@@ -49,6 +51,8 @@ function SpeedReadingMenu({
   setPacingTechnique,
   pacerColour,
   setPacerColour,
+  wordChunking,
+  setWordChunking,
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -69,6 +73,8 @@ function SpeedReadingMenu({
               setPacingTechnique={setPacingTechnique}
               pacerColour={pacerColour}
               setPacerColour={setPacerColour}
+              wordChunking={wordChunking}
+              setWordChunking={setWordChunking}
             />
           </SheetDescription>
           <SheetDescription>

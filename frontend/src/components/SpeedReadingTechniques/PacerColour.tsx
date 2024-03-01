@@ -15,36 +15,36 @@ function PacerColour({ pacerColour, setPacerColour }: PacerColourProps) {
       >
         <RadioGroupItem
           className="w-5 h-5"
-          style={{ backgroundColor: "#e11d48" }}
-          value="#e11d48"
+          style={{ backgroundColor: "#ff375f" }}
+          value="#ff375f"
           id="option-one"
         />
 
         <RadioGroupItem
           className="w-5 h-5"
-          style={{ backgroundColor: "#17a34a" }}
-          value="#17a34a"
+          style={{ backgroundColor: "#1cac69" }}
+          value="#1cac69"
           id="option-two"
         />
 
         <RadioGroupItem
           className="w-5 h-5"
-          style={{ backgroundColor: "#f97315" }}
-          value="#f97315"
+          style={{ backgroundColor: "#ff9f0b" }}
+          value="#ff9f0b"
           id="option-two"
         />
 
         <RadioGroupItem
           className="w-5 h-5"
-          style={{ backgroundColor: "#2463eb" }}
-          value="#2463eb"
+          style={{ backgroundColor: "#5e5ce6" }}
+          value="#5e5ce6"
           id="option-two"
         />
 
         <RadioGroupItem
           className="w-5 h-5"
-          style={{ backgroundColor: "#939393" }}
-          value="#939393"
+          style={{ backgroundColor: "#98989d" }}
+          value="#98989d"
           id="option-two"
         />
       </RadioGroup>
