@@ -7,6 +7,7 @@ import TextPageColour from "@/components/TextPageColour";
 import { boldingWords } from "@/utils/utils";
 import Spinner from "@/components/Spinner";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
+import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -28,6 +29,7 @@ function ReadifyApp() {
   const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
   const [highlightIndex, setHighlightIndex] = useState(0);
   const [pacingTechnique, setPacingTechnique] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const title = document.title;
   const text = document.text || "";
@@ -35,12 +37,14 @@ function ReadifyApp() {
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
 
-  useEffect(() => {
-    const interval = setTimeout(() => {
-      setHighlightIndex((highlightIndex) => (highlightIndex + 1) % wordsCount);
-    }, 300);
-    return () => clearTimeout(interval);
-  }, [highlightIndex, wordsCount]);
+  // const timeIntervalPacing = useRef(null);
+
+  // useEffect(() => {
+  //   const interval = setTimeout(() => {
+  //     setHighlightIndex((highlightIndex) => (highlightIndex + 1) % wordsCount);
+  //   }, 300);
+  //   return () => clearTimeout(interval);
+  // }, [highlightIndex, wordsCount]);
 
   useEffect(() => {
     async function fetchDocuments() {
@@ -75,7 +79,11 @@ function ReadifyApp() {
     const highlightedText = words.map((word, index) => {
       if (index >= startIndex && index < startIndex + highlightLength) {
         return (
-          <span key={index} style={{ backgroundColor: `${pacerColour}` }}>
+          <span
+            className="rounded "
+            key={index}
+            style={{ backgroundColor: `${pacerColour}` }}
+          >
             {word}{" "}
           </span>
         );
@@ -121,6 +129,7 @@ function ReadifyApp() {
                   setPacingTechnique={setPacingTechnique}
                   pacerColour={pacerColour}
                   setPacerColour={setPacerColour}
+                  setHighlightIndex={setHighlightIndex}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -175,7 +184,10 @@ function ReadifyApp() {
                 ? boldingWords(text, fixation).map((word, index) => (
                     <span key={index}>
                       {pacingTechnique && highlightIndex === index ? (
-                        <span style={{ backgroundColor: `${pacerColour}` }}>
+                        <span
+                          className="rounded"
+                          style={{ backgroundColor: `${pacerColour}` }}
+                        >
                           {word}
                         </span>
                       ) : (
@@ -199,6 +211,13 @@ function ReadifyApp() {
           )}
         </section>
       </main>
+      {pacingTechnique && (
+        <PacingPlayer
+          highlightIndex={highlightIndex}
+          wordsCount={wordsCount}
+          setHighlightIndex={setHighlightIndex}
+        />
+      )}
     </>
   );
 }
