@@ -1,4 +1,14 @@
-function PeripheralVisionMargin({ marginSide, peripheralOpacity, className }) {
+interface PeripheralVisionMarginProps {
+  marginSide: number;
+  peripheralOpacity: number;
+  className: string;
+}
+
+function PeripheralVisionMargin({
+  marginSide,
+  peripheralOpacity,
+  className,
+}: PeripheralVisionMarginProps) {
   return (
     <div
       style={{
