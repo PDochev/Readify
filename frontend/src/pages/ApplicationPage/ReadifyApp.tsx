@@ -204,9 +204,10 @@ function ReadifyApp() {
                         </span>
                       ) : (
                         <span
-                          style={
-                            stopRegression ? { opacity: regressionOpacity } : {}
-                          }
+                          style={{
+                            opacity:
+                              index <= highlightIndex ? regressionOpacity : 1,
+                          }}
                         >
                           {word}
                         </span>
