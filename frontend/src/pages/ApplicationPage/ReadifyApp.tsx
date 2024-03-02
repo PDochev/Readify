@@ -164,7 +164,7 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={` mx-auto mt-14  rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
+          className={`mx-auto mt-14 rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
         >
           {peripheralVision && (
             <div
@@ -233,7 +233,6 @@ function ReadifyApp() {
       </main>
       {pacingTechnique && (
         <PacingPlayer
-          highlightIndex={highlightIndex}
           wordsCount={wordsCount}
           setHighlightIndex={setHighlightIndex}
           wordChunking={wordChunking}

@@ -137,7 +137,7 @@ function PacingTechnique({
                 htmlFor="regressionOpacity"
                 className=" flex mb-4 text-sm text-muted-foreground"
               >
-                Regression Opacity <Blend className="w-4 h-4 ml-2" />
+                Opacity <Blend className="w-4 h-4 ml-2" />
               </Label>
 
               <Slider

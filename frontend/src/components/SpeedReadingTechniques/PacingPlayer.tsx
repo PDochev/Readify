@@ -2,14 +2,12 @@ import { Play, Pause, SkipForward, SkipBack, Plus, Minus } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 interface PacingPlayerProps {
-  highlightIndex: number;
   setHighlightIndex: (highlightIndex: number) => void;
   wordsCount: number;
   wordChunking: number;
 }
 
 function PacingPlayer({
-  highlightIndex,
   wordsCount,
   setHighlightIndex,
   wordChunking,
@@ -58,11 +56,11 @@ function PacingPlayer({
   };
 
   const handleIncreaseSpeed = () => {
-    setSpeed((currSpeed) => currSpeed - 10);
+    setSpeed((currSpeed) => currSpeed - 40);
   };
 
   const handleDecreaseSpeed = () => {
-    setSpeed((currSpeed) => currSpeed + 10);
+    setSpeed((currSpeed) => currSpeed + 40);
   };
 
   //   const handleReset = () => {
