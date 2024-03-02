@@ -9,6 +9,7 @@ import Spinner from "@/components/Spinner";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 import ErrorMessage from "@/components/ErrorMessage";
+import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -168,13 +169,11 @@ function ReadifyApp() {
           className={`mx-auto mt-14 rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
         >
           {peripheralVision && (
-            <div
-              style={{
-                width: `${leftMargin}px`,
-                opacity: `${peripheralOpacity}`,
-              }}
-              className={`absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit `}
-            ></div>
+            <PeripheralVisionMargin
+              marginSide={leftMargin}
+              peripheralOpacity={peripheralOpacity}
+              className="absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit"
+            />
           )}
           {loading && <Spinner />}
           <div className="mt-10 mb-5">
@@ -220,13 +219,11 @@ function ReadifyApp() {
             </p>
           </div>
           {peripheralVision && (
-            <div
-              style={{
-                width: `${rightMargin}px`,
-                opacity: `${peripheralOpacity}`,
-              }}
-              className={`absolute top-0 right-0  h-full border-l-2 border-slate-400 bg-inherit `}
-            ></div>
+            <PeripheralVisionMargin
+              marginSide={rightMargin}
+              peripheralOpacity={peripheralOpacity}
+              className="absolute top-0 right-0  h-full border-l-2 border-slate-400 bg-inherit"
+            />
           )}
         </section>
       </main>
