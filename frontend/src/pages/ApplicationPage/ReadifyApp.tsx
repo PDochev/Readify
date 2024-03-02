@@ -41,13 +41,6 @@ function ReadifyApp() {
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
 
-  // useEffect(() => {
-  //   const interval = setTimeout(() => {
-  //     setHighlightIndex((highlightIndex) => (highlightIndex + 1) % wordsCount);
-  //   }, 300);
-  //   return () => clearTimeout(interval);
-  // }, [highlightIndex, wordsCount]);
-
   useEffect(() => {
     async function fetchDocuments() {
       try {
@@ -196,10 +189,7 @@ function ReadifyApp() {
                 ? boldingWords(text, fixation).map((word, index) => (
                     <span key={index}>
                       {pacingTechnique && highlightIndex === index ? (
-                        <span
-                          className=""
-                          style={{ backgroundColor: `${pacerColour}` }}
-                        >
+                        <span style={{ backgroundColor: `${pacerColour}` }}>
                           {word}
                         </span>
                       ) : (
