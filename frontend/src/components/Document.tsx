@@ -1,3 +1,5 @@
+import ErrorMessage from "./ErrorMessage";
+
 interface DocumentProps {
   children: React.ReactNode;
   errorMessage: string;
@@ -12,7 +14,7 @@ function Document({ children, errorMessage, dataLength }: DocumentProps) {
           Your library is empty
         </h3>
       )}
-      {errorMessage ? <p>{errorMessage}</p> : <>{children}</>}
+      {errorMessage ? <ErrorMessage error={errorMessage} /> : <>{children}</>}
     </div>
   );
 }

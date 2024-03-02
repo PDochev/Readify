@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import AlertDialogDelete from "./AlertDialogDelete";
 
-function DocumentsTable({ document, handleDelete }) {
+interface DocumentsTableProps {
+  document: Document[];
+  handleDelete: (id: string) => void;
+}
+
+interface Document {
+  _id: string;
+  title: string;
+  createdAt: string;
+}
+
+function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
   return (
     <div role="presentation">
       <h3 className="text-md font-medium leading-none mb-8">Documents</h3>

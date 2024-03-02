@@ -5,6 +5,12 @@ import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import DocumentsTable from "./DocumentsTable";
 
+interface Document {
+  _id: string;
+  title: string;
+  createdAt: string;
+}
+
 function Library() {
   const { toast } = useToast();
   const [document, setDocument] = useState([]);
@@ -12,15 +18,12 @@ function Library() {
   const [error, setError] = useState("");
   const [dataLength, setDataLength] = useState(0);
 
-  // const { document, loading, error, dataLength } = useDocumentsFetch(
-  //   "http://localhost:3000/documents"
-  // );
   const handleDelete = (id: string) => {
     axios
       .delete(`http://localhost:3000/documents/${id}`)
       .then(() => {
         setLoading(false);
-        setDocument(document.filter((doc) => doc._id !== id));
+        setDocument(document.filter((doc: Document) => doc._id !== id));
         toast({
           variant: "destructive",
           title: "Your document has been deleted.",

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
 import SpeedReadingMenu from "@/components/SpeedReadingMenu";
@@ -8,6 +8,7 @@ import { boldingWords } from "@/utils/utils";
 import Spinner from "@/components/Spinner";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
+import ErrorMessage from "@/components/ErrorMessage";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -182,9 +183,7 @@ function ReadifyApp() {
             </h3>
           </div>
           <div className="w-11/12 ">
-            {error && (
-              <p className="leading-7 [&:not(:first-child)]:mt-6">{error}</p>
-            )}
+            {error && <ErrorMessage error={error} />}
             <p
               style={{
                 fontSize: `${textSize}px`,

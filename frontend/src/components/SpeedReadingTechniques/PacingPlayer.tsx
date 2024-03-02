@@ -56,11 +56,11 @@ function PacingPlayer({
   };
 
   const handleIncreaseSpeed = () => {
-    setSpeed((currSpeed) => currSpeed - 40);
+    setSpeed((currSpeed) => currSpeed - 30);
   };
 
   const handleDecreaseSpeed = () => {
-    setSpeed((currSpeed) => currSpeed + 40);
+    setSpeed((currSpeed) => currSpeed + 30);
   };
 
   //   const handleReset = () => {
