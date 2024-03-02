@@ -67,14 +67,24 @@ function PacingTechnique({
           </div>
           <div
             role="presentation"
-            className="relative flex flex-col items-start mt-4"
+            className="relative flex flex-col items-start  mt-4"
           >
-            <Label
-              htmlFor="wordChunking"
-              className="mb-4 text-sm text-muted-foreground"
-            >
-              Word Chunking
-            </Label>
+            <div className="flex ">
+              <Label
+                htmlFor="wordChunking"
+                className="mb-4 text-sm text-muted-foreground"
+              >
+                Word Chunking
+              </Label>
+              <HoverInformation
+                icon={
+                  <HelpCircle className="w-4 h-4 ml-2 cursor-help mt-[2px] " />
+                }
+                title="Word Chunking"
+                description="Words chunking is a technique that involves grouping words together to read them in chunks. This can help to reduce subvocalization and increase reading speed. The number of words in each chunk can be adjusted to suit the reader's preference."
+              />
+            </div>
+
             <Slider
               aria-label={wordChunking + "words"}
               defaultValue={[wordChunking]}
@@ -86,7 +96,7 @@ function PacingTechnique({
             />
             <span
               aria-label="Current number of words chunking"
-              className="absolute top-0 right-0 mt-1 mr-2 text-sm text-muted-foreground"
+              className="absolute top-0 right-0  mr-2  text-sm text-muted-foreground"
             >
               {wordChunking} words
             </span>

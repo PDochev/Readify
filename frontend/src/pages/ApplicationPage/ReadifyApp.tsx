@@ -78,7 +78,7 @@ function ReadifyApp() {
       if (index >= startIndex && index < startIndex + highlightLength) {
         return (
           <span
-            className=" "
+            className=""
             key={index}
             style={{ backgroundColor: `${pacerColour}` }}
           >

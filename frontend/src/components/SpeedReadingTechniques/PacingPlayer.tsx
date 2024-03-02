@@ -15,7 +15,7 @@ function PacingPlayer({
   wordChunking,
 }: PacingPlayerProps) {
   const [isRunning, setIsRunning] = useState(false);
-  const [speed, setSpeed] = useState(270);
+  const [speed, setSpeed] = useState(400);
 
   const timeInterval = useRef(null);
 
@@ -46,11 +46,15 @@ function PacingPlayer({
   };
 
   const handleNextWord = () => {
-    setHighlightIndex((highlightIndex: number) => highlightIndex + 1);
+    setHighlightIndex(
+      (highlightIndex: number) => highlightIndex + wordChunking
+    );
   };
 
   const handlePreviousWord = () => {
-    setHighlightIndex((highlightIndex: number) => highlightIndex - 1);
+    setHighlightIndex(
+      (highlightIndex: number) => highlightIndex - wordChunking
+    );
   };
 
   const handleIncreaseSpeed = () => {
