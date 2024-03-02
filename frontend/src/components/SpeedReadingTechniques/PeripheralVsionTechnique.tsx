@@ -112,7 +112,7 @@ function PeripheralVisionTechnique({
             </Label>
 
             <Slider
-              className=""
+              
               aria-label={`Opacity` + peripheralOpacity + "%"}
               defaultValue={[peripheralOpacity]}
               onValueChange={(value) => setPeripheralOpacity(value[0])}

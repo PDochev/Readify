@@ -32,6 +32,10 @@ interface SpeedReadingMenuProps {
   setPacerColour: (pacerColour: string) => void;
   wordChunking: number;
   setWordChunking: (wordChunking: number) => void;
+  stopRegression: boolean;
+  setStopRegression: (stopRegression: boolean) => void;
+  regressionOpacity: number;
+  setRegressionOpacity: (regressionOpacity: number) => void;
 }
 
 function SpeedReadingMenu({
@@ -53,6 +57,10 @@ function SpeedReadingMenu({
   setPacerColour,
   wordChunking,
   setWordChunking,
+  stopRegression,
+  setStopRegression,
+  regressionOpacity,
+  setRegressionOpacity,
 }: SpeedReadingMenuProps) {
   const size = useResizeScreen();
 
@@ -75,6 +83,10 @@ function SpeedReadingMenu({
               setPacerColour={setPacerColour}
               wordChunking={wordChunking}
               setWordChunking={setWordChunking}
+              stopRegression={stopRegression}
+              setStopRegression={setStopRegression}
+              regressionOpacity={regressionOpacity}
+              setRegressionOpacity={setRegressionOpacity}
             />
           </SheetDescription>
           <SheetDescription>

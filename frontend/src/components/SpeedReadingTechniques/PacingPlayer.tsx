@@ -29,7 +29,7 @@ function PacingPlayer({
       }, speed);
     }
     return () => clearInterval(timeInterval.current);
-  }, [isRunning, setHighlightIndex, speed, wordsCount]);
+  }, [isRunning, setHighlightIndex, speed, wordsCount, wordChunking]);
 
   const handleStart = () => {
     if (isRunning) return;
@@ -66,11 +66,11 @@ function PacingPlayer({
   };
 
   //   const handleReset = () => {
-  //     setIsRunning(false);
+  //     setIsRunning(false);s
   //     clearInterval(timeInterval.current);
   //   };
   return (
-    <div className="fixed  w-48 h-10 -translate-x-1/2 rounded jus bottom-5 left-1/2 bg-primary text-primary-foreground">
+    <div className="fixed w-48 h-12 -translate-x-1/2 rounded jus bottom-5 left-1/2 bg-primary text-primary-foreground">
       <div className="flex items-center justify-center h-full gap-2 ">
         <Minus className="cursor-pointer " onClick={handleDecreaseSpeed} />
         <SkipBack className="cursor-pointer" onClick={handlePreviousWord} />

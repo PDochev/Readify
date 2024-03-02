@@ -1,6 +1,7 @@
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@radix-ui/react-label";
 import { HelpCircle } from "lucide-react";
+import { Blend } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import HoverInformation from "../HoverInformation";
 import PacerColour from "./PacerColour";
@@ -12,6 +13,10 @@ interface PacingTechniqueProps {
   setPacerColour: (pacerColour: string) => void;
   wordChunking: number;
   setWordChunking: (wordChunking: number) => void;
+  stopRegression: boolean;
+  setStopRegression: (stopRegression: boolean) => void;
+  regressionOpacity: number;
+  setRegressionOpacity: (regressionOpacity: number) => void;
 }
 
 function PacingTechnique({
@@ -21,6 +26,10 @@ function PacingTechnique({
   setPacerColour,
   wordChunking,
   setWordChunking,
+  stopRegression,
+  setStopRegression,
+  regressionOpacity,
+  setRegressionOpacity,
 }: PacingTechniqueProps) {
   // function handlePacingTechnique() {
   //   setPacingTechnique(!pacingTechnique);
@@ -61,6 +70,7 @@ function PacingTechnique({
               Pacer Colour
             </Label>
             <PacerColour
+              aria-label={"colour" + pacerColour + "selected"}
               pacerColour={pacerColour}
               setPacerColour={setPacerColour}
             />
@@ -101,6 +111,52 @@ function PacingTechnique({
               {wordChunking} words
             </span>
           </div>
+          <div
+            role="presentation"
+            className="flex flex-row items-center justify-between mt-4"
+          >
+            <div role="presentation" className="flex items-center">
+              <h2>Stop Regression</h2>
+              <HoverInformation
+                icon={<HelpCircle className="w-4 h-4 ml-2 cursor-help" />}
+                title="Stopping Regression"
+                description="Regression is the act of re-reading words or phrases. This can slow down reading speed. By enabling stop regression, the reader can focus on moving forward and avoid re-reading words. This can help to increase reading speed."
+              />
+            </div>
+            <Switch
+              onCheckedChange={setStopRegression}
+              checked={stopRegression}
+            />
+          </div>
+          {stopRegression && (
+            <div
+              role="presentation"
+              className="relative flex flex-col items-start  mt-4"
+            >
+              <Label
+                htmlFor="regressionOpacity"
+                className=" flex mb-4 text-sm text-muted-foreground"
+              >
+                Regression Opacity <Blend className="w-4 h-4 ml-2" />
+              </Label>
+
+              <Slider
+                aria-label={`Regression Opacity` + regressionOpacity + "%"}
+                defaultValue={[regressionOpacity]}
+                onValueChange={(value) => setRegressionOpacity(value[0])}
+                min={0}
+                max={1}
+                step={0.1}
+                id="stopRegression"
+              />
+              <span
+                aria-label="Current regression opacity"
+                className="absolute top-0 right-0  mr-2  text-sm text-muted-foreground"
+              >
+                {regressionOpacity} %
+              </span>
+            </div>
+          )}
         </>
       )}
     </div>

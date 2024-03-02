@@ -30,6 +30,8 @@ function ReadifyApp() {
   const [highlightIndex, setHighlightIndex] = useState(0);
   const [pacingTechnique, setPacingTechnique] = useState(false);
   const [wordChunking, setWordChunking] = useState(1);
+  const [stopRegression, setStopRegression] = useState(false);
+  const [regressionOpacity, setRegressionOpacity] = useState(0.5);
 
   const title = document.title;
   const text = document.text || "";
@@ -85,6 +87,15 @@ function ReadifyApp() {
             {word}{" "}
           </span>
         );
+      } else if (index <= startIndex) {
+        return (
+          <span
+            style={stopRegression ? { opacity: regressionOpacity } : {}}
+            key={index}
+          >
+            {word}{" "}
+          </span>
+        );
       } else {
         return <span key={index}>{word} </span>;
       }
@@ -129,6 +140,10 @@ function ReadifyApp() {
                   setPacerColour={setPacerColour}
                   wordChunking={wordChunking}
                   setWordChunking={setWordChunking}
+                  stopRegression={stopRegression}
+                  setStopRegression={setStopRegression}
+                  regressionOpacity={regressionOpacity}
+                  setRegressionOpacity={setRegressionOpacity}
                 />
                 <SideMenu
                   wordsCount={wordsCount}
@@ -190,7 +205,13 @@ function ReadifyApp() {
                           {word}
                         </span>
                       ) : (
-                        <span>{word}</span>
+                        <span
+                          style={
+                            stopRegression ? { opacity: regressionOpacity } : {}
+                          }
+                        >
+                          {word}
+                        </span>
                       )}
                     </span>
                   ))
