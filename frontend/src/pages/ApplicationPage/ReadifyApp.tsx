@@ -28,7 +28,7 @@ function ReadifyApp() {
   const [peripheralVision, setPeripheralVision] = useState(false);
   const [leftMargin, setLeftMargin] = useState(size[0] > 768 ? 120 : 80);
   const [rightMargin, setRightMargin] = useState(size[0] > 768 ? 120 : 80);
-  const [peripheralOpacity, setPeripheralOpacity] = useState(0.8);
+  const [peripheralOpacity, setPeripheralOpacity] = useState(0.5);
   const [highlightIndex, setHighlightIndex] = useState(0);
   const [pacingTechnique, setPacingTechnique] = useState(false);
   const [wordChunking, setWordChunking] = useState(1);
@@ -98,6 +98,15 @@ function ReadifyApp() {
     return highlightedText;
   }
 
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setHighlightIndex((highlightIndex) => {
+  //       return (highlightIndex + wordChunking) % wordsCount;
+  //     });
+  //   })
+  //   return () => clearInterval(interval);
+  // })
+
   return (
     <>
       <header>
@@ -161,20 +170,13 @@ function ReadifyApp() {
         <section
           className={`mx-auto mt-14 rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
         >
-          {peripheralVision && (
-            <PeripheralVisionMargin
-              marginSide={leftMargin}
-              peripheralOpacity={peripheralOpacity}
-              className="absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit"
-            />
-          )}
           {loading && <Spinner />}
           <div className="mt-10 mb-5">
             <h3 className="text-2xl font-semibold tracking-tight scroll-m-20">
               {title}
             </h3>
           </div>
-          <div className="w-11/12 ">
+          <div className="w-11/12">
             {error && <ErrorMessage error={error} />}
             <p
               style={{
@@ -211,6 +213,13 @@ function ReadifyApp() {
                 : text}
             </p>
           </div>
+          {peripheralVision && (
+            <PeripheralVisionMargin
+              marginSide={leftMargin}
+              peripheralOpacity={peripheralOpacity}
+              className="absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit"
+            />
+          )}
           {peripheralVision && (
             <PeripheralVisionMargin
               marginSide={rightMargin}

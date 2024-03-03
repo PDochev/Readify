@@ -69,11 +69,11 @@ module.exports = {
           pageColour4: "#e7e3d5",
         },
         pacerColour: {
-          pacerColour1: "#e11d48",
-          pacerColour2: "#17a34a",
-          pacerColour3: "#f97315",
-          pacerColour4: "#2463eb",
-          pacerColour5: "#939393",
+          pacerColour1: "#ffacb8",
+          pacerColour2: "#ade1c3",
+          pacerColour3: "#ffd2a4",
+          pacerColour4: "#b8b7ee",
+          pacerColour5: "#cfcfd1",
         },
       },
       borderRadius: {
