@@ -22,7 +22,7 @@ function ReadifyApp() {
   const [lineSpacing, setLineSpacing] = useState(24);
   const [letterSpacing, setLetterSpacing] = useState(0);
   const [textPageColour, setTextPageColour] = useState("pageColourDefault");
-  const [pacerColour, setPacerColour] = useState("#ff375f");
+  const [pacerColour, setPacerColour] = useState("#ffacb8");
   const [boldedWords, setBoldedWords] = useState(false);
   const [fixation, setFixation] = useState(7);
   const [peripheralVision, setPeripheralVision] = useState(false);
