@@ -188,7 +188,9 @@ function ReadifyApp() {
               {boldedWords
                 ? boldingWords(text, fixation).map((word, index) => (
                     <span key={index}>
-                      {pacingTechnique && highlightIndex === index ? (
+                      {pacingTechnique &&
+                      index >= highlightIndex &&
+                      index < highlightIndex + wordChunking ? (
                         <span style={{ backgroundColor: `${pacerColour}` }}>
                           {word}
                         </span>
