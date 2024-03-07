@@ -9,12 +9,12 @@ function PacerColour({ pacerColour, setPacerColour }: PacerColourProps) {
   return (
     <div className="flex">
       <RadioGroup
-        className="flex items-center mx-auto gjustify-between"
+        className="flex items-center mx-auto gjustify-between  "
         defaultValue={pacerColour}
         onValueChange={setPacerColour}
       >
         <RadioGroupItem
-          className="w-5 h-5"
+          className="w-5 h-5 "
           style={{ backgroundColor: "#ffacb8" }}
           value="#ffacb8"
           id="option-one"

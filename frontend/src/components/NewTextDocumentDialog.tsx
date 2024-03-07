@@ -82,7 +82,9 @@ function NewTextDocumentDialog({
           )}
 
           <DialogFooter>
-            <Button type="submit">Save changes</Button>
+            <Button className="" type="submit">
+              Save changes
+            </Button>
           </DialogFooter>
         </form>
       </DialogContent>

@@ -1,7 +1,7 @@
 import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
-
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { User } from "lucide-react";
 
 function Documents() {
@@ -16,6 +16,7 @@ function Documents() {
               </h4>
 
               <div className="flex items-center gap-4 mr-4">
+                <ModeToggle />
                 <User />
               </div>
             </div>

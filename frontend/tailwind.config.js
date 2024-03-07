@@ -62,7 +62,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         textPageColours: {
-          pageColourDefault: "#ffffff",
+          pageColourDefault: "",
           pageColour1: "#fbf1da",
           pageColour2: "#b9dacd",
           pageColour3: "#e3e5e7",

@@ -28,7 +28,7 @@ function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
               </td>
             </tr>
           </thead>
-          <tbody className="bg-white text-slate-500">
+          <tbody className=" bg-background  text-foreground">
             {document.map((doc) => (
               <tr key={doc._id} className="py-4">
                 <td className="py-4 text-sm border text-muted-foreground p-4">

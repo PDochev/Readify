@@ -112,7 +112,7 @@ function ReadifyApp() {
       <header>
         <nav
           role="navigation"
-          className="fixed top-0 left-0 z-10 w-full bg-white "
+          className="fixed top-0 left-0 z-10 w-full  bg-background "
         >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
@@ -168,7 +168,7 @@ function ReadifyApp() {
       </header>
       <main>
         <section
-          className={`mx-auto mt-14 rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0`}
+          className={`mx-auto mt-14 rounded-sm shadow-sm h-fit flex flex-col  items-center  overflow-x-hidden  border  lg:w-1/2 lg:mt-32 lg:mb-10 bg-textPageColours-${textPageColour} relative z-0 `}
         >
           {loading && <Spinner />}
           <div className="mt-10 mb-5">
@@ -185,7 +185,7 @@ function ReadifyApp() {
                 lineHeight: `${lineSpacing}px`,
                 letterSpacing: `${letterSpacing}px`,
               }}
-              className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6  "
+              className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6 text-foreground  "
             >
               {boldedWords
                 ? boldingWords(text, fixation).map((word, index) => (
