@@ -41,6 +41,14 @@ function ReadifyApp() {
   const wordsCount: number = text.split(" ").length;
   const charactersCount: number = text.trim().length;
 
+  const textColourIfTextPageColourApplied =
+    textPageColour === "pageColour1" ||
+    textPageColour === "pageColour2" ||
+    textPageColour === "pageColour3" ||
+    textPageColour === "pageColour4"
+      ? { color: "#000000" }
+      : {};
+
   useEffect(() => {
     async function fetchDocuments() {
       try {
@@ -172,7 +180,10 @@ function ReadifyApp() {
         >
           {loading && <Spinner />}
           <div className="mt-10 mb-5">
-            <h3 className="text-2xl font-semibold tracking-tight scroll-m-20">
+            <h3
+              style={{ ...textColourIfTextPageColourApplied }}
+              className="text-2xl font-semibold tracking-tight scroll-m-20"
+            >
               {title}
             </h3>
           </div>
@@ -184,6 +195,7 @@ function ReadifyApp() {
                 fontFamily: `${fontFamily} , sans-serif`,
                 lineHeight: `${lineSpacing}px`,
                 letterSpacing: `${letterSpacing}px`,
+                ...textColourIfTextPageColourApplied,
               }}
               className="indent-8 whitespace-pre-line pb-10 px-6 mx-auto md:max-w-[80ch] text-left lg:max-w-[90ch]  [&:not(:first-child)]:mt-6 text-foreground  "
             >

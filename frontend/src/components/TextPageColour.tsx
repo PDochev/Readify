@@ -35,19 +35,19 @@ function TextPageColour({
             onValueChange={setTextPageColour}
           >
             <DropdownMenuRadioItem value="pageColourDefault">
-              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColourDefault "></div>
+              <div className="w-5 h-5 border border-foreground rounded-full bg-textPageColours-pageColourDefault "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour1">
-              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour1 "></div>
+              <div className="w-5 h-5 border border-foreground rounded-full bg-textPageColours-pageColour1 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour2">
-              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour2 "></div>
+              <div className="w-5 h-5 border border-foreground rounded-full bg-textPageColours-pageColour2 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour3">
-              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour3 "></div>
+              <div className="w-5 h-5 border border-foreground rounded-full bg-textPageColours-pageColour3 "></div>
             </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="pageColour4">
-              <div className="w-5 h-5 border border-blue-500 rounded-full bg-textPageColours-pageColour4 "></div>
+              <div className="w-5 h-5 border border-foreground rounded-full bg-textPageColours-pageColour4 "></div>
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>

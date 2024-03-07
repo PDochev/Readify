@@ -14,6 +14,7 @@ import LineSpacing from "./LineSpacing";
 import FontFamily from "./FontFamily";
 import LetterSpacing from "./LetterSpacing";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
+import ThemeToggle from "./ThemeToggle";
 
 // import Stopwatch from "./Stopwatch";
 
@@ -40,7 +41,7 @@ function SideMenu({
   lineSpacing,
   setLineSpacing,
   letterSpacing,
-  setLetterSpacing, 
+  setLetterSpacing,
 }: SideMenuProps) {
   const size = useResizeScreen();
 
@@ -58,6 +59,14 @@ function SideMenu({
           </SheetTitle>
           <SheetDescription>
             <Stats wordsCount={wordsCount} charactersCount={charactersCount} />
+          </SheetDescription>
+        </SheetHeader>
+        <SheetHeader>
+          <SheetTitle className="flex text-xl font-semibold tracking-tight border-b scroll-m-20 mt-4">
+            Theme
+          </SheetTitle>
+          <SheetDescription>
+            <ThemeToggle />
           </SheetDescription>
         </SheetHeader>
         <SheetHeader>
