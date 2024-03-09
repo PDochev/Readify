@@ -1,15 +1,8 @@
 const express = require("express");
 const Document = require("../models/documentModel.js");
+const ensureAuthenticated = require("../middlewares/isUserAuthenticated.js");
 
 const router = express.Router();
-
-const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.redirect("/login/google"); // Redirect user to Google login page
-  }
-};
 
 router.get("/", ensureAuthenticated, async (req, res) => {
   try {
