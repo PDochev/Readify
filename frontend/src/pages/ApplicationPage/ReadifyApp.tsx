@@ -10,9 +10,12 @@ import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 import ErrorMessage from "@/components/ErrorMessage";
 import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
+import { useAuthorization } from "@/context/AuthContext";
+import NotLogged from "@/components/NotLogged";
 
 function ReadifyApp() {
   const { id } = useParams();
+  const { user } = useAuthorization();
   const size = useResizeScreen();
   const [document, setDocument] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -69,13 +72,17 @@ function ReadifyApp() {
         setLoading(false);
       } catch (err) {
         console.log(err);
-        setError("Something went wrong , failed to load Documents.");
+        {
+          user
+            ? setError("Something went wrong , failed to load Documents.")
+            : setError("You must login first");
+        }
       } finally {
         setLoading(false);
       }
     }
     fetchDocuments();
-  }, [id]);
+  }, [id, user]);
 
   function highlightWord(
     str: string,
@@ -193,6 +200,7 @@ function ReadifyApp() {
           </div>
           <div className="w-11/12">
             {error && <ErrorMessage error={error} />}
+            {!user && <NotLogged />}
             <p
               style={{
                 fontSize: `${textSize}px`,

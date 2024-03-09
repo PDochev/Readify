@@ -1,5 +1,6 @@
 import ErrorMessage from "./ErrorMessage";
-
+import { useAuthorization } from "@/context/AuthContext";
+import NotLogged from "./NotLogged";
 interface DocumentProps {
   children: React.ReactNode;
   errorMessage: string;
@@ -7,6 +8,7 @@ interface DocumentProps {
 }
 
 function Document({ children, errorMessage, dataLength }: DocumentProps) {
+  const { user } = useAuthorization();
   return (
     <div role="presentation" className="flex flex-col justify-start mt-10 mb-8">
       {dataLength === 0 && (
@@ -15,6 +17,7 @@ function Document({ children, errorMessage, dataLength }: DocumentProps) {
         </h3>
       )}
       {errorMessage ? <ErrorMessage error={errorMessage} /> : <>{children}</>}
+      {user ? "" : <NotLogged />}
     </div>
   );
 }

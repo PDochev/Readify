@@ -4,6 +4,7 @@ import Spinner from "./Spinner";
 import axios from "axios";
 import { useToast } from "@/components/ui/use-toast";
 import DocumentsTable from "./DocumentsTable";
+import { useAuthorization } from "@/context/AuthContext";
 
 interface Document {
   _id: string;
@@ -17,6 +18,7 @@ function Library() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [dataLength, setDataLength] = useState(0);
+  const { user } = useAuthorization();
 
   const handleDelete = (id: string) => {
     axios
@@ -56,13 +58,17 @@ function Library() {
         setLoading(false);
       } catch (err) {
         console.log(err);
-        setError("Something went wrong , failed to load Documents.");
+        {
+          user
+            ? setError("Something went wrong , failed to load Documents.")
+            : setError("You must login first");
+        }
       } finally {
         setLoading(false);
       }
     }
     fetchDocuments();
-  }, []);
+  }, [user]);
 
   return (
     <div role="presentation">
