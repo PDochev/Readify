@@ -14,6 +14,7 @@ function Documents() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [user, setUser] = useState(null);
+  
   useEffect(() => {
     axios
       .get("http://localhost:3000/user", { withCredentials: true })
