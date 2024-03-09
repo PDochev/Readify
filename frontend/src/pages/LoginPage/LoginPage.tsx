@@ -1,14 +1,11 @@
 import login_img from "../../assets/images/login_img.jpg";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
 function LoginPage() {
-  const handleGoogleeLogin = () => {
+  const handleGoogleLogin = () => {
     const googleURL = "http://localhost:3000/login/google";
-    const newWindow = window.open(googleURL, "noopener,nore");
+    const newWindow = window.open(googleURL);
     return newWindow;
   };
   return (
@@ -29,7 +26,7 @@ function LoginPage() {
             Welcome Back
           </h2>
 
-          <Button onClick={handleGoogleeLogin} className="w-3/4 mt-2">
+          <Button onClick={handleGoogleLogin} className="w-3/4 mt-2">
             <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
           </Button>
 

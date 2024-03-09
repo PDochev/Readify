@@ -233,14 +233,14 @@ function ReadifyApp() {
             <PeripheralVisionMargin
               marginSide={leftMargin}
               peripheralOpacity={peripheralOpacity}
-              className="absolute top-0 left-0  h-full border-r-2 border-slate-400 bg-inherit"
+              className="absolute top-0 left-0  h-full border-r-2  border-border  bg-background"
             />
           )}
           {peripheralVision && (
             <PeripheralVisionMargin
               marginSide={rightMargin}
               peripheralOpacity={peripheralOpacity}
-              className="absolute top-0 right-0  h-full border-l-2 border-slate-400 bg-inherit"
+              className="absolute top-0 right-0  h-full border-l-2 border-border  bg-background"
             />
           )}
         </section>

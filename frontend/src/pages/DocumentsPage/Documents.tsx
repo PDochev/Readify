@@ -1,20 +1,17 @@
 import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
-import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
 import UserMenu from "@/components/UserMenu";
-import { Button } from "@/components/ui/button";
 
 function Documents() {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [user, setUser] = useState(null);
-  
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/user", { withCredentials: true })
@@ -30,6 +27,7 @@ function Documents() {
       .get("http://localhost:3000/logout", { withCredentials: true })
       .then(() => {
         setUser(null); // Clear user data
+        toast({ title: "You have been logged out." });
         navigate("/");
       })
       .catch((error) => console.error("Error:", error));
