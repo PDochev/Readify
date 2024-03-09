@@ -2,22 +2,25 @@ import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { User } from "lucide-react";
-import { useAuthorization } from "@/context/AuthContext";
 import { useEffect, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 import axios from "axios";
+import UserMenu from "@/components/UserMenu";
 import { Button } from "@/components/ui/button";
 
 function Documents() {
-  // const { isAuthenticated, user, login, logout } = useAuthorization();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [user, setUser] = useState(null);
   useEffect(() => {
     axios
       .get("http://localhost:3000/user", { withCredentials: true })
-      .then((response) => setUser(response.data))
+      .then((response) => {
+        setUser(response.data);
+        // toast({ title: `Welcome back ${response.data.fullName}!` });
+      })
       .catch((error) => console.error("Error:", error));
   }, []);
 
@@ -40,20 +43,8 @@ function Documents() {
                 Readify
               </h4>
               <div className="flex items-center gap-4 mr-4">
-                <ModeToggle />
-                {/* <User /> */}
-                {user && (
-                  <div className="flex items-center gap-2">
-                    <small className="text-sm font-medium leading-none">
-                      {user.email}
-                    </small>
-                    <Avatar>
-                      <AvatarImage src={user.picture} />
-                      <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <Button onClick={handleLogout}>Logout</Button>
-                  </div>
-                )}
+                {/* <ModeToggle /> */}
+                {user && <UserMenu user={user} logout={handleLogout} />}
               </div>
             </div>
           </Navbar>

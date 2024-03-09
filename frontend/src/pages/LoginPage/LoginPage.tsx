@@ -6,6 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 function LoginPage() {
+  const handleGoogleeLogin = () => {
+    const googleURL = "http://localhost:3000/login/google";
+    const newWindow = window.open(googleURL);
+    return newWindow;
+  };
   return (
     <div role="presentation" className="flex w-full  min-h-svh">
       <section className="hidden w-1/2  lg:flex ">
@@ -24,13 +29,12 @@ function LoginPage() {
             Welcome Back
           </h2>
 
-          <Button className="w-3/4 mt-2" variant="secondary">
-            <a
-              className="flex items-center"
-              href="http://localhost:3000/login/google"
-            >
-              <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
-            </a>
+          <Button
+            onClick={handleGoogleeLogin}
+            className="w-3/4 mt-2"
+            variant="secondary"
+          >
+            <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
           </Button>
           <p className="text-xs mb-4 mt-4 text-muted-foreground">
             OR CONTINUE WITH
