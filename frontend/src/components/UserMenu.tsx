@@ -2,15 +2,12 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ThemeToggle from "./ThemeToggle";
-import { useState } from "react";
 
 interface UserMenuProps {
   user: {
@@ -32,7 +29,7 @@ function UserMenu({ user, logout }: UserMenuProps) {
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mx-4 p-2 md:w-72 lg:w-72">
-          <div className="flex  items-center gap-2 ">
+          <div className="flex  items-center  gap-2 ">
             <Avatar className="flex">
               <AvatarImage src={user.picture} />
             </Avatar>
@@ -40,7 +37,6 @@ function UserMenu({ user, logout }: UserMenuProps) {
               <small className="text-sm font-medium leading-none">
                 {user.fullName}
               </small>
-
               <p className="text-sm text-muted-foreground">{user.email}</p>
             </div>
           </div>

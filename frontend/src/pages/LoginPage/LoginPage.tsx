@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 function LoginPage() {
   const handleGoogleeLogin = () => {
     const googleURL = "http://localhost:3000/login/google";
-    const newWindow = window.open(googleURL);
+    const newWindow = window.open(googleURL, "noopener,nore");
     return newWindow;
   };
   return (
@@ -29,14 +29,11 @@ function LoginPage() {
             Welcome Back
           </h2>
 
-          <Button
-            onClick={handleGoogleeLogin}
-            className="w-3/4 mt-2"
-            variant="secondary"
-          >
+          <Button onClick={handleGoogleeLogin} className="w-3/4 mt-2">
             <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
           </Button>
-          <p className="text-xs mb-4 mt-4 text-muted-foreground">
+
+          {/* <p className="text-xs mb-4 mt-4 text-muted-foreground">
             OR CONTINUE WITH
           </p>
           <div className="grid w-3/4 max-w-sm items-center gap-2">
@@ -51,7 +48,7 @@ function LoginPage() {
             <Link className="text-blue-600 ml-2" to="/register">
               Create account
             </Link>
-          </p>
+          </p> */}
         </form>
       </section>
     </div>
