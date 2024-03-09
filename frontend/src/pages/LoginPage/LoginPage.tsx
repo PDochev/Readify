@@ -25,7 +25,9 @@ function LoginPage() {
           </h2>
 
           <Button className="w-3/4 mt-2" variant="secondary">
-            <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
+            <a href="http://localhost:3000/login/google">
+              <FcGoogle className="mr-2 h-4 w-4" /> Continue with Google
+            </a>
           </Button>
           <p className="text-xs mb-4 mt-4 text-muted-foreground">
             OR CONTINUE WITH

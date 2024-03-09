@@ -1,10 +1,20 @@
-import express from "express";
-import { Document } from "../models/documentModel.js";
+const express = require("express");
+const Document = require("../models/documentModel.js");
+
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+const ensureAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    res.redirect("/login/google"); // Redirect user to Google login page
+  }
+};
+
+router.get("/", ensureAuthenticated, async (req, res) => {
   try {
-    const documents = await Document.find({});
+    const user = req.user;
+    const documents = await Document.find({ createdBy: user._id });
     return res.status(200).json({
       count: documents.length,
       data: documents,
@@ -15,10 +25,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", ensureAuthenticated, async (req, res) => {
   try {
+    const user = req.user;
     const { id } = req.params;
-    const document = await Document.findById(id);
+    const document = await Document.findOne({ _id: id, createdBy: user._id });
     if (!document) {
       return res.status(404).send({ message: "Document not found" });
     }
@@ -29,7 +40,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", ensureAuthenticated, async (req, res) => {
   try {
     if (!req.body.title || !req.body.text) {
       return res.status(400).send({ message: "Some data is missing" });
@@ -38,6 +49,7 @@ router.post("/", async (req, res) => {
     const newDocument = {
       title: req.body.title,
       text: req.body.text,
+      createdBy: req.user._id,
     };
     const document = await Document.create(newDocument);
     return res.status(201).send(document);
@@ -47,32 +59,41 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", ensureAuthenticated, async (req, res) => {
   try {
+    const user = req.user;
     if (!req.body.title || !req.body.text) {
       return res.status(400).send({ message: "Send all required fields!" });
     }
     const { id } = req.params;
-    const result = await Document.findByIdAndUpdate(id, req.body);
-    if (!result) {
+    const document = await Document.findOne({ _id: id, createdBy: user._id });
+    if (!document) {
       return res.status(404).send({ message: "Document not found" });
     }
 
-    return res.status(200).send({ message: "Document updated successfully!" });
+    const updatedDocument = await Document.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    return res.status(200).send({
+      message: "Document updated successfully!",
+      data: updatedDocument,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).send({ message: err.message });
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", ensureAuthenticated, async (req, res) => {
   try {
+    const user = req.user;
     const { id } = req.params;
-    const result = await Document.findByIdAndDelete(id);
-    if (!result) {
+    const document = await Document.findOne({ _id: id, createdBy: user._id });
+    if (!document) {
       return res.status(404).send({ message: "Document not found" });
     }
 
+    const result = await Document.findByIdAndDelete(id);
     return res.status(200).send({ message: "Document deleted successfully!" });
   } catch (err) {
     console.log(err);
@@ -80,4 +101,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

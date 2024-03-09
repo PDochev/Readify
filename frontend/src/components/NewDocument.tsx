@@ -34,7 +34,7 @@ function NewDocument() {
 
     setLoading(true);
     axios
-      .post("http://localhost:3000/documents", data)
+      .post("http://localhost:3000/documents", data, { withCredentials: true })
       .then((res) => {
         console.log(res.data);
         setLoading(false);

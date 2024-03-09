@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const documentSchema = new mongoose.Schema(
   {
@@ -10,10 +10,14 @@ const documentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-export const Document = mongoose.model("Document", documentSchema);
+module.exports = mongoose.model("Document", documentSchema);

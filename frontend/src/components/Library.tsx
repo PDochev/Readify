@@ -20,7 +20,9 @@ function Library() {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`http://localhost:3000/documents/${id}`)
+      .delete(`http://localhost:3000/documents/${id}`, {
+        withCredentials: true,
+      })
       .then(() => {
         setLoading(false);
         setDocument(document.filter((doc: Document) => doc._id !== id));
@@ -40,7 +42,9 @@ function Library() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch("http://localhost:3000/documents");
+        const res = await fetch("http://localhost:3000/documents", {
+          credentials: "include",
+        });
 
         if (!res.ok) {
           throw new Error("Something went wrong with fetching docments");

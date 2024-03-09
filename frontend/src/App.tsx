@@ -6,13 +6,13 @@ import Documents from "./pages/DocumentsPage/Documents";
 import ReadifyApp from "./pages/ApplicationPage/ReadifyApp";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/ui/theme-provider";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthorizationProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-        <AuthProvider>
+        <AuthorizationProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
@@ -21,7 +21,7 @@ function App() {
             <Route path="/documents/:id" element={<ReadifyApp />} />
           </Routes>
           <Toaster />
-        </AuthProvider>
+        </AuthorizationProvider>
       </ThemeProvider>
     </>
   );
