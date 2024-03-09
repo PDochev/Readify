@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import AlertDialogDelete from "./AlertDialogDelete";
-import { useEffect, useState } from "react";
 
 interface DocumentsTableProps {
   document: Document[];
