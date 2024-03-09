@@ -21,12 +21,12 @@ function Documents() {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  const handleLogout = async () => {
-    await axios
+  const handleLogout = () => {
+    axios
       .get("http://localhost:3000/logout", { withCredentials: true })
       .then(() => {
-        navigate("http://localhost:5173/login");
         setUser(null); // Clear user data
+        navigate("/");
       })
       .catch((error) => console.error("Error:", error));
   };

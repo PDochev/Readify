@@ -37,7 +37,7 @@ function AlertDialogDelete({ handleDelete, id }: AlertDialogDeleteProps) {
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction
             onClick={() => handleDelete(id)}
-            className="bg-red-700 hover:bg-red-900 text-foreground"
+            className="bg-red-500 hover:bg-red-700 text-foreground"
           >
             Delete
           </AlertDialogAction>
