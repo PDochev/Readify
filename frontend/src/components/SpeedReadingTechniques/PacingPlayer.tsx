@@ -2,7 +2,7 @@ import { Play, Pause, SkipForward, SkipBack, Plus, Minus } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 interface PacingPlayerProps {
-  setHighlightIndex: (highlightIndex: number) => void;
+  setHighlightIndex: React.Dispatch<React.SetStateAction<number>>;
   wordsCount: number;
   wordChunking: number;
 }
@@ -21,7 +21,7 @@ function PacingPlayer({
     if (isRunning) {
       clearInterval(timeInterval.current!);
       timeInterval.current = setInterval(() => {
-        setHighlightIndex((highlightIndex) => {
+        setHighlightIndex((highlightIndex: number) => {
           return (highlightIndex + wordChunking) % wordsCount;
         });
       }, speed);
