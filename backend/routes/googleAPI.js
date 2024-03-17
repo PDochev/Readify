@@ -2,8 +2,10 @@ const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 
-const successURL = "https://readifyapp.netlify.app/documents";
-const failureURL = "https://readifyapp.netlify.app/login";
+const successURL =
+  process.env.SUCCESS_URL || "https://readifyapp.netlify.app/documents";
+const failureURL =
+  process.env.FAILURE_URL || "https://readifyapp.netlify.app/login";
 
 // const successURL = "http://localhost:5173/documents";
 // const failureURL = "http://localhost:5173/login";
