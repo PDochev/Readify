@@ -30,12 +30,7 @@ app.use(
   })
 );
 
-app.use(
-  cors({
-    origin: "https://readifyapp.netlify.app/",
-    credentials: true,
-  })
-);
+app.use(cors({ origin: "https://readifyapp.netlify.app", credentials: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(userRoute);
