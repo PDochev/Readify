@@ -14,7 +14,8 @@ interface Document {
 }
 
 function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
-  const { user } = useAuthorization();
+  const authorization = useAuthorization();
+  const user = authorization?.user;
   return (
     <div role="presentation">
       <h3 className="text-md font-medium leading-none mb-8">Documents</h3>

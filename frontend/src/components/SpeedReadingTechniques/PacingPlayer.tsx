@@ -15,18 +15,18 @@ function PacingPlayer({
   const [isRunning, setIsRunning] = useState(false);
   const [speed, setSpeed] = useState(400);
 
-  const timeInterval = useRef(null);
+  const timeInterval = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isRunning) {
-      clearInterval(timeInterval.current);
+      clearInterval(timeInterval.current!);
       timeInterval.current = setInterval(() => {
-        setHighlightIndex(
-          (highlightIndex) => (highlightIndex + wordChunking) % wordsCount
-        );
+        setHighlightIndex((highlightIndex) => {
+          return (highlightIndex + wordChunking) % wordsCount;
+        });
       }, speed);
     }
-    return () => clearInterval(timeInterval.current);
+    return () => clearInterval(timeInterval.current!);
   }, [isRunning, setHighlightIndex, speed, wordsCount, wordChunking]);
 
   const handleStart = () => {

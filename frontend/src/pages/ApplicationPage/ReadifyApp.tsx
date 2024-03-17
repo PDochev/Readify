@@ -11,14 +11,16 @@ import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 import ErrorMessage from "@/components/ErrorMessage";
 import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
 import { useAuthorization } from "@/context/AuthContext";
-import NotLogged from "@/components/NotLogged";
 import Questionnaires from "@/components/Questionnaires";
 
 function ReadifyApp() {
   const { id } = useParams();
-  const { user } = useAuthorization();
+  const authorization = useAuthorization();
+  const user = authorization?.user;
   const size = useResizeScreen();
-  const [document, setDocument] = useState([]);
+  // const [document, setDocument] = useState([]);
+  const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [textSize, setTextSize] = useState(16);
@@ -41,11 +43,11 @@ function ReadifyApp() {
 
   // const currentTheme = localStorage.getItem("theme");
 
-  const title = document.title;
-  const text = document.text || "";
+  // const title = document.title;
+  // const text = document.text || "";
 
-  const wordsCount: number = text.split(" ").length;
-  const charactersCount: number = text.trim().length;
+  const wordsCount: number = text?.split(" ").length;
+  const charactersCount: number = text?.trim().length;
 
   const textColourIfTextPageColourApplied =
     textPageColour === "pageColour1" ||
@@ -69,7 +71,9 @@ function ReadifyApp() {
         }
         const data = await res.json();
         if (data.Response === "False") throw new Error("Document not found");
-        setDocument(data);
+        // setDocument(data);
+        setTitle(data.title);
+        setText(data.text);
         setLoading(false);
       } catch (err) {
         console.log(err);

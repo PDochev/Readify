@@ -8,7 +8,8 @@ interface DocumentProps {
 }
 
 function Document({ children, errorMessage, dataLength }: DocumentProps) {
-  const { user } = useAuthorization();
+  const authorization = useAuthorization();
+  const user = authorization?.user;
   return (
     <div role="presentation" className="flex flex-col justify-start mt-10 mb-8">
       {dataLength === 0 && (

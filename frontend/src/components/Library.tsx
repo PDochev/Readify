@@ -9,6 +9,7 @@ import { useAuthorization } from "@/context/AuthContext";
 interface Document {
   _id: string;
   title: string;
+  text: string;
   createdAt: string;
 }
 
@@ -18,7 +19,8 @@ function Library() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [dataLength, setDataLength] = useState(0);
-  const { user } = useAuthorization();
+  const authorization = useAuthorization();
+  const user = authorization?.user;
 
   const handleDelete = (id: string) => {
     axios

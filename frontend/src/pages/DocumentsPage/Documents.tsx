@@ -1,15 +1,17 @@
 import Library from "@/components/Library";
 import Navbar from "@/components/Navbar";
 import NewDocument from "@/components/NewDocument";
-
 import UserMenu from "@/components/UserMenu";
 import { useAuthorization } from "@/context/AuthContext";
 
 function Documents() {
-  const { user, logout } = useAuthorization();
+  const authorization = useAuthorization();
+  // const {user , logout} = useAuthorization() || {user: null, logout: null}
+  const user = authorization?.user;
+  const logout = authorization?.logout;
 
   const handleLogout = () => {
-    logout();
+    logout && logout();
   };
   return (
     <>
@@ -21,7 +23,6 @@ function Documents() {
                 Readify
               </h4>
               <div className="flex items-center gap-4 mr-4">
-                {/* <ModeToggle /> */}
                 {user && <UserMenu user={user} logout={handleLogout} />}
               </div>
             </div>
