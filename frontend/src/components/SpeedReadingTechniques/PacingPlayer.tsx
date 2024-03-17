@@ -1,5 +1,6 @@
 import { Play, Pause, SkipForward, SkipBack, Plus, Minus } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import React from "react";
 
 interface PacingPlayerProps {
   setHighlightIndex: React.Dispatch<React.SetStateAction<number>>;
