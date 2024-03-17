@@ -39,7 +39,7 @@ app.use("/documents", documentsRoute);
 
 app.get("/", (req, res) => {
   console.log(req);
-  return res.status(234).send("Welcome to MERN tutorial");
+  return res.status(234).send("Welcome to Readify");
 });
 
 // app.all("*", (req, res, next) => {

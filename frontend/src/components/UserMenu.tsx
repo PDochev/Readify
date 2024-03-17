@@ -25,7 +25,7 @@ function UserMenu({ user, logout }: UserMenuProps) {
         <DropdownMenuTrigger asChild>
           <Avatar>
             <AvatarImage src={user.picture} />
-            <AvatarFallback>PD</AvatarFallback>
+            <AvatarFallback>{user.fullName.at(0)}</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="mx-4 p-2 md:w-72 lg:w-72">

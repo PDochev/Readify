@@ -16,7 +16,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
-            {/* <Route path="/register" element={<RegistrationPage />} /> */}
             <Route path="/documents" element={<Documents />} />
             <Route path="/documents/:id" element={<ReadifyApp />} />
             <Route path="*" element={<NotFound />} />
