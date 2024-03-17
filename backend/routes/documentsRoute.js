@@ -4,10 +4,10 @@ const ensureAuthenticated = require("../middlewares/isUserAuthenticated.js");
 
 const router = express.Router();
 
-router.get("/", ensureAuthenticated, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const user = req.user;
-    const documents = await Document.find({ createdBy: user._id });
+    const documents = await Document.find({});
     return res.status(200).json({
       count: documents.length,
       data: documents,
@@ -18,11 +18,11 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.get("/:id", ensureAuthenticated, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;
-    const document = await Document.findOne({ _id: id, createdBy: user._id });
+    const document = await Document.findOne({ _id: id });
     if (!document) {
       return res.status(404).send({ message: "Document not found" });
     }

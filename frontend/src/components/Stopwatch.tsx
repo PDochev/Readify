@@ -1,13 +1,17 @@
 import { Button } from "./ui/button";
 import { useState, useRef } from "react";
 
-function Stopwatch({ wordsCount }) {
+interface StopwatchProps {
+  wordsCount: number;
+}
+
+function Stopwatch({ wordsCount }: StopwatchProps) {
   const [timer, setTimer] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
   const timeInterval = useRef(null);
 
-  const wpm = Math.floor(wordsCount / timer);
+  const wpm = timer > 0 ? Math.floor(wordsCount / (timer / 6000)) : 0;
 
   const handleStart = () => {
     if (isRunning) return;
@@ -63,7 +67,9 @@ function Stopwatch({ wordsCount }) {
         <Button onClick={handleReset}>Reset</Button>
       </div>
       <div>
-        {!isRunning && <p>Your Reading speed is {wpm} words per minute!</p>}
+        {!isRunning && timer > 0 ? (
+          <p>Your Reading speed is {wpm} words per minute!</p>
+        ) : null}
       </div>
     </div>
   );

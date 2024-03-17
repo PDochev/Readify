@@ -16,7 +16,7 @@ import LetterSpacing from "./LetterSpacing";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import ThemeToggle from "./ThemeToggle";
 
-// import Stopwatch from "./Stopwatch";
+import Stopwatch from "./Stopwatch";
 
 interface SideMenuProps {
   wordsCount: number;
@@ -84,12 +84,12 @@ function SideMenu({
               letterSpacing={letterSpacing}
               setLetterSpacing={setLetterSpacing}
             />
-            {/* <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
+            <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
               Reading Speed
             </SheetTitle>
             <SheetDescription>
               <Stopwatch wordsCount={wordsCount} />
-            </SheetDescription> */}
+            </SheetDescription>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

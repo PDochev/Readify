@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AlertDialogDelete from "./AlertDialogDelete";
+import { useAuthorization } from "@/context/AuthContext";
 
 interface DocumentsTableProps {
   document: Document[];
@@ -13,6 +14,7 @@ interface Document {
 }
 
 function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
+  const { user } = useAuthorization();
   return (
     <div role="presentation">
       <h3 className="text-md font-medium leading-none mb-8">Documents</h3>
@@ -36,7 +38,12 @@ function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
                 </td>
                 <td className="py-4 border text-muted-foreground text-xs md:text-sm text-end p-4">
                   {new Date(doc.createdAt).toLocaleDateString()}
-                  <AlertDialogDelete handleDelete={handleDelete} id={doc._id} />
+                  {user && (
+                    <AlertDialogDelete
+                      handleDelete={handleDelete}
+                      id={doc._id}
+                    />
+                  )}
                 </td>
               </tr>
             ))}
