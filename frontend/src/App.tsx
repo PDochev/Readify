@@ -6,6 +6,7 @@ import ReadifyApp from "./pages/ApplicationPage/ReadifyApp";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { AuthorizationProvider } from "./context/AuthContext";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             {/* <Route path="/register" element={<RegistrationPage />} /> */}
             <Route path="/documents" element={<Documents />} />
             <Route path="/documents/:id" element={<ReadifyApp />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />
         </AuthorizationProvider>
