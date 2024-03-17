@@ -9,7 +9,7 @@ function Stopwatch({ wordsCount }: StopwatchProps) {
   const [timer, setTimer] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
 
-  const timeInterval = useRef(null);
+  const timeInterval = useRef<NodeJS.Timeout | null>(null);
 
   const wpm = timer > 0 ? Math.floor(wordsCount / (timer / 6000)) : 0;
 
@@ -24,16 +24,16 @@ function Stopwatch({ wordsCount }: StopwatchProps) {
   const handleStop = () => {
     if (!isRunning) return;
     setIsRunning(false);
-    clearInterval(timeInterval.current);
+    clearInterval(timeInterval.current!);
   };
 
   const handleReset = () => {
     setIsRunning(false);
-    clearInterval(timeInterval.current);
+    clearInterval(timeInterval.current!);
     setTimer(0);
   };
 
-  const formatTime = (timer) => {
+  const formatTime = (timer: number) => {
     const minutes = Math.floor((timer % 360000) / 6000)
       .toString()
       .padStart(2, "0");
