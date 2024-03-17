@@ -10,10 +10,10 @@ function NotFound() {
       <h2 className="scroll-m-20 text-[80px] font-extrabold tracking-tight  text-center">
         404 - Not Found!
       </h2>
-      <Button>
-        {" "}
-        <Link to="/">Go Home</Link>
-      </Button>
+
+      <Link to="/">
+        <Button>Go Home </Button>
+      </Link>
     </main>
   );
 }
