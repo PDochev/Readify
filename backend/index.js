@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require("express");
 const mongoose = require("mongoose");
-const ExpressError = require("./utils/ExpressError.js");
+// const ExpressError = require("./utils/ExpressError.js");
 const documentsRoute = require("./routes/documentsRoute.js");
 const googleAuthRoute = require("./routes/googleAPI.js");
 const userRoute = require("./routes/userRoute.js");
@@ -32,7 +32,7 @@ app.use(
 
 app.use(
   cors({
-    origin: process.env.ORIGIN || "http://localhost:5173",
+    origin: "https://readifyapp.netlify.app/",
     credentials: true,
   })
 );
