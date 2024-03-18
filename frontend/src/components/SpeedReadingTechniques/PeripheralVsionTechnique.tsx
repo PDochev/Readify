@@ -93,7 +93,7 @@ function PeripheralVisionTechnique({
               onValueChange={(value) => setRightMargin(value[0])}
               min={sizeScreen ? 60 : 30}
               max={sizeScreen ? 180 : 100}
-              step={5}
+              step={1}
               id="rightMargin"
             />
             <span
