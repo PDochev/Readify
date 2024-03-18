@@ -25,9 +25,7 @@ app.use(
   session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    saveUninitialized: false,
-    sameSite: "none",
-    secure: true,
+    saveUninitialized: true,
     maxAge: 24 * 60 * 60 * 1000,
   })
 );
