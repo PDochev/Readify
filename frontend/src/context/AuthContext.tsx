@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import axios from "axios";
 
 interface AuthorizationProviderProps {
   children: React.ReactNode;
@@ -39,12 +38,29 @@ export const AuthorizationProvider = ({
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  // useEffect(() => {
+  //   fetch("https://readify-xbps.onrender.com/user", { withCredentials: true })
+  //     .then((response) => {
+  //       setIsAuthenticated(true);
+  //       setUser(response.data);
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("https://readify-xbps.onrender.com/user", { withCredentials: true })
+    fetch("https://readify-xbps.onrender.com/user", {
+      method: "GET",
+      credentials: "include",
+    })
       .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
         setIsAuthenticated(true);
-        setUser(response.data);
+        setUser(data);
       })
       .catch((error) => console.error("Error:", error));
   }, []);
@@ -60,14 +76,32 @@ export const AuthorizationProvider = ({
   //   return newWindow;
   // };
 
+  // const logout = () => {
+  //   axios
+  //     .get("https://readify-xbps.onrender.com/logout", {
+  //       withCredentials: true,
+  //     })
+  //     .then(() => {
+  //       setIsAuthenticated(false);
+  //       setUser(null);
+  //       toast({ title: "You have been logged out." });
+  //       navigate("/");
+  //     })
+  //     .catch((error) => console.error("Error:", error));
+  // };
+
   const logout = () => {
-    axios
-      .get("https://readify-xbps.onrender.com/logout", {
-        withCredentials: true,
-      })
-      .then(() => {
+    fetch("https://readify-xbps.onrender.com/logout", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
         setIsAuthenticated(false);
         setUser(null);
+        // Assuming toast and navigate are defined elsewhere
         toast({ title: "You have been logged out." });
         navigate("/");
       })
