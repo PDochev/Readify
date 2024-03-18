@@ -22,7 +22,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
-res.setHeader(
+
+app.setHeader(
   "Set-Cookie",
   cookie.serialize("XSRF-TOKEN", YOUR_OBJECT, {
     // XSRF-TOKEN is the name of your cookie
