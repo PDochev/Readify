@@ -26,22 +26,16 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      // secure: true,
-      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-      maxAge: 1000 * 60 * 60 * 24 * 7,
-    },
-    // maxAge: 24 * 60 * 60 * 1000,
+    // cookie: {
+    //   httpOnly: true,
+    //   // secure: true,
+    //   expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    //   maxAge: 1000 * 60 * 60 * 24 * 7,
+    // },
+    maxAge: 24 * 60 * 60 * 1000,
   })
 );
 
-// app.use(
-//   cors({
-//     origin: process.env.ORIGIN || "http://localhost:5173",
-//     credentials: true,
-//   })
-// );
 app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",
@@ -58,10 +52,6 @@ app.get("/", (req, res) => {
   console.log(req);
   return res.status(234).send("Welcome to Readify");
 });
-
-// app.all("*", (req, res, next) => {
-//   next(new ExpressError("Page Not Found", 404));
-// });
 
 app.use((req, res, next) => {
   res.status(404).send("404 - Not Found");
