@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 
-
 interface AuthorizationProviderProps {
   children: React.ReactNode;
 }
@@ -42,7 +41,7 @@ export const AuthorizationProvider = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/user", { withCredentials: true })
+      .get("https://readify-xbps.onrender.com/user", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setUser(response.data);

@@ -38,9 +38,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(userRoute);
 app.use(googleAuthRoute);
 app.use("/documents", documentsRoute);
+app.use(userRoute);
 
 app.get("/", (req, res) => {
   console.log(req);
