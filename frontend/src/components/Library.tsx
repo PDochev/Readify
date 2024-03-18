@@ -24,7 +24,7 @@ function Library() {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`http://localhost:3000/documents/${id}`, {
+      .delete(`https://readify-xbps.onrender.com/documents/${id}`, {
         withCredentials: true,
       })
       .then(() => {
@@ -46,7 +46,7 @@ function Library() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch("http://localhost:3000/documents", {
+        const res = await fetch("https://readify-xbps.onrender.com/documents", {
           credentials: "include",
         });
 

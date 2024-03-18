@@ -30,6 +30,12 @@ app.use(
   })
 );
 
+// app.use(
+//   cors({
+//     origin: process.env.ORIGIN || "http://localhost:5173",
+//     credentials: true,
+//   })
+// );
 app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",

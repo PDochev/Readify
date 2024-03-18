@@ -62,9 +62,12 @@ function ReadifyApp() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch(`http://localhost:3000/documents/${id}`, {
-          credentials: "include",
-        });
+        const res = await fetch(
+          `https://readify-xbps.onrender.com/documents/${id}`,
+          {
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) {
           throw new Error("Something went wrong with fetching docments");
