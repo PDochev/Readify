@@ -41,7 +41,7 @@ export const AuthorizationProvider = ({
 
   useEffect(() => {
     axios
-      .get("https://readify-xbps.onrender.com/user", { withCredentials: true })
+      .get("http://localhost:3000/user", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setUser(response.data);
