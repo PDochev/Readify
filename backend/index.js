@@ -50,6 +50,8 @@ app.use(
   })
 );
 
+app.enable("trust proxy");
+
 app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",
