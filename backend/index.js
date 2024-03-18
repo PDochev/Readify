@@ -32,7 +32,7 @@ app.use(
 
 app.use(
   cors({
-    origin: "https://readifyapp.netlify.app",
+    origin: "https://readify-xbps.onrender.com",
     credentials: true,
   })
 );
