@@ -26,7 +26,13 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: true,
-    maxAge: 24 * 60 * 60 * 1000,
+    cookie: {
+      httpOnly: true,
+      // secure: true,
+      expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
+    // maxAge: 24 * 60 * 60 * 1000,
   })
 );
 
