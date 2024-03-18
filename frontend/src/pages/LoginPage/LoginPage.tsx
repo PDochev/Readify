@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 function LoginPage() {
   const handleGoogleLogin = () => {
     // const googleURL = "http://localhost:3000/login/google";
-    const googleURL = "https://readify-xbps.onrender.com/login/google";
+    const googleURL = "/login/google";
     const newWindow = window.open(googleURL);
     return newWindow;
   };
