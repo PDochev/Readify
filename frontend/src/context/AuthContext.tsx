@@ -41,7 +41,7 @@ export const AuthorizationProvider = ({
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/user", { withCredentials: true })
+      .get("https://readify-xbps.onrender.com/user", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setUser(response.data);
@@ -62,7 +62,9 @@ export const AuthorizationProvider = ({
 
   const logout = () => {
     axios
-      .get("http://localhost:3000/logout", { withCredentials: true })
+      .get("https://readify-xbps.onrender.com/logout", {
+        withCredentials: true,
+      })
       .then(() => {
         setIsAuthenticated(false);
         setUser(null);
