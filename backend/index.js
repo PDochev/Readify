@@ -32,7 +32,7 @@ app.use(
 
 app.use(
   cors({
-    origin: process.env.ORIGIN || "http://localhost:5173",
+    origin: "https://readifyapp.netlify.app",
     credentials: true,
   })
 );
