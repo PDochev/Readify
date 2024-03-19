@@ -10,7 +10,10 @@ const failureURL = process.env.FAILURE_URL || "http://localhost:5173/login";
 
 router.get(
   "/login/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    prompt: "select_account",
+  })
 );
 
 router.get(
