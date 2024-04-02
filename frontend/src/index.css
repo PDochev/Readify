@@ -78,3 +78,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+.backgroundDots {
+  background-image: radial-gradient(#283851 0.1px, transparent 1px);
+  background-size: 16px 16px;
+  background-color: var(--background);
+}
