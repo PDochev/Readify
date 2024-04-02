@@ -4,7 +4,7 @@ const ensureAuthenticated = require("../middlewares/isUserAuthenticated.js");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", ensureAuthenticated, async (req, res) => {
   try {
     const user = req.user;
     const documents = await Document.find({});
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", ensureAuthenticated, async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;

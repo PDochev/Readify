@@ -11,7 +11,7 @@ import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 import ErrorMessage from "@/components/ErrorMessage";
 import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
 import { useAuthorization } from "@/context/AuthContext";
-
+import NotLogged from "@/components/NotLogged";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -148,8 +148,6 @@ function ReadifyApp() {
               </h4>
 
               <div className="flex gap-4 mr-2 lg:gap-8 lg:mr-4">
-  
-
                 <TextPageColour
                   textPageColour={textPageColour}
                   setTextPageColour={setTextPageColour}
@@ -210,7 +208,7 @@ function ReadifyApp() {
           </div>
           <div className="w-11/12">
             {error && <ErrorMessage error={error} />}
-            {/* {!user && <NotLogged />} */}
+            {!user && <NotLogged />}
             <p
               style={{
                 fontSize: `${textSize}px`,
