@@ -42,7 +42,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    // domain: "https://readifyapp.netlify.app/",
+    domain: "https://readifyapp.onrender.com",
     cookie: {
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
