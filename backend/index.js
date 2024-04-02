@@ -42,6 +42,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
+    proxy: true,
     // domain: "https://readifyapp.netlify.app/",
     cookie: {
       sameSite: "none",
