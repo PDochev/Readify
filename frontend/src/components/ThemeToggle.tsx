@@ -2,17 +2,17 @@ import { useTheme } from "@/components/ui/theme-provider";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-type Theme = "light" | "dark" | "system";
+// type Theme = "light" | "dark" | "system";
 
 function ThemeToggle() {
   const { setTheme } = useTheme();
 
   const currTheme = localStorage.getItem("vite-ui-theme");
 
-  const handleThemeChange = (theme: Theme) => {
-    localStorage.setItem("vite-ui-theme", theme);
-    setTheme(theme);
-  };
+  // const handleThemeChange = (theme: Theme) => {
+  //   localStorage.setItem("vite-ui-theme", theme);
+  //   setTheme(theme);
+  // };
 
   return (
     <RadioGroup
@@ -21,7 +21,7 @@ function ThemeToggle() {
     >
       <div className="flex items-center space-x-2">
         <RadioGroupItem
-          onClick={() => handleThemeChange("light")}
+          onClick={() => setTheme("light")}
           value="light"
           id="light"
         />
@@ -29,7 +29,7 @@ function ThemeToggle() {
       </div>
       <div className="flex items-center space-x-2">
         <RadioGroupItem
-          onClick={() => handleThemeChange("dark")}
+          onClick={() => setTheme("dark")}
           value="dark"
           id="dark"
         />
@@ -37,7 +37,7 @@ function ThemeToggle() {
       </div>
       <div className="flex items-center space-x-2">
         <RadioGroupItem
-          onClick={() => handleThemeChange("system")}
+          onClick={() => setTheme("system")}
           value="system"
           id="system"
         />
