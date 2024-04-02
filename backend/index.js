@@ -42,15 +42,13 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    proxy: true,
-
     // domain: "https://readifyapp.netlify.app/",
     cookie: {
-      sameSite: "lax",
+      sameSite: "none",
       secure: true,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
-      domain: ".onrender.com",
+      // domain: ".onrender.com"
     },
   })
 );
