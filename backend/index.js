@@ -36,14 +36,16 @@ app.use(express.json());
 //   })
 // );
 
-// app.enable("trust proxy");
+app.enable("trust proxy");
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-    domain: "https://readifyapp.onrender.com",
+    // domain: "https://readifyapp.netlify.app/",
     cookie: {
+      sameSite: "none",
+      secure: true,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
