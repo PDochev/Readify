@@ -139,7 +139,7 @@ function ReadifyApp() {
       <header>
         <nav
           role="navigation"
-          className="fixed top-0 left-0 z-10 w-full  bg-background "
+          className="fixed top-0 left-0 z-10 w-screen  bg-background "
         >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
