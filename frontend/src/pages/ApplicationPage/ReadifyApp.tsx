@@ -11,7 +11,7 @@ import PacingPlayer from "@/components/SpeedReadingTechniques/PacingPlayer";
 import ErrorMessage from "@/components/ErrorMessage";
 import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
 import { useAuthorization } from "@/context/AuthContext";
-import Questionnaires from "@/components/Questionnaires";
+
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -148,7 +148,7 @@ function ReadifyApp() {
               </h4>
 
               <div className="flex gap-4 mr-2 lg:gap-8 lg:mr-4">
-                <Questionnaires />
+  
 
                 <TextPageColour
                   textPageColour={textPageColour}
