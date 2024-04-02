@@ -19,7 +19,7 @@ function LoginPage() {
         />
       </section>
       <section className="lg:w-1/2 flex items-center justify-center mx-auto ">
-        <form className="w-72 md:w-96 py-6 mx-auto flex flex-col justify-center items-center border rounded-md ">
+        <form className="w-72 md:w-96 py-6 mx-auto flex flex-col justify-center items-center border rounded-md  ">
           <h3 className="scroll-m-20 text-1xl font-semibold tracking-tight">
             Readify
           </h3>
