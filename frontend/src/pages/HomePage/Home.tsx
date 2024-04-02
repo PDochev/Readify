@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import home_img from "../../assets/images/blue_book.png";
-
 import { Button } from "@/components/ui/button";
+import { useAuthorization } from "@/context/AuthContext";
 
 const Home = () => {
+  const authorization = useAuthorization();
+  const user = authorization?.user;
+
   return (
     <>
       <div className="backgroundDots">
@@ -19,7 +22,7 @@ const Home = () => {
           <h1 className="scroll-m-20 text-5xl font-extrabold tracking-tight text-center px-2  mt-6 lg:text-mt-8">
             Unlock your speed reading.
           </h1>
-          <Link to="/login">
+          <Link to={user ? "/documents" : "/login"}>
             <Button className="mt-6">Continue to application</Button>
           </Link>
         </header>
