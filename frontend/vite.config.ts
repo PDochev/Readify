@@ -9,4 +9,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    proxy: {
+      "/": {
+        target: "https://readify-xbps.onrender.com",
+        changeOrigin: true,
+      },
+    },
+  },
 });
