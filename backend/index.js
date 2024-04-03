@@ -45,7 +45,7 @@ app.use(
     // domain: "https://readifyapp.netlify.app/",
     cookie: {
       sameSite: "lax",
-      secure: true,
+      secure: false,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
       // domain: ".onrender.com"
