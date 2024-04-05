@@ -63,7 +63,7 @@ function ReadifyApp() {
         setLoading(true);
         setError("");
         const res = await fetch(
-          `https://readify-xbps.onrender.com/documents/${id}`,
+          `https://readifyapp.onrender.com/documents/${id}`,
           {
             credentials: "include",
           }

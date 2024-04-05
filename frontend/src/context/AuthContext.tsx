@@ -41,7 +41,7 @@ export const AuthorizationProvider = ({
 
   useEffect(() => {
     axios
-      .get("https://readify-xbps.onrender.com/user", { withCredentials: true })
+      .get("https://readifyapp.onrender.com/user", { withCredentials: true })
       .then((response) => {
         setIsAuthenticated(true);
         setUser(response.data);
@@ -56,7 +56,7 @@ export const AuthorizationProvider = ({
 
   const logout = () => {
     axios
-      .get("https://readify-xbps.onrender.com/logout", {
+      .get("https://readifyapp.onrender.com/logout", {
         withCredentials: true,
       })
       .then(() => {
