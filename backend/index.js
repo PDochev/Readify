@@ -67,7 +67,7 @@ app.use(
   })
 );
 
-app.configure(function () {
+app.config(function () {
   app.use(allowCrossDomain);
 });
 app.use(passport.initialize());
