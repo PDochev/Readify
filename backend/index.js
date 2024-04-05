@@ -36,7 +36,7 @@ app.use(express.json());
 //   })
 // );
 
-app.enable("trust proxy");
+// app.enable("trust proxy");
 app.use(
   session({
     secret: process.env.COOKIE_SECRET,
@@ -44,8 +44,8 @@ app.use(
     saveUninitialized: false,
     // domain: "https://readifyapp.netlify.app/",
     cookie: {
-      sameSite: "none",
-      secure: true,
+      // sameSite: "none",
+      // secure: true,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
       // domain: ".onrender.com"
