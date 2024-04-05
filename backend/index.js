@@ -23,19 +23,6 @@ const app = express();
 
 app.use(express.json());
 
-// app.setHeader(
-//   "Set-Cookie",
-//   cookieSession.serialize("XSRF-TOKEN", YOUR_OBJECT, {
-//     // XSRF-TOKEN is the name of your cookie
-//     sameSite: "lax", // lax is important, don't use 'strict' or 'none'
-//     httpOnly: process.env.ENVIRONMENT !== "development", // must be true in production
-//     path: "/documents",
-//     secure: process.env.ENVIRONMENT !== "development", // must be true in production
-//     maxAge: 60 * 60 * 24 * 7 * 52, // 1 year
-//     domain: "https://readifyapp.netlify.app/", // the period before is important and intentional
-//   })
-// );
-
 app.enable("trust proxy");
 app.use(
   session({
@@ -46,6 +33,7 @@ app.use(
     cookie: {
       sameSite: "none",
       secure: true,
+      httpOnly: true,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
       // domain: ".onrender.com"
