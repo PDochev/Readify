@@ -24,7 +24,7 @@ function Library() {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`https://api.readifyapp.org/documents/${id}`, {
+      .delete(`https://readifyapp-backend.onrender.com/documents/${id}`, {
         withCredentials: true,
       })
       .then(() => {
@@ -46,9 +46,12 @@ function Library() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch("https://api.readifyapp.org/documents", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://readifyapp-backend.onrender.com/documents",
+          {
+            credentials: "include",
+          }
+        );
 
         if (!res.ok) {
           throw new Error("Something went wrong with fetching docments");
