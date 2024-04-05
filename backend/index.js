@@ -64,12 +64,10 @@ app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",
     credentials: true,
+    allowCrossDomain: true,
   })
 );
 
-app.config(function () {
-  app.use(allowCrossDomain);
-});
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(googleAuthRoute);
