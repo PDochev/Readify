@@ -53,6 +53,17 @@ app.use(
   })
 );
 
+const allowCrossDomain = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://readifyapp.org/");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+};
+
+app.configure(function () {
+  app.use(allowCrossDomain);
+});
+
 app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",
