@@ -33,7 +33,7 @@ function NewDocument() {
 
     setLoading(true);
     axios
-      .post("https://readifyapp-backend.onrender.com/documents", data, {
+      .post("https://api.readifyapp.org/documents", data, {
         withCredentials: true,
       })
       .then((res) => {

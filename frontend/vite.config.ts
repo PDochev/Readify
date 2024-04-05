@@ -12,7 +12,7 @@ export default defineConfig({
   // server: {
   //   proxy: {
   //     "/": {
-  //       target: "https://readifyapp-backend.onrender.com/",
+  //       target: "https://api.readifyapp.org/",
   //       changeOrigin: true,
   //     },
   //   },
