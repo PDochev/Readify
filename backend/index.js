@@ -56,7 +56,7 @@ app.use(
 // const allowCrossDomain = function (req, res, next) {
 //   res.header(
 //     "Access-Control-Allow-Origin",
-//     "https://readifyapp.onrender.com/"
+//     "https://readifyapp-backend.onrender.com/"
 //   );
 //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
 //   res.header("Access-Control-Allow-Headers", "Content-Type");

@@ -4,8 +4,8 @@ import { FcGoogle } from "react-icons/fc";
 
 function LoginPage() {
   const handleGoogleLogin = () => {
-    // const googleURL = "https://readifyapp.onrender.com/0/login/google";
-    const googleURL = "https://readifyapp.onrender.com/login/google";
+    // const googleURL = "https://readifyapp-backend.onrender.com/0/login/google";
+    const googleURL = "https://readifyapp-backend.onrender.com/login/google";
     const newWindow = window.open(googleURL);
     return newWindow;
   };
