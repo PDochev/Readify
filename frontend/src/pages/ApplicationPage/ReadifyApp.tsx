@@ -41,8 +41,6 @@ function ReadifyApp() {
   const [stopRegression, setStopRegression] = useState(false);
   const [regressionOpacity, setRegressionOpacity] = useState(0.5);
 
-  // const currentTheme = localStorage.getItem("theme");
-
   // const title = document.title;
   // const text = document.text || "";
 
