@@ -14,7 +14,6 @@ const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
 require("./auth/passportGoogleSSO.js");
-// const cookieSession = require("cookie");
 
 const db_url = process.env.DB_URL || "mongodb://localhost:27017/readify";
 const port = process.env.PORT || 3000;
@@ -22,6 +21,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
+
+
 
 app.enable("trust proxy");
 app.use(
@@ -55,7 +56,6 @@ app.use(
   cors({
     origin: process.env.ORIGIN || "http://localhost:5173",
     credentials: true,
-    // allowCrossDomain: true,
   })
 );
 

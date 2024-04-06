@@ -1,4 +1,4 @@
-const ensureAuthenticated = (req, res, next) => {
+const ensureAuthorised = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
@@ -6,4 +6,6 @@ const ensureAuthenticated = (req, res, next) => {
   }
 };
 
-module.exports = ensureAuthenticated;
+module.exports = ensureAuthorised;
+
+req.is

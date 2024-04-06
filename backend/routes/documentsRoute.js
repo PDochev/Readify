@@ -1,10 +1,10 @@
 const express = require("express");
 const Document = require("../models/documentModel.js");
-const ensureAuthenticated = require("../middlewares/isUserAuthenticated.js");
+const ensureAuthorised = require("../middlewares/isUserAuthenticated.js");
 
 const router = express.Router();
 
-router.get("/", ensureAuthenticated, async (req, res) => {
+router.get("/", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
     const documents = await Document.find({});
@@ -18,7 +18,7 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.get("/:id", ensureAuthenticated, async (req, res) => {
+router.get("/:id", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;
@@ -33,7 +33,7 @@ router.get("/:id", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.post("/", ensureAuthenticated, async (req, res) => {
+router.post("/", ensureAuthorised, async (req, res) => {
   try {
     if (!req.body.title || !req.body.text) {
       return res.status(400).send({ message: "Some data is missing" });
@@ -52,7 +52,7 @@ router.post("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.put("/:id", ensureAuthenticated, async (req, res) => {
+router.put("/:id", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
     if (!req.body.title || !req.body.text) {
@@ -77,7 +77,7 @@ router.put("/:id", ensureAuthenticated, async (req, res) => {
   }
 });
 
-router.delete("/:id", ensureAuthenticated, async (req, res) => {
+router.delete("/:id", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;
