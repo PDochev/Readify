@@ -8,4 +8,3 @@ const ensureAuthorised = (req, res, next) => {
 
 module.exports = ensureAuthorised;
 
-req.is
