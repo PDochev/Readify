@@ -6,7 +6,6 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require("express");
 const mongoose = require("mongoose");
-// const ExpressError = require("./utils/ExpressError.js");
 const documentsRoute = require("./routes/documentsRoute.js");
 const googleAuthRoute = require("./routes/googleAPI.js");
 const userRoute = require("./routes/userRoute.js");
@@ -28,16 +27,12 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: false,
-
-    // domain: "https://readifyapp.netlify.app/",
     cookie: {
       sameSite: "none",
       secure: true,
       httpOnly: true,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
-      domain: "https://readifyapp.org",
-      // domain: ".onrender.com"
     },
   })
 );
