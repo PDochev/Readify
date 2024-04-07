@@ -46,13 +46,13 @@ function PacingPlayer({
 
   const handleNextWord = () => {
     setHighlightIndex(
-      (highlightIndex: number) => highlightIndex + wordChunking
+      (highlightIndex: number) => highlightIndex + 2 + wordChunking
     );
   };
 
   const handlePreviousWord = () => {
     setHighlightIndex(
-      (highlightIndex: number) => highlightIndex - wordChunking
+      (highlightIndex: number) => highlightIndex - 2 - wordChunking
     );
   };
 

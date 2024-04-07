@@ -33,7 +33,7 @@ function Documents() {
       <div className="flex flex-col items-center justify-center w-full  mx-auto mt-6 lg:items-end md:items-end lg:w-1/2 md:w-3/4 ">
         {user ? <NewDocument /> : ""}
       </div>
-      <main className="flex flex-col  w-full p-6 mx-auto mt-6 border rounded shadow-sm lg:w-1/2 md:w-3/4 ">
+      <main className="flex flex-col w-full p-6 mx-auto mt-6 border rounded shadow-sm lg:w-1/2 md:w-3/4 ">
         <Library />
       </main>
     </>
