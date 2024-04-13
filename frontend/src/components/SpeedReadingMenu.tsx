@@ -71,7 +71,7 @@ function SpeedReadingMenu({
         <BookOpenText />
       </SheetTrigger>
 
-      <SheetContent className="max-h-screen overflow-visible" side={sizeScreen}>
+      <SheetContent className="max-h-screen overflow-scroll" side={sizeScreen}>
         <SheetHeader>
           <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20 ">
             Speed Reading techniques
