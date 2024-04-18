@@ -1,5 +1,7 @@
 # Readify
 
+[Link] (https://readifyapp.org)
+
 ## Introduction
 
 Readifi is a web applicaiton which focuses on implementing speed-reading techniques. People can post their text documents and use the typography features to customize their reading experience according to their preferences and learning style. The application offers 5 speed-reading techniques to chooses from:
