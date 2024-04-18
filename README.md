@@ -1,6 +1,6 @@
 # Readify
 
-[Link] (https://readifyapp.org)
+https://readifyapp.org
 
 ## Introduction
 
