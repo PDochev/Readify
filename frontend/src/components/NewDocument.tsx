@@ -33,7 +33,7 @@ function NewDocument() {
 
     setLoading(true);
     axios
-      .post("https://readify-api-8f5dbe6a38d9.herokuapp.com/documents", data, {
+      .post("https://server.readifyapp.org/documents", data, {
         withCredentials: true,
       })
       .then((res) => {

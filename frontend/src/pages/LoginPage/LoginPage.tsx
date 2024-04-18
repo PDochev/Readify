@@ -4,8 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 
 function LoginPage() {
   const handleGoogleLogin = () => {
-    const googleURL =
-      "https://readify-api-8f5dbe6a38d9.herokuapp.com/login/google";
+    const googleURL = "https://server.readifyapp.org/login/google";
     const newWindow = window.open(googleURL);
     return newWindow;
   };

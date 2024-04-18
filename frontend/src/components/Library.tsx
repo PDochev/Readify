@@ -24,12 +24,9 @@ function Library() {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(
-        `https://readify-api-8f5dbe6a38d9.herokuapp.com/documents/${id}`,
-        {
-          withCredentials: true,
-        }
-      )
+      .delete(`https://server.readifyapp.org/documents/${id}`, {
+        withCredentials: true,
+      })
       .then(() => {
         setLoading(false);
         setDocument(document.filter((doc: Document) => doc._id !== id));
@@ -49,12 +46,9 @@ function Library() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch(
-          "https://readify-api-8f5dbe6a38d9.herokuapp.com/documents",
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch("https://server.readifyapp.org/documents", {
+          credentials: "include",
+        });
 
         if (!res.ok) {
           throw new Error("Something went wrong with fetching docments");

@@ -40,7 +40,7 @@ app.use(
 // const allowCrossDomain = function (req, res, next) {
 //   res.header(
 //     "Access-Control-Allow-Origin",
-//     "https://readify-api-8f5dbe6a38d9.herokuapp.com/"
+//     "https://server.readifyapp.org/"
 //   );
 //   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
 //   res.header("Access-Control-Allow-Headers", "Content-Type");
