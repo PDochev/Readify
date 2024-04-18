@@ -58,6 +58,7 @@ Frontend:
     - Start the Node.js server:
 
     **npm start**
+    
     **npm dev - if you have nodemon installed**
 
 ## Usage
