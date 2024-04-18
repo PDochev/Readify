@@ -34,7 +34,7 @@ const Home = () => {
             title="This writing app has an AI *editor* built-in"
             width="640"
             height="360"
-            src="https://www.youtube.com/embed/NNgePe6UqAk"
+            src="https://www.youtube.com/embed/BuSQ5JNVjwk"
           ></iframe>
         </section>
       </div>
