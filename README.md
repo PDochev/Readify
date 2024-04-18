@@ -57,14 +57,10 @@ Frontend:
 
     - Start the Node.js server:
 
-<<<<<<< HEAD
-    **npm start**
-    
-    **npm dev - if you have nodemon installed**
-=======
     **npm run start**
+    
     **npm run dev - if you have nodemon installed**
->>>>>>> ce09609 (Update npm install and npm start commands in README.md)
+
 
 ## Usage
 
