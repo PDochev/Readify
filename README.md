@@ -31,7 +31,9 @@ Frontend:
 
 1.  Clone the repository: https://github.com/PDochev/Readify.git
 
-2.  Frontend (Vite)
+2.  Install [Node.js](https://nodejs.org/en/download)
+
+3.  Frontend (Vite)
 
     - Navigate to the frontend directory:
 
@@ -39,13 +41,17 @@ Frontend:
 
     - Install dependencies:
 
-    **npm run install**
+    ```bash
+    $ npm run install
+    ```
 
     - Start the Vite development server:
 
-    **npm run dev**
+    ```bash
+    $ npm run dev
+    ```
 
-3.  Backend (Node.js)
+4.  Backend (Node.js)
 
     - Navigate to the backend directory:
 
@@ -53,14 +59,21 @@ Frontend:
 
     - Install dependencies:
 
-    **npm run install**
+    ```bash
+    $ npm run install
+    ```
 
     - Start the Node.js server:
 
-    **npm run start**
-    
-    **npm run dev - if you have nodemon installed**
+    ```bash
+    $ npm run start
+    ```
 
+    ```bash
+    $npm run dev
+    ```
+
+    if you have nodemon installed
 
 ## Usage
 
