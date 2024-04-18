@@ -37,40 +37,44 @@ Frontend:
 
     - Navigate to the frontend directory:
 
-    **cd Readify/frontend**
+    ```bash
+    cd Readify/frontend
+    ```
 
     - Install dependencies:
 
     ```bash
-    $ npm run install
+    npm run install
     ```
 
     - Start the Vite development server:
 
     ```bash
-    $ npm run dev
+    npm run dev
     ```
 
 4.  Backend (Node.js)
 
     - Navigate to the backend directory:
 
-    **cd Readify/backend**
+    ```bash
+    cd Readify/backend
+    ```
 
     - Install dependencies:
 
     ```bash
-    $ npm run install
+    npm run install
     ```
 
     - Start the Node.js server:
 
     ```bash
-    $ npm run start
+    npm run start
     ```
 
     ```bash
-    $npm run dev
+    npm run dev
     ```
 
     if you have nodemon installed
