@@ -24,9 +24,12 @@ function Library() {
 
   const handleDelete = (id: string) => {
     axios
-      .delete(`https://readifyapp-backend.onrender.com/documents/${id}`, {
-        withCredentials: true,
-      })
+      .delete(
+        `https://readify-api-8f5dbe6a38d9.herokuapp.com/documents/${id}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then(() => {
         setLoading(false);
         setDocument(document.filter((doc: Document) => doc._id !== id));
@@ -47,7 +50,7 @@ function Library() {
         setLoading(true);
         setError("");
         const res = await fetch(
-          "https://readifyapp-backend.onrender.com/documents",
+          "https://readify-api-8f5dbe6a38d9.herokuapp.com/documents",
           {
             credentials: "include",
           }

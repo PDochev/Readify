@@ -61,7 +61,7 @@ function ReadifyApp() {
         setLoading(true);
         setError("");
         const res = await fetch(
-          `https://readifyapp-backend.onrender.com/documents/${id}`,
+          `https://readify-api-8f5dbe6a38d9.herokuapp.com/documents/${id}`,
           {
             credentials: "include",
           }
