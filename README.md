@@ -1,6 +1,4 @@
-# Application Name
-
-Readify
+# Readify
 
 ## Introduction
 
@@ -21,7 +19,7 @@ Backend:
 - MongoDB
 - Google authentication
 
-Frontend
+Frontend:
 
 - React
 - TypeScript
@@ -33,32 +31,32 @@ Frontend
 
 2.  Frontend (Vite)
 
-    1. Navigate to the frontend directory:
+    - Navigate to the frontend directory:
 
-    cd Readify/frontend
+    **cd Readify/frontend**
 
-    2. Install dependencies:
+    - Install dependencies:
 
-    npm install
+    **npm install**
 
-    3. Start the Vite development server:
+    - Start the Vite development server:
 
-    npm run dev
+    **npm run dev**
 
 3.  Backend (Node.js)
 
-    1. Navigate to the backend directory:
+    - Navigate to the backend directory:
 
-    cd Readify/backend
+    **cd Readify/backend**
 
-    2. Install dependencies:
+    - Install dependencies:
 
-    npm install
+    **npm install**
 
-    3. Start the Node.js server:
+    - Start the Node.js server:
 
-    npm start
-    npm dev - if you have nodemon installed
+    **npm start**
+    **npm dev - if you have nodemon installed**
 
 ## Usage
 
