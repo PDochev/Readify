@@ -61,7 +61,7 @@ function ReadifyApp() {
         setLoading(true);
         setError("");
         const res = await fetch(
-          `https://server.readifyapp.org/documents/${id}`,
+          `https://readifyapp-backend.onrender.com/documents/${id}`,
           {
             credentials: "include",
           }

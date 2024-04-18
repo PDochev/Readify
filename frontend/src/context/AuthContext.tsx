@@ -41,7 +41,7 @@ export const AuthorizationProvider = ({
 
   useEffect(() => {
     axios
-      .get("https://server.readifyapp.org/user", {
+      .get("https://readifyapp-backend.onrender.com/user", {
         withCredentials: true,
       })
       .then((response) => {
@@ -58,7 +58,7 @@ export const AuthorizationProvider = ({
 
   const logout = () => {
     axios
-      .get("https://server.readifyapp.org/logout", {
+      .get("https://readifyapp-backend.onrender.com/logout", {
         withCredentials: true,
       })
       .then(() => {
