@@ -50,7 +50,7 @@ function SideMenu({
       <SheetTrigger>
         <MoreVertical />
       </SheetTrigger>
-      <SheetContent side={sizeScreen}>
+      <SheetContent className="max-h-full overflow-scroll" side={sizeScreen}>
         <SheetHeader>
           <SheetTitle className="flex text-xl font-semibold tracking-tight border-b scroll-m-20">
             Stats
