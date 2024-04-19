@@ -16,6 +16,8 @@ import LetterSpacing from "./LetterSpacing";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import ThemeToggle from "./ThemeToggle";
 import Stopwatch from "./Stopwatch";
+import HoverInformation from "./HoverInformation";
+import { HelpCircle } from "lucide-react";
 
 interface SideMenuProps {
   wordsCount: number;
@@ -93,8 +95,14 @@ function SideMenu({
               letterSpacing={letterSpacing}
               setLetterSpacing={setLetterSpacing}
             />
-            <SheetTitle className="flex mt-4 lg:mt-6 md:mt-6 text-xl font-semibold tracking-tight border-b scroll-m-20">
+            <SheetTitle className="flex items-center mt-4 lg:mt-6 md:mt-6 text-xl font-semibold tracking-tight border-b scroll-m-20">
               Reading Speed
+              <HoverInformation
+                icon={<HelpCircle className="w-4 h-4 ml-2 cursor-help" />}
+                title="Reading speed (WPM)"
+                description="Reading speed is the number of words you can read in a minute. It is calculated by dividing the number of words you read by the time it took you to read them. 
+                Press Start to start the timer and Stop to stop it. You can reset the timer by pressing Reset. Your reading speed will be displayed when you stop the timer."
+              />
             </SheetTitle>
             <SheetDescription>
               <Stopwatch
