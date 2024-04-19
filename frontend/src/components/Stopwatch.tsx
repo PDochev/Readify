@@ -1,37 +1,23 @@
 import { Button } from "./ui/button";
-import { useState, useRef } from "react";
 
 interface StopwatchProps {
   wordsCount: number;
+  timer: number;
+  isRunning: boolean;
+  handleStartTimer: () => void;
+  handleStopTimer: () => void;
+  handleResetTimer: () => void;
 }
 
-function Stopwatch({ wordsCount }: StopwatchProps) {
-  const [timer, setTimer] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-
-  const timeInterval = useRef<NodeJS.Timeout | null>(null);
-
+function Stopwatch({
+  wordsCount,
+  timer,
+  isRunning,
+  handleStartTimer,
+  handleStopTimer,
+  handleResetTimer,
+}: StopwatchProps) {
   const wpm = timer > 0 ? Math.floor(wordsCount / (timer / 6000)) : 0;
-
-  const handleStart = () => {
-    if (isRunning) return;
-    setIsRunning(true);
-    timeInterval.current = setInterval(() => {
-      setTimer((prev) => prev + 1);
-    }, 10);
-  };
-
-  const handleStop = () => {
-    if (!isRunning) return;
-    setIsRunning(false);
-    clearInterval(timeInterval.current!);
-  };
-
-  const handleReset = () => {
-    setIsRunning(false);
-    clearInterval(timeInterval.current!);
-    setTimer(0);
-  };
 
   const formatTime = (timer: number) => {
     const minutes = Math.floor((timer % 360000) / 6000)
@@ -58,13 +44,13 @@ function Stopwatch({ wordsCount }: StopwatchProps) {
 
       <div className="flex gap-5">
         <Button
-          onClick={isRunning ? handleStop : handleStart}
+          onClick={isRunning ? handleStopTimer : handleStartTimer}
           variant="destructive"
         >
           {isRunning ? "Stop" : "Start"}
         </Button>
 
-        <Button onClick={handleReset}>Reset</Button>
+        <Button onClick={handleResetTimer}>Reset</Button>
       </div>
       <div>
         {!isRunning && timer > 0 ? (

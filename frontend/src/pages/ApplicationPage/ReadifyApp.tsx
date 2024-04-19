@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
 import SpeedReadingMenu from "@/components/SpeedReadingMenu";
@@ -12,6 +12,7 @@ import ErrorMessage from "@/components/ErrorMessage";
 import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/PeripheralVisionMargin";
 import { useAuthorization } from "@/context/AuthContext";
 import NotLogged from "@/components/NotLogged";
+import { Button } from "@/components/ui/button";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -40,9 +41,13 @@ function ReadifyApp() {
   const [wordChunking, setWordChunking] = useState(1);
   const [stopRegression, setStopRegression] = useState(false);
   const [regressionOpacity, setRegressionOpacity] = useState(0.5);
+  const [timer, setTimer] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   // const title = document.title;
   // const text = document.text || "";
+
+  const timeInterval = useRef<NodeJS.Timeout | null>(null);
 
   const wordsCount: number = text?.split(" ").length;
   const charactersCount: number = text?.trim().length;
@@ -60,12 +65,9 @@ function ReadifyApp() {
       try {
         setLoading(true);
         setError("");
-        const res = await fetch(
-          `https://readifyapp-backend.onrender.com/documents/${id}`,
-          {
-            credentials: "include",
-          }
-        );
+        const res = await fetch(`http://localhost:3000/documents/${id}`, {
+          credentials: "include",
+        });
 
         if (!res.ok) {
           throw new Error("Something went wrong with fetching docments");
@@ -123,6 +125,27 @@ function ReadifyApp() {
     return highlightedText;
   }
 
+  const handleStartTimer = () => {
+    if (isRunning) return;
+    setIsRunning(true);
+    timeInterval.current = setInterval(() => {
+      setTimer((prev) => prev + 100);
+    }, 1000);
+    return () => clearInterval(timeInterval.current!);
+  };
+
+  const handleStopTimer = () => {
+    if (!isRunning) return;
+    setIsRunning(false);
+    clearInterval(timeInterval.current!);
+  };
+
+  const handleResetTimer = () => {
+    setIsRunning(false);
+    clearInterval(timeInterval.current!);
+    setTimer(0);
+  };
+
   // useEffect(() => {
   //   const interval = setInterval(() => {
   //     setHighlightIndex((highlightIndex) => {
@@ -141,8 +164,17 @@ function ReadifyApp() {
         >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
-              <h4 className="flex ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
+              <h4 className="flex items-center ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
                 <Link to="/documents">Readify</Link>
+                {isRunning && (
+                  <Button
+                    variant="destructive"
+                    onClick={handleStopTimer}
+                    className="w-20 h-8 ml-2 lg:ml-4 md:ml-4"
+                  >
+                    Stop Timer
+                  </Button>
+                )}
               </h4>
 
               <div className="flex gap-4 mr-2 lg:gap-8 lg:mr-4">
@@ -185,6 +217,11 @@ function ReadifyApp() {
                   setLineSpacing={setLineSpacing}
                   letterSpacing={letterSpacing}
                   setLetterSpacing={setLetterSpacing}
+                  timer={timer}
+                  isRunning={isRunning}
+                  handleStartTimer={handleStartTimer}
+                  handleStopTimer={handleStopTimer}
+                  handleResetTimer={handleResetTimer}
                 />
               </div>
             </div>

@@ -15,6 +15,7 @@ import FontFamily from "./FontFamily";
 import LetterSpacing from "./LetterSpacing";
 import { useResizeScreen } from "@/customHooks/useResizeScreen";
 import ThemeToggle from "./ThemeToggle";
+import Stopwatch from "./Stopwatch";
 
 interface SideMenuProps {
   wordsCount: number;
@@ -27,6 +28,11 @@ interface SideMenuProps {
   setLineSpacing: (lineSpacing: number) => void;
   letterSpacing: number;
   setLetterSpacing: (letterSpacing: number) => void;
+  timer: number;
+  isRunning: boolean;
+  handleStartTimer: () => void;
+  handleStopTimer: () => void;
+  handleResetTimer: () => void;
 }
 
 function SideMenu({
@@ -40,6 +46,11 @@ function SideMenu({
   setLineSpacing,
   letterSpacing,
   setLetterSpacing,
+  timer,
+  isRunning,
+  handleStartTimer,
+  handleStopTimer,
+  handleResetTimer,
 }: SideMenuProps) {
   const size = useResizeScreen();
 
@@ -82,12 +93,19 @@ function SideMenu({
               letterSpacing={letterSpacing}
               setLetterSpacing={setLetterSpacing}
             />
-            {/* <SheetTitle className="flex mt-4 text-xl font-semibold tracking-tight border-b scroll-m-20">
+            <SheetTitle className="flex mt-4 lg:mt-6 md:mt-6 text-xl font-semibold tracking-tight border-b scroll-m-20">
               Reading Speed
             </SheetTitle>
             <SheetDescription>
-              <Stopwatch wordsCount={wordsCount} />
-            </SheetDescription> */}
+              <Stopwatch
+                wordsCount={wordsCount}
+                timer={timer}
+                isRunning={isRunning}
+                handleStartTimer={handleStartTimer}
+                handleStopTimer={handleStopTimer}
+                handleResetTimer={handleResetTimer}
+              />
+            </SheetDescription>
           </SheetDescription>
         </SheetHeader>
       </SheetContent>
