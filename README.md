@@ -79,6 +79,12 @@ Frontend:
 
     if you have nodemon installed
 
+## Environment Variables
+
+Environment .env file must be set in the backend directory:
+
+COOKIE_SECRET=<<PUT YOUR SECRET HERE>>
+
 ## Usage
 
 The application is accessible fully on all web browsers, apart from Safari, which doesn’t allow for the user to be signed in. The way the current application works is that it stores the user session as a cookie. However, because the application is hosted on two different domains, it’s treating the session cookie as a third-party cookie, also known as a tracking cookie. By default, Safari limits third-party cookies for security reasons, preventing sites from tracking their users and collecting their data and location.
