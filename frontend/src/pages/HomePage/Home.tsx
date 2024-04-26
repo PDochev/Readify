@@ -14,7 +14,7 @@ const Home = () => {
           <img
             className="w-36 md:w-56 lg:w-72 grayscale hover:grayscale-0 mt-10"
             src={home_img}
-            alt="Image a book."
+            alt="Image of a book."
           />
           <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
             Readify

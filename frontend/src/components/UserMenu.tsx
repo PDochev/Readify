@@ -31,7 +31,7 @@ function UserMenu({ user, logout }: UserMenuProps) {
         <DropdownMenuContent className="mx-4 p-2 md:w-72 lg:w-72">
           <div className="flex  items-center  gap-2 ">
             <Avatar className="flex">
-              <AvatarImage src={user.picture} />
+              <AvatarImage src={user.picture} alt="Your profile picture" />
             </Avatar>
             <div className="">
               <small className="text-sm font-medium leading-none">
