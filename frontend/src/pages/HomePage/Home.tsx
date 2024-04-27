@@ -31,7 +31,7 @@ const Home = () => {
             id="player"
             allowFullScreen
             className="w-full md:w-5/6 lg:w-1/2 h-96 md:h-96 lg:h-[450px] rounded-lg mb-20"
-            title="This writing app has an AI *editor* built-in"
+            title="Walkthrough video of Readify."
             width="640"
             height="360"
             src="https://www.youtube.com/embed/BuSQ5JNVjwk"

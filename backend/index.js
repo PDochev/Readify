@@ -31,6 +31,7 @@ app.use(
       sameSite: "none",
       secure: true,
       httpOnly: true,
+      Partitioned,
       expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
       maxAge: 1000 * 60 * 60 * 24 * 7,
     },
