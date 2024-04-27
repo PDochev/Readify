@@ -43,6 +43,8 @@ function DocumentsTable({ document, handleDelete }: DocumentsTableProps) {
                     <AlertDialogDelete
                       handleDelete={handleDelete}
                       id={doc._id}
+                      aria-label={`Delete ${doc.title}`}
+                      aria-labelledby={`Delete ${doc.title}`}
                     />
                   )}
                 </td>
