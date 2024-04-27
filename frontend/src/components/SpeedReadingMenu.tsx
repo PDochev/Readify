@@ -68,7 +68,7 @@ function SpeedReadingMenu({
   return (
     <Sheet>
       <SheetTrigger>
-        <BookOpenText />
+        <BookOpenText aria-label="Open speed reading settings menu" />
       </SheetTrigger>
 
       <SheetContent className="max-h-full overflow-scroll" side={sizeScreen}>

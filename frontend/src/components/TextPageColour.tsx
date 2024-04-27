@@ -24,7 +24,10 @@ function TextPageColour({
     <div className="">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Palette className="cursor-pointer" />
+          <Palette
+            className="cursor-pointer"
+            aria-label="Open text page colour menu"
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="">
           <DropdownMenuLabel>Page Colour</DropdownMenuLabel>

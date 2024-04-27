@@ -61,7 +61,7 @@ function SideMenu({
   return (
     <Sheet>
       <SheetTrigger>
-        <MoreVertical />
+        <MoreVertical aria-label="Open typography settings menu" />
       </SheetTrigger>
       <SheetContent className="max-h-full overflow-scroll" side={sizeScreen}>
         <SheetHeader>
