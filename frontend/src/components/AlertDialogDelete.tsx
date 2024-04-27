@@ -21,8 +21,12 @@ function AlertDialogDelete({ handleDelete, id }: AlertDialogDeleteProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger>
-        <Button variant="destructive" className=" h-6 ml-2">
-          <Trash2 className=" h-3 w-3" />
+        <Button
+          variant="destructive"
+          className=" h-6 ml-2"
+          aria-label="Delete Document"
+        >
+          <Trash2 className="h-3 w-3" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent className="w-3/4 rounded">
