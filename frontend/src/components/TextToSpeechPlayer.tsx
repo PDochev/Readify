@@ -60,7 +60,7 @@ function TextToSpeechPlayer({ audioFile }: TextToSpeechPlayerProps) {
             return;
           }
           audioChunks.push(value);
-          reader.read().then(process);
+          reader?.read().then(process);
         });
       }
     }
