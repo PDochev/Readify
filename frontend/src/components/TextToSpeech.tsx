@@ -66,7 +66,6 @@ function TextToSpeech({
     const command = new SynthesizeSpeechCommand(input as SynthesizeSpeechInput);
     try {
       const response = await client.send(command);
-      console.log(response);
       setAudioFile(response);
     } catch (error) {
       console.log(error);
