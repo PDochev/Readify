@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
-    const documents = await Document.find({});
+    const documents = await Document.find({ createdBy: user._id });
     return res.status(200).json({
       count: documents.length,
       data: documents,
@@ -22,7 +22,7 @@ router.get("/:id", ensureAuthorised, async (req, res) => {
   try {
     const user = req.user;
     const { id } = req.params;
-    const document = await Document.findOne({ _id: id });
+    const document = await Document.findOne({ _id: id, createdBy: user._id });
     if (!document) {
       return res.status(404).send({ message: "Document not found" });
     }
