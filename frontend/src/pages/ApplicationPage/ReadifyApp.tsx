@@ -13,6 +13,10 @@ import PeripheralVisionMargin from "@/components/SpeedReadingTechniques/Peripher
 import { useAuthorization } from "@/context/AuthContext";
 import NotLogged from "@/components/NotLogged";
 import { Button } from "@/components/ui/button";
+import TextToSpeech from "@/components/TextToSpeech";
+import TextToSpeechPlayer from "@/components/TextToSpeechPlayer";
+import { TimerOff } from "lucide-react";
+import { SynthesizeSpeechOutput } from "@aws-sdk/client-polly";
 
 function ReadifyApp() {
   const { id } = useParams();
@@ -43,6 +47,11 @@ function ReadifyApp() {
   const [regressionOpacity, setRegressionOpacity] = useState(0.5);
   const [timer, setTimer] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [textToSpeech, setTextToSpeech] = useState(false);
+  const [audioFile, setAudioFile] = useState<SynthesizeSpeechOutput | null>(
+    null
+  );
+  const [voiceTTS, setVoiceTTS] = useState("Joanna");
 
   // const title = document.title;
   // const text = document.text || "";
@@ -94,6 +103,22 @@ function ReadifyApp() {
     }
     fetchDocuments();
   }, [id, user]);
+
+  // function highlightSentance(str: string, startIndex: number) {
+  //   const sentences = str.split(". ");
+  //   const highlightedSentences = sentences.map((sentence, index) => {
+  //     if (index >= startIndex) {
+  //       return (
+  //         <span key={index} style={{ backgroundColor: "yellow" }}>
+  //           {sentence}.{" "}
+  //         </span>
+  //       );
+  //     } else {
+  //       return <span key={index}>{sentence}. </span>;
+  //     }
+  //   });
+  //   return highlightedSentences;
+  // }
 
   function highlightWord(
     str: string,
@@ -149,15 +174,6 @@ function ReadifyApp() {
     setTimer(0);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setHighlightIndex((highlightIndex) => {
-  //       return (highlightIndex + wordChunking) % wordsCount;
-  //     });
-  //   })
-  //   return () => clearInterval(interval);
-  // })
-
   return (
     <>
       <header>
@@ -167,48 +183,61 @@ function ReadifyApp() {
         >
           <Navbar>
             <div className="flex items-center justify-between w-full m-2">
-              <h4 className="flex items-center ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
+              <h4 className="flex items-center ml-2 lg:ml-4 md:ml-4 text-xl font-semibold tracking-tight scroll-m-20 ">
                 <Link to="/documents">Readify</Link>
                 {isRunning && (
                   <Button
                     variant="destructive"
                     onClick={handleStopTimer}
-                    className="w-20 h-8 ml-2 lg:ml-4 md:ml-4"
+                    className="w-[46px] h-8 ml-2 lg:w-20 md:w-20 lg:ml-4 md:ml-4"
                   >
-                    Stop Timer
+                    {size[0] < 768 ? <TimerOff /> : "Stop Timer"}
                   </Button>
                 )}
               </h4>
 
-              <div className="flex gap-4 mr-2 lg:gap-8 lg:mr-4">
+              <div className="flex gap-4 mr-2 lg:gap-8 md:gap-8 lg:mr-4">
+                {!pacingTechnique && (
+                  <TextToSpeech
+                    textToSpeech={textToSpeech}
+                    setTextToSpeech={setTextToSpeech}
+                    setAudioFile={setAudioFile}
+                    voice={voiceTTS}
+                    setVoice={setVoiceTTS}
+                    text={text}
+                  />
+                )}
                 <TextPageColour
                   textPageColour={textPageColour}
                   setTextPageColour={setTextPageColour}
                 />
-                <SpeedReadingMenu
-                  setBoldedWords={setBoldedWords}
-                  boldedWords={boldedWords}
-                  fixation={fixation}
-                  setFixation={setFixation}
-                  peripheralVision={peripheralVision}
-                  setPeripheralVision={setPeripheralVision}
-                  leftMargin={leftMargin}
-                  setLeftMargin={setLeftMargin}
-                  rightMargin={rightMargin}
-                  setRightMargin={setRightMargin}
-                  peripheralOpacity={peripheralOpacity}
-                  setPeripheralOpacity={setPeripheralOpacity}
-                  pacingTechnique={pacingTechnique}
-                  setPacingTechnique={setPacingTechnique}
-                  pacerColour={pacerColour}
-                  setPacerColour={setPacerColour}
-                  wordChunking={wordChunking}
-                  setWordChunking={setWordChunking}
-                  stopRegression={stopRegression}
-                  setStopRegression={setStopRegression}
-                  regressionOpacity={regressionOpacity}
-                  setRegressionOpacity={setRegressionOpacity}
-                />
+                {!textToSpeech && (
+                  <SpeedReadingMenu
+                    setBoldedWords={setBoldedWords}
+                    boldedWords={boldedWords}
+                    fixation={fixation}
+                    setFixation={setFixation}
+                    peripheralVision={peripheralVision}
+                    setPeripheralVision={setPeripheralVision}
+                    leftMargin={leftMargin}
+                    setLeftMargin={setLeftMargin}
+                    rightMargin={rightMargin}
+                    setRightMargin={setRightMargin}
+                    peripheralOpacity={peripheralOpacity}
+                    setPeripheralOpacity={setPeripheralOpacity}
+                    pacingTechnique={pacingTechnique}
+                    setPacingTechnique={setPacingTechnique}
+                    pacerColour={pacerColour}
+                    setPacerColour={setPacerColour}
+                    wordChunking={wordChunking}
+                    setWordChunking={setWordChunking}
+                    stopRegression={stopRegression}
+                    setStopRegression={setStopRegression}
+                    regressionOpacity={regressionOpacity}
+                    setRegressionOpacity={setRegressionOpacity}
+                  />
+                )}
+
                 <SideMenu
                   wordsCount={wordsCount}
                   charactersCount={charactersCount}
@@ -306,6 +335,7 @@ function ReadifyApp() {
           wordChunking={wordChunking}
         />
       )}
+      {textToSpeech && <TextToSpeechPlayer audioFile={audioFile} />}
     </>
   );
 }
