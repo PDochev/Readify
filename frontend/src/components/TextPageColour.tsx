@@ -10,13 +10,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Palette } from "lucide-react";
+import { memo } from "react";
 
 interface TextPageColourProps {
   textPageColour: string;
   setTextPageColour: (textPageColour: string) => void;
 }
 
-function TextPageColour({
+const TextPageColour = memo(function TextPageColour({
   textPageColour,
   setTextPageColour,
 }: TextPageColourProps) {
@@ -58,6 +59,6 @@ function TextPageColour({
       </DropdownMenu>
     </div>
   );
-}
+});
 
 export default TextPageColour;

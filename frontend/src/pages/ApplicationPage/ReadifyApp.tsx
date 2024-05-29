@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import Navbar from "@/components/Navbar";
 import SideMenu from "@/components/SideMenu";
 import SpeedReadingMenu from "@/components/SpeedReadingMenu";
@@ -58,8 +58,8 @@ function ReadifyApp() {
 
   const timeInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const wordsCount: number = text?.split(" ").length;
-  const charactersCount: number = text?.trim().length;
+  const wordsCount: number = useMemo(() => text?.split(" ").length, [text]);
+  const charactersCount: number = useMemo(() => text?.trim().length, [text]);
 
   const textColourIfTextPageColourApplied =
     textPageColour === "pageColour1" ||
