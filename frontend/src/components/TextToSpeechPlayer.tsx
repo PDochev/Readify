@@ -10,32 +10,6 @@ function TextToSpeechPlayer({ audioFile }: TextToSpeechPlayerProps) {
   const [isRunning, setIsRunning] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // useEffect(() => {
-  //   if (audioFile) {
-  //     const audioArrayBuffer = audioFile?.AudioStream as Buffer;
-  //     const audioURL = URL.createObjectURL(
-  //       new Blob([audioArrayBuffer], { type: "audio/mpeg" })
-  //     );
-  //     const audio = audioRef.current;
-  //     if (audio) {
-  //       audio.src = audioURL;
-  //     }
-  //     return () => {
-  //       URL.revokeObjectURL(audioURL);
-  //     };
-  //   }
-  // }, [audioFile]);
-
-  //   const togglePlay = () => {
-  //     const audio = audioRef.current;
-  //     if (isRunning) {
-  //       audio.pause();
-  //     } else {
-  //       audio.play();
-  //     }
-  //     setIsRunning(!isRunning);
-  //   };
-
   useEffect(() => {
     if (audioFile && audioFile.AudioStream) {
       const audioStream = audioFile.AudioStream as ReadableStream;

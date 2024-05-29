@@ -64,10 +64,6 @@ function PacingPlayer({
     setSpeed((currSpeed) => currSpeed + 30);
   };
 
-  //   const handleReset = () => {
-  //     setIsRunning(false);s
-  //     clearInterval(timeInterval.current);
-  //   };
   return (
     <div className="fixed w-48 h-12 -translate-x-1/2 rounded jus bottom-5 left-1/2 bg-primary text-primary-foreground">
       <div className="flex items-center justify-center h-full gap-2 ">

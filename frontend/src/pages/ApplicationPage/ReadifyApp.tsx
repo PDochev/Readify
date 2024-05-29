@@ -104,22 +104,6 @@ function ReadifyApp() {
     fetchDocuments();
   }, [id, user]);
 
-  // function highlightSentance(str: string, startIndex: number) {
-  //   const sentences = str.split(". ");
-  //   const highlightedSentences = sentences.map((sentence, index) => {
-  //     if (index >= startIndex) {
-  //       return (
-  //         <span key={index} style={{ backgroundColor: "yellow" }}>
-  //           {sentence}.{" "}
-  //         </span>
-  //       );
-  //     } else {
-  //       return <span key={index}>{sentence}. </span>;
-  //     }
-  //   });
-  //   return highlightedSentences;
-  // }
-
   function highlightWord(
     str: string,
     startIndex: number,
@@ -341,6 +325,3 @@ function ReadifyApp() {
 }
 
 export default ReadifyApp;
-
-//paragraph - lg:px-0
-//paragraph - text-justify

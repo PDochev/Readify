@@ -16,21 +16,13 @@ import { Speech } from "lucide-react";
 import { HelpCircle } from "lucide-react";
 import HoverInformation from "./HoverInformation";
 import { Switch } from "@/components/ui/switch";
-// import AWS from "aws-sdk";
+
 import {
   PollyClient,
   SynthesizeSpeechCommand,
   SynthesizeSpeechOutput,
   SynthesizeSpeechInput,
 } from "@aws-sdk/client-polly";
-
-// AWS.config.update({
-//   accessKeyId: import.meta.env.VITE_AWS_KEY,
-//   secretAccessKey: import.meta.env.VITE_AWS_SECRET,
-//   region: import.meta.env.VITE_AWS_REGION,
-// });
-
-// const polly = new AWS.Polly();
 
 const client = new PollyClient({
   region: import.meta.env.VITE_AWS_REGION,
