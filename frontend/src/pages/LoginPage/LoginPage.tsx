@@ -5,9 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 function LoginPage() {
   const handleGoogleLogin = () => {
     const googleURL = "https://readifyapp-backend.onrender.com/login/google";
-    // const newWindow = window.open(googleURL);
-    // return newWindow;
-    window.location.assign(googleURL);
+    const newWindow = window.open(googleURL);
+    return newWindow;
   };
   return (
     <div role="presentation" className="flex w-full  min-h-svh">
