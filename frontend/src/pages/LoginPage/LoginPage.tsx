@@ -7,7 +7,7 @@ function LoginPage() {
     const googleURL = "https://readifyapp-backend.onrender.com/login/google";
     // const newWindow = window.open(googleURL);
     // return newWindow;
-    window.location.href = googleURL;
+    window.location.assign(googleURL);
   };
   return (
     <div role="presentation" className="flex w-full  min-h-svh">
