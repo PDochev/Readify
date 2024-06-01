@@ -4,7 +4,7 @@ https://readifyapp.org
 
 ## Introduction
 
-Readifi is a web applicaiton which focuses on implementing speed-reading techniques. People can post their text documents and use the typography features to customize their reading experience according to their preferences and learning style. The application offers 5 speed-reading techniques to chooses from:
+Readifiy is a web application which focuses on implementing speed-reading techniques. People can post their text documents and use the typography features to customize their reading experience according to their preferences and learning style. The application offers 5 speed-reading techniques to chooses from:
 
 - Stopping regression technique
 - Pacing technique
@@ -29,11 +29,11 @@ Frontend:
 
 ## Installation
 
-1.  Clone the repository: https://github.com/PDochev/Readify.git
+1. Clone the repository: https://github.com/PDochev/Readify.git
 
-2.  Install [Node.js](https://nodejs.org/en/download)
+2. Install [Node.js](https://nodejs.org/en/download)
 
-3.  Frontend (Vite)
+3. Frontend (Vite)
 
     - Navigate to the frontend directory:
 
@@ -53,7 +53,7 @@ Frontend:
     npm run dev
     ```
 
-4.  Backend (Node.js)
+4. Backend (Node.js)
 
     - Navigate to the backend directory:
 
