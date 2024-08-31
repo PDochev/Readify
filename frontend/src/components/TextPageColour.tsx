@@ -26,7 +26,7 @@ const TextPageColour = memo(function TextPageColour({
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Palette
-            className="cursor-pointer"
+            className="cursor-pointer hover:bg-background hover:bg-opacity-10 rounded-full p-1"
             aria-label="Open text page colour menu"
             role="button"
           />
