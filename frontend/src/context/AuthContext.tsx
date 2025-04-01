@@ -28,7 +28,13 @@ const AuthorizationContext = createContext<AuthorizationContextProps | null>(
 );
 
 export const useAuthorization = () => {
-  return useContext(AuthorizationContext);
+  const context = useContext(AuthorizationContext);
+  if (!context) {
+    throw new Error(
+      "useAuthorization must be used within an AuthorizationProvider"
+    );
+  }
+  return context;
 };
 
 export const AuthorizationProvider = ({

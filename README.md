@@ -35,49 +35,49 @@ Frontend:
 
 3. Frontend (Vite)
 
-    - Navigate to the frontend directory:
+   - Navigate to the frontend directory:
 
-    ```bash
-    cd Readify/frontend
-    ```
+   ```bash
+   cd Readify/frontend
+   ```
 
-    - Install dependencies:
+   - Install dependencies:
 
-    ```bash
-    npm run install
-    ```
+   ```bash
+   npm run install
+   ```
 
-    - Start the Vite development server:
+   - Start the Vite development server:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 4. Backend (Node.js)
 
-    - Navigate to the backend directory:
+   - Navigate to the backend directory:
 
-    ```bash
-    cd Readify/backend
-    ```
+   ```bash
+   cd Readify/backend
+   ```
 
-    - Install dependencies:
+   - Install dependencies:
 
-    ```bash
-    npm run install
-    ```
+   ```bash
+   npm run install
+   ```
 
-    - Start the Node.js server:
+   - Start the Node.js server:
 
-    ```bash
-    npm run start
-    ```
+   ```bash
+   npm run start
+   ```
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    if you have nodemon installed
+   if you have nodemon installed
 
 ## Environment Variables
 

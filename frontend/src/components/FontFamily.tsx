@@ -15,7 +15,7 @@ function FontFamily({ fontFamily, setFontFamily }: FontFamilyProps) {
   return (
     <div role="presentation" className="flex items-center justify-between mt-4">
       <p className="text-sm self-center text-muted-foreground ">Font family</p>
-      <Select  onValueChange={setFontFamily} defaultValue={fontFamily}>
+      <Select onValueChange={setFontFamily} defaultValue={fontFamily}>
         <SelectTrigger className=" w-[140px]">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>

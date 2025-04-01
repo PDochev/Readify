@@ -37,7 +37,7 @@ function NewDocument() {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setLoading(false);
         navigate(`/documents/${res.data._id}`);
         toast({
